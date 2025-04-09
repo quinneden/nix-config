@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
 
@@ -20,7 +21,7 @@
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   security.pam.services = {
-    hyprlock = {};
+    hyprlock = { };
     gdm.enableGnomeKeyring = true;
   };
 

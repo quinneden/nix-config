@@ -3,8 +3,10 @@
   userConfig,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
+    ../../external/hm
     ../misc/qt
     ../programs/aerospace
     ../programs/alacritty
@@ -16,18 +18,18 @@
     ../programs/fzf
     ../programs/git
     ../programs/go
-    ../programs/gpg
-    ../programs/k9s
-    ../programs/krew
+    # ../programs/gpg
+    # ../programs/k9s
+    # ../programs/krew
     ../programs/lazygit
-    ../programs/neovim
-    ../programs/obs-studio
+    # ../programs/neovim
+    # ../programs/obs-studio
     ../programs/rust
-    ../programs/saml2aws
-    ../programs/starship
-    ../programs/telegram
+    # ../programs/saml2aws
+    # ../programs/starship
+    # ../programs/telegram
     ../programs/tmux
-    ../programs/zoom
+    # ../programs/zoom
     ../programs/zsh
     ../scripts
     ../services/easyeffects
@@ -36,9 +38,7 @@
 
   # Nixpkgs configuration
   nixpkgs = {
-    overlays = [
-      outputs.overlays.stable-packages
-    ];
+    overlays = [ outputs.overlays.stable-packages ];
 
     config = {
       allowUnfree = true;
@@ -49,27 +49,32 @@
   home = {
     username = "${userConfig.name}";
     homeDirectory =
-      if pkgs.stdenv.isDarwin
-      then "/Users/${userConfig.name}"
-      else "/home/${userConfig.name}";
+      if pkgs.stdenv.isDarwin then "/Users/${userConfig.name}" else "/home/${userConfig.name}";
   };
 
   # Ensure common packages are installed
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       anki-bin
       awscli2
+      cachix
       dig
       du-dust
       eza
       fd
+      inputs.shellpers.packages.${pkgs.system}.metapackage
       jq
       kubectl
       lazydocker
       nh
+      nix-prefetch-git
+      nix-prefetch-github
+      nixfmt-rfc-style
       openconnect
       pipenv
       python3
+      qemu
       ripgrep
       terraform
     ]

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # Install swaync via home-manager module
   services.swaync = {
     enable = true;

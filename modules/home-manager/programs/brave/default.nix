@@ -1,12 +1,7 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   # Ensure Brave browser package installed
-  home.packages = with pkgs; [
-    brave
-  ];
+  home.packages = with pkgs; [ brave ];
 
   # Apply XDG configuration only on non-Darwin platforms
   xdg = lib.mkIf (!pkgs.stdenv.isDarwin) {
@@ -20,7 +15,7 @@
         "application/xhtml+xml" = "brave-browser.desktop";
         "text/html" = "brave-browser.desktop";
         "x-scheme-handler/about" = "brave-browser.desktop";
-        "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
+        "x-scheme-handler/chrome" = [ "chromium-browser.desktop" ];
         "x-scheme-handler/ftp" = "brave-browser.desktop";
         "x-scheme-handler/http" = "brave-browser.desktop";
         "x-scheme-handler/https" = "brave-browser.desktop";

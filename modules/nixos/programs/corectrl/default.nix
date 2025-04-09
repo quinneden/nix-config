@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # CoreCtrl for hardware monitoring and tuning
   programs.corectrl = {
     enable = true;

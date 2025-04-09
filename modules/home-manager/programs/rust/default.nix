@@ -1,20 +1,13 @@
+{ pkgs, lib, ... }:
 {
-  pkgs,
-  lib,
-  ...
-}: {
   # Rust development environment setup
-  home.packages = with pkgs; [
-    rustup
-  ];
+  home.packages = with pkgs; [ rustup ];
 
   # Ensure cargo binaries are in the path
-  home.sessionPath = [
-    "$HOME/.cargo/bin"
-  ];
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
 
   # Activation script to initialize rustup if needed
-  home.activation.initRustup = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.initRustup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     # Ensure the .cargo/bin directory exists for the PATH
     mkdir -p "$HOME/.cargo/bin"
 

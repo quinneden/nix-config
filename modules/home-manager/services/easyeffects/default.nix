@@ -1,8 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   config = lib.mkIf (!pkgs.stdenv.isDarwin) {
     # Install easyeffects via home-manager module
     services.easyeffects = {

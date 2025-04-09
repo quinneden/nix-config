@@ -1,8 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }:
+let
   manageShortcutsScript = pkgs.writeScriptBin "manage-ulauncher-shortcuts" ''
     #!/usr/bin/env bash
     set -euo pipefail
@@ -52,19 +49,18 @@
     # Adjust file paths within the JSON
     sed -i "s|\\\$HOME|$HOME|g" "$shortcutsFile"
   '';
-in {
+in
+{
   config = lib.mkIf (!pkgs.stdenv.isDarwin) {
     # Ulauncher package
-    home.packages = with pkgs; [
-      ulauncher
-    ];
+    home.packages = with pkgs; [ ulauncher ];
 
     # Ulauncher service configuration
     systemd.user.services.ulauncher = {
       Unit = {
         Description = "ulauncher application launcher service";
         Documentation = "https://ulauncher.io";
-        PartOf = ["graphical-session.target"];
+        PartOf = [ "graphical-session.target" ];
       };
 
       Service = {
@@ -73,7 +69,7 @@ in {
         Restart = "always";
       };
 
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
 
     # Source ulauncher configuration from this repository
@@ -85,7 +81,7 @@ in {
     };
 
     # A bit nasty, but shortcuts file has to be writeble by the ulauncher
-    home.activation.manageShortcuts = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    home.activation.manageShortcuts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${manageShortcutsScript}/bin/manage-ulauncher-shortcuts
     '';
   };

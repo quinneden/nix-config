@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Enable GNOME
   services.xserver.desktopManager.gnome.enable = true;
 

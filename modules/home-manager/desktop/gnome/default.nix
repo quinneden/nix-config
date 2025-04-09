@@ -5,7 +5,8 @@
   pkgs,
   ...
 }:
-with lib.hm.gvariant; {
+with lib.hm.gvariant;
+{
   imports = [
     "${nhModules}/misc/gtk"
     "${nhModules}/misc/wallpaper"
@@ -67,8 +68,21 @@ with lib.hm.gvariant; {
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      "custom-colors" = [(mkTuple [0.74901962280273438 0.7450980544090271 0.7764706015586853 1.0])];
-      "selected-color" = mkTuple [true 0.87058824300765991 0.86666667461395264 0.85490196943283081 1.0];
+      "custom-colors" = [
+        (mkTuple [
+          0.74901962280273438
+          0.7450980544090271
+          0.7764706015586853
+          1.0
+        ])
+      ];
+      "selected-color" = mkTuple [
+        true
+        0.87058824300765991
+        0.86666667461395264
+        0.85490196943283081
+        1.0
+      ];
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {
@@ -99,10 +113,28 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/input-sources" = {
       "current" = mkUint32 0;
-      "mru-sources" = [(mkTuple ["xkb" "pl"]) (mkTuple ["xkb" "ru"])];
+      "mru-sources" = [
+        (mkTuple [
+          "xkb"
+          "pl"
+        ])
+        (mkTuple [
+          "xkb"
+          "ru"
+        ])
+      ];
       "show-all-sources" = false;
-      "sources" = [(mkTuple ["xkb" "pl"]) (mkTuple ["xkb" "ru"])];
-      "xkb-options" = ["terminate:ctrl_alt_bksp"];
+      "sources" = [
+        (mkTuple [
+          "xkb"
+          "pl"
+        ])
+        (mkTuple [
+          "xkb"
+          "ru"
+        ])
+      ];
+      "xkb-options" = [ "terminate:ctrl_alt_bksp" ];
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
@@ -131,30 +163,30 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      "close" = ["<Super>q"];
-      "minimize" = ["<Super>comma"];
-      "move-to-center" = ["<Control><Alt>c"];
-      "move-to-workspace-1" = ["<Super><Shift>1"];
-      "move-to-workspace-10" = ["<Super><Shift>0"];
-      "move-to-workspace-2" = ["<Super><Shift>2"];
-      "move-to-workspace-3" = ["<Super><Shift>3"];
-      "move-to-workspace-4" = ["<Super><Shift>4"];
-      "move-to-workspace-5" = ["<Super><Shift>5"];
-      "move-to-workspace-6" = ["<Super><Shift>6"];
-      "move-to-workspace-7" = ["<Super><Shift>7"];
-      "move-to-workspace-8" = ["<Super><Shift>8"];
-      "move-to-workspace-9" = ["<Super><Shift>9"];
-      "switch-applications" = ["<Super>Tab"];
-      "switch-to-workspace-1" = ["<Super>1"];
-      "switch-to-workspace-2" = ["<Super>2"];
-      "switch-to-workspace-3" = ["<Super>3"];
-      "switch-to-workspace-4" = ["<Super>4"];
-      "switch-to-workspace-5" = ["<Super>5"];
-      "switch-to-workspace-6" = ["<Super>6"];
-      "switch-to-workspace-7" = ["<Super>7"];
-      "switch-to-workspace-8" = ["<Super>8"];
-      "switch-to-workspace-9" = ["<Super>9"];
-      "toggle-fullscreen" = ["<Super>m"];
+      "close" = [ "<Super>q" ];
+      "minimize" = [ "<Super>comma" ];
+      "move-to-center" = [ "<Control><Alt>c" ];
+      "move-to-workspace-1" = [ "<Super><Shift>1" ];
+      "move-to-workspace-10" = [ "<Super><Shift>0" ];
+      "move-to-workspace-2" = [ "<Super><Shift>2" ];
+      "move-to-workspace-3" = [ "<Super><Shift>3" ];
+      "move-to-workspace-4" = [ "<Super><Shift>4" ];
+      "move-to-workspace-5" = [ "<Super><Shift>5" ];
+      "move-to-workspace-6" = [ "<Super><Shift>6" ];
+      "move-to-workspace-7" = [ "<Super><Shift>7" ];
+      "move-to-workspace-8" = [ "<Super><Shift>8" ];
+      "move-to-workspace-9" = [ "<Super><Shift>9" ];
+      "switch-applications" = [ "<Super>Tab" ];
+      "switch-to-workspace-1" = [ "<Super>1" ];
+      "switch-to-workspace-2" = [ "<Super>2" ];
+      "switch-to-workspace-3" = [ "<Super>3" ];
+      "switch-to-workspace-4" = [ "<Super>4" ];
+      "switch-to-workspace-5" = [ "<Super>5" ];
+      "switch-to-workspace-6" = [ "<Super>6" ];
+      "switch-to-workspace-7" = [ "<Super>7" ];
+      "switch-to-workspace-8" = [ "<Super>8" ];
+      "switch-to-workspace-9" = [ "<Super>9" ];
+      "toggle-fullscreen" = [ "<Super>m" ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -162,7 +194,7 @@ with lib.hm.gvariant; {
       "focus-mode" = "sloppy";
       "num-workspaces" = 5;
       "titlebar-font" = "Roboto Bold 11";
-      "workspace-names" = ["1"];
+      "workspace-names" = [ "1" ];
     };
 
     "org/gnome/mutter" = {
@@ -180,7 +212,10 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/color" = {
       "night-light-enabled" = true;
-      "night-light-last-coordinates" = mkTuple [44.437359000257999 26.090661799999999];
+      "night-light-last-coordinates" = mkTuple [
+        44.437359000257999
+        26.090661799999999
+      ];
       "night-light-temperature" = mkUint32 4000;
     };
 
@@ -196,7 +231,7 @@ with lib.hm.gvariant; {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
       ];
-      "screensaver" = ["<Alt><Ctrl>l"];
+      "screensaver" = [ "<Alt><Ctrl>l" ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -318,9 +353,9 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell/extensions/clipboard-history" = {
       "display-mode" = 3;
-      "next-entry" = ["<Shift><Alt>j"];
-      "prev-entry" = ["<Shift><Alt>k"];
-      "toggle-menu" = ["<Shift><Alt>v"];
+      "next-entry" = [ "<Shift><Alt>j" ];
+      "prev-entry" = [ "<Shift><Alt>k" ];
+      "toggle-menu" = [ "<Shift><Alt>v" ];
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -418,21 +453,45 @@ with lib.hm.gvariant; {
         (mkDictionaryEntry [
           "padding"
           (mkVariant [
-            (mkDictionaryEntry ["left" (mkUint32 1)])
-            (mkDictionaryEntry ["right" (mkUint32 1)])
-            (mkDictionaryEntry ["top" (mkUint32 1)])
-            (mkDictionaryEntry ["bottom" (mkUint32 1)])
+            (mkDictionaryEntry [
+              "left"
+              (mkUint32 1)
+            ])
+            (mkDictionaryEntry [
+              "right"
+              (mkUint32 1)
+            ])
+            (mkDictionaryEntry [
+              "top"
+              (mkUint32 1)
+            ])
+            (mkDictionaryEntry [
+              "bottom"
+              (mkUint32 1)
+            ])
           ])
         ])
         (mkDictionaryEntry [
           "keepRoundedCorners"
           (mkVariant [
-            (mkDictionaryEntry ["maximized" false])
-            (mkDictionaryEntry ["fullscreen" false])
+            (mkDictionaryEntry [
+              "maximized"
+              false
+            ])
+            (mkDictionaryEntry [
+              "fullscreen"
+              false
+            ])
           ])
         ])
-        (mkDictionaryEntry ["borderRadius" (mkVariant (mkUint32 8))])
-        (mkDictionaryEntry ["smoothing" (mkVariant 0.0)])
+        (mkDictionaryEntry [
+          "borderRadius"
+          (mkVariant (mkUint32 8))
+        ])
+        (mkDictionaryEntry [
+          "smoothing"
+          (mkVariant 0.0)
+        ])
         (mkDictionaryEntry [
           "borderColor"
           (mkVariant (mkTuple [
@@ -442,10 +501,13 @@ with lib.hm.gvariant; {
             1.0
           ]))
         ])
-        (mkDictionaryEntry ["enabled" (mkVariant true)])
+        (mkDictionaryEntry [
+          "enabled"
+          (mkVariant true)
+        ])
       ];
       settings-version = mkUint32 7;
-      blacklist = ["ulauncher"];
+      blacklist = [ "ulauncher" ];
     };
 
     "org/gnome/shell/extensions/space-bar/appearance" = {
@@ -472,19 +534,19 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/shell/keybindings" = {
-      "show-screen-recording-ui" = ["<Shift><Super>r"];
-      "show-screenshot-ui" = ["<Ctrl><Alt>S"];
-      "switch-to-application-1" = [];
-      "switch-to-application-2" = [];
-      "switch-to-application-3" = [];
-      "switch-to-application-4" = [];
-      "switch-to-application-5" = [];
-      "switch-to-application-6" = [];
-      "switch-to-application-7" = [];
-      "switch-to-application-8" = [];
-      "switch-to-application-9" = [];
-      "toggle-application-view" = ["<Super>a"];
-      "toggle-message-tray" = ["<Super>v"];
+      "show-screen-recording-ui" = [ "<Shift><Super>r" ];
+      "show-screenshot-ui" = [ "<Ctrl><Alt>S" ];
+      "switch-to-application-1" = [ ];
+      "switch-to-application-2" = [ ];
+      "switch-to-application-3" = [ ];
+      "switch-to-application-4" = [ ];
+      "switch-to-application-5" = [ ];
+      "switch-to-application-6" = [ ];
+      "switch-to-application-7" = [ ];
+      "switch-to-application-8" = [ ];
+      "switch-to-application-9" = [ ];
+      "toggle-application-view" = [ "<Super>a" ];
+      "toggle-message-tray" = [ "<Super>v" ];
     };
 
     "org/gnome/system/location" = {

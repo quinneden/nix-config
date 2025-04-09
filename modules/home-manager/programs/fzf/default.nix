@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # Install fzf via home-manager module
   programs.fzf = {
     enable = true;

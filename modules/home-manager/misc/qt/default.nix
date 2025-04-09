@@ -1,8 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   config = lib.mkIf (!pkgs.stdenv.isDarwin) {
     qt = {
       enable = true;

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Install alacritty via home-manager module
   programs.alacritty = {
     enable = true;
@@ -21,10 +22,7 @@
       };
 
       window = {
-        decorations =
-          if pkgs.stdenv.isDarwin
-          then "buttonless"
-          else "none";
+        decorations = if pkgs.stdenv.isDarwin then "buttonless" else "none";
         dynamic_title = false;
         dynamic_padding = true;
         dimensions = {
@@ -43,10 +41,7 @@
       };
 
       font = {
-        size =
-          if pkgs.stdenv.isDarwin
-          then 15
-          else 12;
+        size = if pkgs.stdenv.isDarwin then 15 else 12;
         normal = {
           family = "MesloLGS Nerd Font";
           style = "Regular";

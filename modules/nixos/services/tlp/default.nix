@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # Set TLP power profile
   services = {
     tlp = {
@@ -18,7 +19,7 @@
         RADEON_DPM_PERF_LEVEL_ON_AC = "auto";
         RADEON_DPM_PERF_LEVEL_ON_BAT = "auto";
 
-        DISK_IOSCHED = ["none"];
+        DISK_IOSCHED = [ "none" ];
 
         # Battery charge thresholds for on-road usage
         START_CHARGE_THRESH_BAT0 = 85;

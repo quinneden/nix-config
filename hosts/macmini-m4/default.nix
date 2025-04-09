@@ -3,12 +3,11 @@
   outputs,
   userConfig,
   ...
-}: {
+}:
+{
   # Nixpkgs configuration
   nixpkgs = {
-    overlays = [
-      outputs.overlays.stable-packages
-    ];
+    overlays = [ outputs.overlays.stable-packages ];
 
     config = {
       allowUnfree = true;
@@ -78,7 +77,7 @@
         expose-animation-duration = 0.15;
         show-recents = false;
         showhidden = true;
-        persistent-apps = [];
+        persistent-apps = [ ];
         tilesize = 30;
         wvous-bl-corner = 1;
         wvous-br-corner = 1;
@@ -107,9 +106,7 @@
   programs.zsh.enable = true;
 
   # Fonts configuration
-  fonts.packages = with pkgs; [
-    nerd-fonts.meslo-lg
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.meslo-lg ];
 
   # Used for backwards compatibility, please read the changelog before changing.
   system.stateVersion = 6;

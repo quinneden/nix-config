@@ -1,10 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs, pkgs, ... }:
+let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in {
+in
+{
   imports = [
     # Spicetify
     inputs.spicetify-nix.homeManagerModules.default
