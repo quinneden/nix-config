@@ -52,7 +52,9 @@
         disable_splash_rendering = true;
         focus_on_activate = true;
         force_default_wallpaper = 1;
+        key_press_enables_dpms = true;
         new_window_takes_over_fullscreen = 2;
+        middle_click_paste = false;
       };
 
       input = {
@@ -65,11 +67,19 @@
         sensitivity = 0.2;
         touchpad = {
           clickfinger_behavior = true;
-          drag_lock = true;
+          disable_while_typing = false;
+          drag_lock = false;
           natural_scroll = "yes";
+          scroll_factor = 0.7;
+          tap-to-click = false;
         };
         float_switch_override_focus = 2;
         accel_profile = "custom 0.5 0.000 0.053 0.115 0.189 0.280 0.391 0.525 0.687 0.880 1.108 1.375 1.684 2.040 2.446 2.905 3.422 4.000 4.643 5.355 6.139";
+      };
+
+      cursor = {
+        hide_on_key_press = true;
+        persistent_warps = true;
       };
 
       binds = {
@@ -83,8 +93,11 @@
 
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_touch = true;
-        workspace_swipe_use_r = true;
+        workspace_swipe_create_new = false;
+        workspace_swipe_distance = "400";
+        workspace_swipe_fingers = "4";
+        workspace_swipe_cancel_ratio = 0.7;
+        # workspace_swipe_use_r = true;
       };
 
       # windowrulev2 = [ "float, class:(.*)" ];
@@ -94,9 +107,10 @@
           binding =
             mod: cmd: key: arg:
             "${mod}, ${key}, ${cmd}, ${arg}";
+          swactive = binding "SUPER CTRL SHIFT" "moveactive";
           mvfocus = binding "SUPER" "movefocus";
-          ws = binding "SUPER" "workspace";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
+          ws = binding "SUPER" "workspace";
           arr = lib.range 1 7;
         in
         [
@@ -105,9 +119,9 @@
           "SUPER, Tab, exec,      marble-launcher ':h'"
           ",XF86PowerOff, exec,   marble shutdown"
           ",XF86MenuKB, exec,     marble lockscreen"
-          "SUPER, Return, exec,   xterm"
+          "SUPER, Return, exec,   ghostty"
           "SUPER, B, exec,        zen"
-          "SUPER, E, exec,        xterm -e lf"
+          "SUPER, E, exec,        ghostty -e lf"
 
           # "ALT, Tab, exec,        hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top"
           "CTRL ALT, Delete,      exit"
@@ -120,6 +134,10 @@
           (mvfocus "down" "d")
           (mvfocus "left" "l")
           (mvfocus "right" "r")
+          (swactive "up" "u")
+          (swactive "down" "d")
+          (swactive "left" "l")
+          (swactive "right" "r")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);

@@ -809,10 +809,10 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1744352369,
-        "narHash": "sha256-COd9VcQETlRxTCAkPh2W1i4w2LZ4KRBw6tD3yMxoeJ8=",
+        "lastModified": 1744835461,
+        "narHash": "sha256-sQKSABk2h0lFGaqE4oJaavUoST4YoiZ5WYnuZnSKFYA=",
         "ref": "main",
-        "rev": "3d1dfdc4d85fa5397480b2cb5cb0072ebdfed401",
+        "rev": "1e7cb62ecaddb38d7655c7d0dbcefd57947f90fe",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/quinneden/secrets"

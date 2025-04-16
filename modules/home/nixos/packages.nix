@@ -6,5 +6,7 @@
     gh
     git
     ripgrep
+    jq
+    jq-lsp
   ];
 }

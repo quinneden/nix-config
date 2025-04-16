@@ -2,8 +2,6 @@
 let
   pythonEnv = pkgs.python3.withPackages (
     ps: with ps; [
-      beautifulsoup4
-      boto3
       colorama
       ipykernel
       ipython
@@ -12,10 +10,12 @@ let
       pycodestyle
       pyflakes
       pytest
+      python-lsp-ruff
+      python-lsp-server
       pyyaml
       requests
       rope
-      yapf
+      ruff
     ]
   );
 in
@@ -24,7 +24,7 @@ in
 
   programs.zed-editor = {
     enable = pkgs.stdenv.isLinux;
-    package = pkgs.zed-editor-fhs;
+    package = pkgs.zed-editor;
 
     extraPackages = with pkgs; [
       markdown-oxide
@@ -33,6 +33,7 @@ in
       nixfmt-rfc-style
       pythonEnv
       superhtml
+      vscode-langservers-extracted
     ];
 
     extraThemes = [
