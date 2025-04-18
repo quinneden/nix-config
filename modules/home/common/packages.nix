@@ -9,6 +9,7 @@
     eza
     gawk
     gnutar
+    fd
     fzf
     neovim
     nix-prefetch-git

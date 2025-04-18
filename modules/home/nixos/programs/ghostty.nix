@@ -56,8 +56,10 @@ in
       gtk-titlebar = false;
       confirm-close-surface = false;
       keybind = mkBinds {
-        "ctrl+shift+left" = "adjust_selection:beginning_of_line";
-        "ctrl+shift+right" = "adjust_selection:end_of_line";
+        "shift+home" = "adjust_selection:beginning_of_line";
+        "shift+end" = "adjust_selection:end_of_line";
+        "ctrl+home" = "scroll_to_top";
+        "ctrl+end" = "scroll_to_bottom";
         "ctrl+up" = "scroll_page_lines:-1";
         "ctrl+down" = "scroll_page_lines:1";
         "ctrl+shift+up" = "scroll_page_lines:-3";

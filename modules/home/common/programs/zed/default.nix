@@ -10,12 +10,11 @@ let
       pycodestyle
       pyflakes
       pytest
-      python-lsp-ruff
+      (python-lsp-ruff.override { inherit (pkgs) ruff; })
       python-lsp-server
       pyyaml
       requests
       rope
-      ruff
     ]
   );
 in
@@ -27,6 +26,7 @@ in
     package = pkgs.zed-editor;
 
     extraPackages = with pkgs; [
+      github-mcp-server
       markdown-oxide
       marksman
       nixd
