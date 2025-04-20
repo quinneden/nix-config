@@ -7,7 +7,6 @@
 with lib;
 let
   cfg = config.programs.zed-editor;
-  # hmLib = inputs.home-manager.lib;
 in
 {
   options = {

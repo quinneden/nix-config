@@ -57,7 +57,7 @@
     };
     mac-app-util.url = "github:hraban/mac-app-util";
     marble-shell = {
-      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=gtk4-no-brightness";
+      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/gtk4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nh.url = "github:viperml/nh";

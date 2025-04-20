@@ -23,7 +23,6 @@ in
 
   programs.zed-editor = {
     enable = pkgs.stdenv.isLinux;
-    package = pkgs.zed-editor;
 
     extraPackages = with pkgs; [
       github-mcp-server

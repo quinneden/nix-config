@@ -12,12 +12,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/interface" = {
-      show-battery-percentage = true;
       font-name = "Ubuntu Nerd Font 11";
       monospace-font-name = "CaskaydiaCove Nerd Font 10";
       cursor-theme = "phinger-cursors-dark";
       icon-theme = "MoreWaita";
-      gtk-theme = "adw-gtk3";
+      gtk-theme = "adw-gtk3-dark";
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -101,11 +100,6 @@ with lib.hm.gvariant;
 
     "system/locale" = {
       region = "en_US.UTF-8";
-    };
-
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
     };
   };
 }
