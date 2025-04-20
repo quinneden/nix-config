@@ -31,8 +31,7 @@
     settings = {
       exec-once = [
         "hyprctl setcursor phinger-cursors-dark 24"
-        "uwsm app marble"
-        "uwsm app marble-launcher"
+        "uwsm app -- marble"
         "swww-daemon"
       ];
 
@@ -41,7 +40,7 @@
       general = {
         layout = "dwindle";
         resize_on_border = true;
-        "col.active_border" = "rgb(51a4e7)";
+        # "col.active_border" = "rgb(51a4e7)";
       };
 
       render = {
@@ -114,14 +113,14 @@
           arr = lib.range 1 7;
         in
         [
-          "CTRL ALT, R, exec,     marble quit; marble"
-          "SUPER, R, exec,        marble-launcher --open"
-          "SUPER, Tab, exec,      marble-launcher ':h'"
-          ",XF86PowerOff, exec,   marble shutdown"
-          ",XF86MenuKB, exec,     marble lockscreen"
-          "SUPER, Return, exec,   ghostty"
-          "SUPER, B, exec,        zen, class:zen-browser"
-          "SUPER, E, exec,        ghostty -e lf"
+          "CTRL ALT, R, exec,     astal -q; uwsm app -- marble"
+          "SUPER, R, exec,        astal -t launcher"
+          ",XF86PowerOff, exec,   astal -t powermenu"
+          ",XF86MenuKB, exec,     astal -t lockscreen"
+          ",XFLaunchA, exec,      astal -t drawer"
+          "SUPER, Return, exec,   uwsm app -- ghostty"
+          "SUPER, B, exec,        uwsm app -- zen"
+          "SUPER, E, exec,        uwsm app -- ghostty -e lf"
 
           # "ALT, Tab, exec,        hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top"
           "CTRL ALT, Delete,      exit"
@@ -143,6 +142,7 @@
         ++ (map (i: mvtows (toString i) (toString i)) arr);
 
       bindle = [
+
         ",XF86MonBrightnessUp,    exec, brightnessctl set +5%"
         ",XF86MonBrightnessDown,  exec, brightnessctl set  5%-"
         ",XF86AudioRaiseVolume,   exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -170,7 +170,7 @@
           color = "rgba(0,0,0,0.3)";
         };
 
-        rounding = 8;
+        # rounding = 8;
         dim_inactive = false;
 
         blur = {
