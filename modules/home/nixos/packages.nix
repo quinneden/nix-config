@@ -8,5 +8,7 @@
     ripgrep
     jq
     jq-lsp
+    nodejs
+    glow
   ];
 }

@@ -10,8 +10,8 @@ let
       pycodestyle
       pyflakes
       pytest
-      (python-lsp-ruff.override { inherit (pkgs) ruff; })
       python-lsp-server
+      (python-lsp-ruff.override { inherit (pkgs) ruff; })
       pyyaml
       requests
       rope
@@ -30,6 +30,7 @@ in
       marksman
       nixd
       nixfmt-rfc-style
+      package-version-server
       pythonEnv
       superhtml
       vscode-langservers-extracted
