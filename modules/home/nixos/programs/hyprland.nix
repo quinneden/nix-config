@@ -120,7 +120,7 @@
           ",XF86PowerOff, exec,   marble shutdown"
           ",XF86MenuKB, exec,     marble lockscreen"
           "SUPER, Return, exec,   ghostty"
-          "SUPER, B, exec,        zen"
+          "SUPER, B, exec,        zen, class:zen-browser"
           "SUPER, E, exec,        ghostty -e lf"
 
           # "ALT, Tab, exec,        hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top"

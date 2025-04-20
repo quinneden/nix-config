@@ -64,7 +64,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     marble-shell = {
-      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/gtk4";
+      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     icon-browser = {
