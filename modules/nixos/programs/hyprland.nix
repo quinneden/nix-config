@@ -2,7 +2,6 @@
 {
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
-  # services.xserver.displayManager.startx.enable = true;
 
   services.logind.extraConfig = ''
     HandlePowerKey=ignore

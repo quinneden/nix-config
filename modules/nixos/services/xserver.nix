@@ -2,7 +2,7 @@
 {
   services = {
     xserver = {
-      enable = true;
+      enable = false;
       excludePackages = [ pkgs.xterm ];
     };
   };
