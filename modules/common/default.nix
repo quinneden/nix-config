@@ -8,14 +8,6 @@
 {
   imports = lib.custom.scanPaths ./.;
 
-  # home-manager = {
-  #   backupFileExtension = "hm-backup";
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users.quinn = import ../../home;
-  # };
-
   nix = {
     enable = true;
     distributedBuilds = true;

@@ -19,6 +19,14 @@
     shell = pkgs.zsh;
   };
 
+  home-manager = {
+    backupFileExtension = "hm-backup";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.quinn = import ../../modules/home/darwin;
+  };
+
   nix.daemonProcessType = "adaptive";
   security.pam.services.sudo_local.touchIdAuth = true;
 }
