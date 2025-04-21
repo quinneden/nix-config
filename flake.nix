@@ -67,6 +67,10 @@
       url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/gtk4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     icon-browser = {
       url = "github:quinneden/icon-browser";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,6 +79,10 @@
       url = "github:gokcehan/lf";
       flake = false;
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     acmsg.url = "github:quinneden/acmsg";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
@@ -82,6 +90,5 @@
     nh.url = "github:viperml/nh";
     nix-rosetta-builder.url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
     shellpers.url = "github:quinneden/shellpers";
-    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 }

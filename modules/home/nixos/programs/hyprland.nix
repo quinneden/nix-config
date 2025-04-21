@@ -11,6 +11,8 @@
     astal.mpris
     brightnessctl
     pulseaudio
+    qt5.qtwayland
+    qt6.qtwayland
     slurp
     swww
   ];
@@ -31,17 +33,18 @@
     settings = {
       exec-once = [
         "hyprctl setcursor phinger-cursors-dark 24"
-        "uwsm app marble"
-        "uwsm app marble-launcher"
+        "uwsm app -- marble"
+        "uwsm app -- marble-launcher"
         "swww-daemon"
       ];
 
-      monitor = [ "HDMI-A-1,2560x1440@144,auto,1" ];
+      monitor = [ ",preferred,auto,1,bitdepth,10" ];
 
       general = {
+        allow_tearing = true;
         layout = "dwindle";
         resize_on_border = true;
-        "col.active_border" = "rgb(51a4e7)";
+        "col.active_border" = "rgba(51a4e7ff)";
       };
 
       render = {
@@ -55,6 +58,8 @@
         key_press_enables_dpms = true;
         new_window_takes_over_fullscreen = 2;
         middle_click_paste = false;
+        vfr = true;
+        vrr = 1;
       };
 
       input = {
@@ -87,8 +92,8 @@
       };
 
       dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
+        pseudotile = true;
+        preserve_split = true;
       };
 
       gestures = {
@@ -97,65 +102,75 @@
         workspace_swipe_distance = "400";
         workspace_swipe_fingers = "4";
         workspace_swipe_cancel_ratio = 0.7;
-        # workspace_swipe_use_r = true;
       };
 
-      # windowrulev2 = [ "float, class:(.*)" ];
+      windowrule = [
+        "animation fade, class:ghostty.hdrop"
+        "center,         class:ghostty.hdrop"
+        "float,          class:ghostty.hdrop"
+        "opacity 0.88,   class:ghostty.hdrop"
+        "size 60% 65%,   class:ghostty.hdrop"
+        "stayfocused,    class:ghostty.hdrop"
+
+        "float,          class:(pinentry-)(.*)"
+        "stayfocused,    class:(pinentry-)(.*)"
+      ];
 
       bind =
         let
           binding =
             mod: cmd: key: arg:
             "${mod}, ${key}, ${cmd}, ${arg}";
-          swactive = binding "SUPER CTRL SHIFT" "moveactive";
+          swap = binding "SUPER SHIFT CTRL" "swapwindow";
           mvfocus = binding "SUPER" "movefocus";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
           ws = binding "SUPER" "workspace";
           arr = lib.range 1 7;
         in
         [
-          "CTRL ALT, R, exec,     marble quit; marble"
-          "SUPER, R, exec,        marble-launcher --open"
-          "SUPER, Tab, exec,      marble-launcher ':h'"
-          ",XF86PowerOff, exec,   marble shutdown"
-          ",XF86MenuKB, exec,     marble lockscreen"
-          "SUPER, Return, exec,   ghostty"
-          "SUPER, B, exec,        [window class:zen-browser] zen"
-          "SUPER, E, exec,        ghostty -e lf"
+          "CTRL ALT, Delete, exec, uwsm stop"
+          "CTRL ALT, R,      exec, marble quit; marble"
+          "SUPER, R,         exec, marble-launcher --open"
+          "SUPER, Tab,       exec, marble-launcher ':sh'"
+          ",XF86PowerOff,    exec, marble shutdown"
+          ",XF86MenuKB,      exec, marble lockscreen"
 
-          "ALT, Tab, exec,        hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top"
-          "CTRL ALT, Delete,      exit"
-          "SUPER, Q,              killactive"
-          "SUPER, G,              togglefloating"
-          "SUPER, F,              fullscreen"
-          "SUPER, P,              togglesplit"
+          "SUPER, Return,    exec, ghostty"
+          "SUPER CTRL, W,    exec, hdrop -c ghostty.hdrop -- ghostty --class=ghostty.hdrop"
+          "SUPER, B,         exec, zen"
+          "SUPER, E,         exec, ghostty -e lf"
+
+          "SUPER, Q,         killactive"
+          "SUPER, G,         togglefloating"
+          "SUPER, F,         fullscreen"
+          "SUPER, P,         togglesplit"
 
           (mvfocus "up" "u")
           (mvfocus "down" "d")
           (mvfocus "left" "l")
           (mvfocus "right" "r")
-          (swactive "up" "u")
-          (swactive "down" "d")
-          (swactive "left" "l")
-          (swactive "right" "r")
+          (swap "up" "u")
+          (swap "down" "d")
+          (swap "left" "l")
+          (swap "right" "r")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);
 
       bindle = [
-        ",XF86MonBrightnessUp,    exec, brightnessctl set +5%"
-        ",XF86MonBrightnessDown,  exec, brightnessctl set  5%-"
-        ",XF86AudioRaiseVolume,   exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-        ",XF86AudioLowerVolume,   exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        ",XF86MonBrightnessUp,   exec, brightnessctl set +5%"
+        ",XF86MonBrightnessDown, exec, brightnessctl set  5%-"
+        ",XF86AudioRaiseVolume,  exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        ",XF86AudioLowerVolume,  exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
       ];
 
       bindl = [
-        ",XF86AudioPlay,    exec, astal-mpris play-pause"
-        ",XF86AudioStop,    exec, astal-mpris pause"
-        ",XF86AudioPause,   exec, astal-mpris pause"
-        ",XF86AudioPrev,    exec, astal-mpris previous"
-        ",XF86AudioNext,    exec, astal-mpris next"
-        ",XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        ",XF86AudioPlay,  exec, astal-mpris play-pause"
+        ",XF86AudioStop,  exec, astal-mpris pause"
+        ",XF86AudioPause, exec, astal-mpris pause"
+        ",XF86AudioPrev,  exec, astal-mpris previous"
+        ",XF86AudioNext,  exec, astal-mpris next"
+        ",XF86AudioMute,  exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
       ];
 
       bindm = [
@@ -171,7 +186,6 @@
         };
 
         rounding = 8;
-        dim_inactive = false;
 
         blur = {
           enabled = true;

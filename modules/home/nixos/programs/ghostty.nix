@@ -39,31 +39,33 @@ in
 
     settings = {
       command = "${pkgs.zsh}/bin/zsh";
-      font-family = "CaskaydiaCove Nerd Font";
+      confirm-close-surface = false;
+      copy-on-select = false;
+      cursor-style = "bar";
+      font-family = "CaskaydiaCove Nerd Font Mono";
       font-feature = [
         "liga"
         "calt"
       ];
-      theme = "light:charmful-light,dark:charmful-dark";
-      window-padding-x = 12;
-      window-padding-y = 6;
-      window-decoration = "auto";
-      window-theme = "system";
-      window-height = 26;
-      window-width = 90;
-      copy-on-select = false;
       gtk-single-instance = false;
       gtk-titlebar = false;
-      confirm-close-surface = false;
+      theme = "light:charmful-light,dark:charmful-dark";
+      window-decoration = "auto";
+      window-height = 26;
+      window-padding-x = 12;
+      window-padding-y = 6;
+      window-theme = "system";
+      window-width = 90;
       keybind = mkBinds {
-        "shift+home" = "adjust_selection:beginning_of_line";
-        "shift+end" = "adjust_selection:end_of_line";
-        "ctrl+home" = "scroll_to_top";
         "ctrl+end" = "scroll_to_bottom";
-        "ctrl+up" = "scroll_page_lines:-1";
-        "ctrl+down" = "scroll_page_lines:1";
-        "ctrl+shift+up" = "scroll_page_lines:-3";
+        "ctrl+home" = "scroll_to_top";
         "ctrl+shift+down" = "scroll_page_lines:3";
+        "ctrl+shift+up" = "scroll_page_lines:-3";
+        "performable:shift+down" = "scroll_page_lines:1";
+        "performable:shift+up" = "scroll_page_lines:-1";
+        "unconsumed:shift+end" = "adjust_selection:end_of_line";
+        "unconsumed:shift+home" = "adjust_selection:beginning_of_line";
+        "performable:ctrl+c" = "copy_to_clipboard";
       };
     };
   };
