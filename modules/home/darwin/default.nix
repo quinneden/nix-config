@@ -4,5 +4,8 @@
   ...
 }:
 {
-  imports = (lib.custom.scanPaths ./.) ++ (with inputs; [ mac-app-util.homeManagerModules.default ]);
+  imports = (lib.custom.scanPaths ./.) ++ [
+    ../common
+    inputs.mac-app-util.homeManagerModules.default
+  ];
 }

@@ -4,8 +4,6 @@
   ...
 }:
 {
-  imports = [ ./module.nix ];
-
   programs.micro = {
     enable = true;
 
@@ -15,12 +13,14 @@
 
     plugins = [
       "joinLines"
+      "quoter"
+      "autofmt"
     ];
 
     settings = {
       autoclose = true;
       autosu = true;
-      colorscheme = "cuddles";
+      colorscheme = "geany";
       comment = true;
       diff = true;
       ftoptions = true;

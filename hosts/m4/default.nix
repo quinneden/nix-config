@@ -27,6 +27,6 @@
     users.quinn = import ../../modules/home/darwin;
   };
 
-  nix.daemonProcessType = "adaptive";
+  nix.daemonProcessType = "Adaptive";
   security.pam.services.sudo_local.touchIdAuth = true;
 }

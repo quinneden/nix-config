@@ -19,8 +19,6 @@ let
   );
 in
 {
-  imports = [ ./module.nix ];
-
   programs.zed-editor = {
     enable = pkgs.stdenv.isLinux;
 

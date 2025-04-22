@@ -18,7 +18,7 @@
         "$character"
       ];
 
-      command_timeout = 800;
+      command_timeout = 1200;
 
       directory = {
         style = "blue";
@@ -61,7 +61,6 @@
         format = " [$duration]($style)";
         style = "yellow";
         min_time = 6000;
-        show_notifications = true;
       };
 
       python = {

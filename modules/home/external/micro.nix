@@ -63,46 +63,52 @@ in
             (strMatching "wakatime")
             (strMatching "zigfmt")
           ]);
+        default = [ ];
       };
     };
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile = mkIf (cfg.keybindings != null) {
+    xdg.configFile = mkIf (cfg.keybindings != { }) {
       "micro/bindings.json".source = jsonFormat.generate "micro-keybindings" cfg.keybindings;
     };
 
     home.file = (
-      mkIf (cfg.plugins != null) (
-        mapAttrs (name: plug: {
-          recursive = true;
-          target = ".config/micro/plug/" + name;
-          source = pkgs.fetchzip {
-            url = plug.url;
-            hash = plug.hash;
-          };
-        }) cfg.plugins
-      )
-      // (mkIf (cfg.extraSyntax != null) (
+      mkIf (cfg.extraSyntax != { }) (
         lib.mapAttrs (name: path: {
           target = ".config/micro/syntax/" + baseNameOf path;
           source = path;
         }) cfg.extraSyntax
-      ))
+      )
     );
+    # mkIf (cfg.plugins != [ ]) (
+    #   mapAttrs (name: plug: {
+    #     recursive = true;
+    #     target = ".config/micro/plug/" + name;
+    #     source = pkgs.fetchzip {
+    #       url = plug.url;
+    #       hash = plug.hash;
+    #     };
+    #   }) cfg.plugins
+    # )
 
     home.activation."micro-install-plugins" = mkIf (cfg.plugins != [ ]) (
       hmLib.hm.dag.entryAfter [ "writeBoundary" ] ''
         PATH=${pkgs.micro}/bin:$PATH
         pluginsList=(${builtins.concatStringsSep " " cfg.plugins})
         pluginsInstalled=($(micro -plugin list | tail -n +2 | cut -f1 -d' ' | sort -u))
+
         pluginsToInstall=()
-        # pluginsToRemove=()
         for plugin in "''${pluginsList[@]}"; do
             if [[ ! " ''${pluginsInstalled[@]} " =~ " $plugin " ]]; then
                 pluginsToInstall+=("$plugin")
             fi
         done
+        for plugin in "''${pluginsToInstall[@]}"; do
+            micro -plugin install "$plugin"
+        done
+
+        # pluginsToRemove=()
         # for plugin in "''${pluginsInstalled[@]}"; do
         #     if [[ ! " ''${pluginsList[@]} " =~ " $plugin " ]]; then
         #         pluginsToRemove+=("$plugin")
@@ -111,9 +117,6 @@ in
         # for plugin in "''${pluginsToRemove[@]}"; do
         #     micro -plugin remove "$plugin"
         # done
-        for plugin in "''${pluginsToInstall[@]}"; do
-            micro -plugin install "$plugin"
-        done
       ''
     );
   };

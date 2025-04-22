@@ -95,10 +95,6 @@ with lib;
     };
 
     initExtra = ''
-      # fpath+=(${pkgs.pure-prompt}/share/zsh/site-functions)
-      # autoload -U promptinit; promptinit
-      # prompt pure
-
       for f ($HOME/.config/zsh/functions/*(N.)); do
         source "$f"
       done
