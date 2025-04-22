@@ -31,6 +31,7 @@
 
       username = {
         style_root = "red";
+        style_user = "bright-black";
         format = "[$user]($style)";
       };
 
