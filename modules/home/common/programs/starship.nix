@@ -25,14 +25,13 @@
       };
 
       hostname = {
-        format = "[$hostname]($style) ";
+        format = "[@$hostname]($style) ";
         style = "bright-black";
       };
 
       username = {
-        style_root = "bright-black";
-        style_user = "bright-black";
-        format = "[$user]($style)@";
+        style_root = "red";
+        format = "[$user]($style)";
       };
 
       character = {

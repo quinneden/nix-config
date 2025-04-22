@@ -50,6 +50,7 @@ in
       gtk-single-instance = false;
       gtk-titlebar = false;
       theme = "light:charmful-light,dark:charmful-dark";
+      window-inherit-working-directory = false;
       window-decoration = "auto";
       window-height = 26;
       window-padding-x = 12;
@@ -61,8 +62,8 @@ in
         "ctrl+home" = "scroll_to_top";
         "ctrl+shift+down" = "scroll_page_lines:3";
         "ctrl+shift+up" = "scroll_page_lines:-3";
-        "performable:shift+down" = "scroll_page_lines:1";
-        "performable:shift+up" = "scroll_page_lines:-1";
+        "unconsumed:shift+down" = "scroll_page_lines:1";
+        "unconsumed:shift+up" = "scroll_page_lines:-1";
         "unconsumed:shift+end" = "adjust_selection:end_of_line";
         "unconsumed:shift+home" = "adjust_selection:beginning_of_line";
         "performable:ctrl+c" = "copy_to_clipboard";
