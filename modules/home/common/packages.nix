@@ -7,14 +7,17 @@
     cachix
     direnv
     eza
+    fd
+    file
+    fzf
     gawk
     gnutar
-    fd
-    fzf
+    gptfdisk
     neovim
     nix-prefetch-git
     nix-prefetch-github
     nixfmt-rfc-style
+    parted
     qemu
     zoxide
   ];

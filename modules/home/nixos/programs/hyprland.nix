@@ -10,7 +10,7 @@
     inputs.marble-shell.packages.${pkgs.system}.default
     astal.mpris
     brightnessctl
-    pulseaudio
+    pulseaudio # pactl
     qt5.qtwayland
     qt6.qtwayland
     slurp
@@ -33,8 +33,8 @@
     settings = {
       exec-once = [
         "hyprctl setcursor phinger-cursors-dark 24"
-        "uwsm app -- marble"
-        "uwsm app -- marble-launcher"
+        "uwsm app -- marble && sleep 2 && astal -t launcher"
+        # "uwsm app -- marble-launcher"
         "swww-daemon"
       ];
 
@@ -44,7 +44,7 @@
         allow_tearing = true;
         layout = "dwindle";
         resize_on_border = true;
-        "col.active_border" = "rgba(51a4e7ff)";
+        # "col.active_border" = "rgba(51a4e7ff)";
       };
 
       render = {
@@ -129,11 +129,15 @@
         in
         [
           "CTRL ALT, Delete, exec, uwsm stop"
-          "CTRL ALT, R,      exec, marble quit; marble"
-          "SUPER, R,         exec, marble-launcher --open"
-          "SUPER, Tab,       exec, marble-launcher ':sh'"
-          ",XF86PowerOff,    exec, marble shutdown"
-          ",XF86MenuKB,      exec, marble lockscreen"
+          # "CTRL ALT, R,      exec, marble quit; marble"
+          # "SUPER, R,         exec, marble-launcher --open"
+          # "SUPER, Tab,       exec, marble-launcher ':sh'"
+          # ",XF86PowerOff,    exec, marble shutdown"
+          # ",XF86MenuKB,      exec, marble lockscreen"
+          "CTRL ALT, R,      exec, marble quit; uwsm app -- marble && sleep 2 && astal -t launcher"
+          "SUPER, R,         exec, astal -t launcher"
+          "SUPER, Tab,       exec, astal eval \"launcher('sh')\""
+          ",XF86MenuKB,      exec, astal -t powermenu"
 
           "SUPER, Return,    exec, ghostty"
           "SUPER CTRL, W,    exec, hdrop -c ghostty.hdrop -- ghostty --class=ghostty.hdrop"
@@ -185,7 +189,7 @@
           color = "rgba(0,0,0,0.3)";
         };
 
-        rounding = 8;
+        # rounding = 8;
 
         blur = {
           enabled = true;

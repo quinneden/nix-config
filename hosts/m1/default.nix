@@ -32,11 +32,11 @@
 
     kernelParams = [
       "quiet"
-      "splash"
-      "vga=current"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
+      "splash"
       "udev.log_priority=3"
+      "video=HDMI-A-1:2560x1440@60"
     ];
 
     m1n1CustomLogo = pkgs.fetchurl {
@@ -54,8 +54,9 @@
       useExperimentalGPUDriver = true;
       extractPeripheralFirmware = true;
       peripheralFirmwareDirectory = pkgs.fetchzip {
-        url = "https://f.qeden.me/fw/asahi_fw_2025-1-15.tgz";
-        hash = "sha256-5FdsoUJZqHLSecJpst95418kFTouaxo4wmC5rEXskMk=";
+        url = "https://f.qeden.me/fw/asahi-firmware-20250422.tgz";
+        hash = "sha256-UfWioh4/GWiXxTLjomrYPYgPYSHKvyVsiZwc1ml8vuM=";
+        stripRoot = false;
       };
     };
   };
@@ -84,7 +85,7 @@
   };
 
   home-manager = {
-    backupFileExtension = "hm-backup";
+    backupFileExtension = "home-manager-backup";
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };

@@ -43,6 +43,7 @@ in
       copy-on-select = false;
       cursor-style = "bar";
       font-family = "CaskaydiaCove Nerd Font Mono";
+      font-size = 13;
       font-feature = [
         "liga"
         "calt"
@@ -62,11 +63,12 @@ in
         "ctrl+home" = "scroll_to_top";
         "ctrl+shift+down" = "scroll_page_lines:3";
         "ctrl+shift+up" = "scroll_page_lines:-3";
-        "unconsumed:shift+down" = "scroll_page_lines:1";
-        "unconsumed:shift+up" = "scroll_page_lines:-1";
+        "performable:ctrl+down" = "scroll_page_lines:1";
+        "performable:ctrl+up" = "scroll_page_lines:-1";
         "unconsumed:shift+end" = "adjust_selection:end_of_line";
         "unconsumed:shift+home" = "adjust_selection:beginning_of_line";
         "performable:ctrl+c" = "copy_to_clipboard";
+        "performable:ctrl+v" = "paste_from_clipboard";
       };
     };
   };

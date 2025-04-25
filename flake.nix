@@ -64,7 +64,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     marble-shell = {
-      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/gtk4";
+      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
@@ -77,6 +77,10 @@
     };
     lf-icons = {
       url = "github:gokcehan/lf";
+      flake = false;
+    };
+    morewaita = {
+      url = "github:somepaulo/MoreWaita";
       flake = false;
     };
     zen-browser = {

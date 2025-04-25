@@ -34,9 +34,9 @@ in
       vscode-langservers-extracted
     ];
 
-    extraThemes = [
-      ./themes/AyuQ.json
-      ./themes/MonolithHighlighted.json
-    ];
+    themes = {
+      AyuQ = ./themes/AyuQ.json;
+      MonolithHighlighted = ./themes/MonolithHighlighted.json;
+    };
   };
 }
