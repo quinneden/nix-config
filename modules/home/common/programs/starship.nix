@@ -7,14 +7,16 @@
     settings = {
       format = lib.concatStrings [
         "$username"
-        "$hostname"
+        "($hostname )"
         "$directory"
         "$git_branch"
         "$git_state"
         "$git_status"
         "$cmd_duration"
         "$line_break"
-        "$nix_shell"
+        "($shell )"
+        "($nix_shell )"
+        "($python )"
         "$character"
       ];
 
@@ -25,7 +27,7 @@
       };
 
       hostname = {
-        format = "[@$hostname]($style) ";
+        format = "[@$hostname]($style)";
         style = "bright-black";
       };
 
@@ -75,14 +77,22 @@
       };
 
       python = {
-        format = "[$virtualenv]($style) ";
+        format = "[$virtualenv]($style)";
         style = "bright-black";
       };
 
       nix_shell = {
         heuristic = true;
-        format = "[($name )]($style)";
+        format = "[$name]($style)";
         style = "bright-black";
+      };
+
+      shell = {
+        format = "[$indicator]($style)";
+        bash_indicator = "bash";
+        zsh_indicator = "";
+        style = "green";
+        disabled = false;
       };
     };
   };
