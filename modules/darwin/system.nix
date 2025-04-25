@@ -78,7 +78,7 @@
       NSGlobalDomain = {
         ApplePressAndHoldEnabled = false;
         InitialKeyRepeat = 12;
-        KeyRepeat = 4;
+        KeyRepeat = 2;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;

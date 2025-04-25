@@ -89,7 +89,6 @@
       "perl"
       "pipenv"
       "pipx"
-      "pyenv"
       "pkg-config"
       "pnpm"
       "podman-compose"
