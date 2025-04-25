@@ -10,11 +10,9 @@
 
   nix = {
     enable = true;
+    channel.enable = true;
     distributedBuilds = true;
-    nixPath = [
-      "nixpkgs=${inputs.nixpkgs}"
-      "home-manager=${inputs.home-manager}"
-    ];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     optimise.automatic = true;
     settings = {
       accept-flake-config = true;

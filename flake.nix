@@ -39,32 +39,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+    acmsg = {
+      url = "github:quinneden/acmsg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-apple-silicon = {
-      url = "github:oliverbestmann/nixos-apple-silicon";
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    secrets = {
-      url = "git+ssh://git@github.com/quinneden/secrets?ref=main&shallow=1";
-      inputs = { };
-    };
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    marble-shell = {
-      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
@@ -79,20 +63,53 @@
       url = "github:gokcehan/lf";
       flake = false;
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    marble-shell = {
+      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     morewaita = {
       url = "github:somepaulo/MoreWaita";
       flake = false;
+    };
+    nh = {
+      url = "github:viperml/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-rosetta-builder = {
+      url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-apple-silicon = {
+      url = "github:oliverbestmann/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    secrets = {
+      url = "git+ssh://git@github.com/quinneden/secrets?ref=main&shallow=1";
+      inputs = { };
+    };
+    shellpers = {
+      url = "github:quinneden/shellpers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    acmsg.url = "github:quinneden/acmsg";
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-    mac-app-util.url = "github:hraban/mac-app-util";
-    nh.url = "github:viperml/nh";
-    nix-rosetta-builder.url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
-    shellpers.url = "github:quinneden/shellpers";
   };
 }

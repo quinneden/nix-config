@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, ... }:
 {
   assistant = {
     default_model = {
@@ -14,34 +14,11 @@
     version = "2";
   };
 
-  auto_install_extensions = {
-    basher = true;
-    dockerfile = true;
-    env = true;
-    git-firefly = true;
-    html = true;
-    hyprlang = true;
-    ini = true;
-    justfile = true;
-    lua = true;
-    make = true;
-    markdown-oxide = true;
-    marksman = true;
-    nix = true;
-    oh-lucy = true;
-    pylsp = true;
-    ruby = true;
-    scss = true;
-    superhtml = true;
-    swift = true;
-    symbols = true;
-    toml = true;
-  };
-
   auto_update = false;
   base_keymap = "VSCode";
+
   buffer_font_family = "CaskaydiaCove Nerd Font";
-  buffer_font_size = 16;
+  buffer_font_size = 15;
   buffer_line_height = {
     custom = 1.6;
   };
@@ -56,7 +33,7 @@
   context_servers = {
     mcp-server-github = {
       settings = {
-        github_personal_access_token = "";
+        github_personal_access_token = inputs.secrets.git.token;
       };
     };
   };
@@ -84,13 +61,6 @@
 
   icon_theme = "Symbols";
 
-  jupyter = {
-    enabled = true;
-    kernel_selections = {
-      python = "ipykernel";
-    };
-  };
-
   languages = {
     HTML = {
       formatter = {
@@ -103,19 +73,15 @@
         "superhtml"
       ];
     };
-
     JSONC = {
       preferred_line_length = 100;
     };
-
     Markdown = {
       language_servers = [ "marksman" ];
     };
-
     Nix = {
       language_servers = [ "nixd" ];
     };
-
     Python = {
       formatter = [
         {
@@ -160,7 +126,6 @@
         };
       };
     };
-
     pylsp = {
       settings = {
         rope = {
@@ -168,7 +133,6 @@
         };
       };
     };
-
     ruff = {
       initialization_options = {
         settings = {
@@ -196,7 +160,6 @@
   };
 
   scroll_sensitivity = 1.5;
-
   scrollbar = {
     axes = {
       horizontal = false;
@@ -204,9 +167,7 @@
   };
 
   soft_wrap = "none";
-
   tab_size = 2;
-
   tabs = {
     activate_on_close = "history";
     git_status = true;
@@ -234,13 +195,10 @@
       };
     };
     dock = "bottom";
-    env = {
-      EDITOR = "${if pkgs.stdenv.isDarwin then "zed-preview" else "zeditor"} --wait";
-    };
     font_family = "CaskaydiaCove Nerd Font Mono";
     font_size = 15;
     line_height = "comfortable";
-    max_scroll_history_lines = 1000;
+    max_scroll_history_lines = 2000;
     scrollbar = {
       show = "never";
     };
@@ -251,8 +209,8 @@
   };
 
   theme = {
-    dark = "Ayu Q";
-    light = "Monolith Dark";
+    dark = "Aylin Selene";
+    light = "Aylin Selene";
     mode = "dark";
   };
 
