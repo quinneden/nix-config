@@ -1,4 +1,13 @@
-{ inputs, ... }:
+{
+  lib,
+  inputs,
+  package,
+  pkgs,
+  ...
+}:
+let
+  inherit (pkgs.stdenv) isLinux;
+in
 {
   assistant = {
     default_model = {
@@ -8,7 +17,7 @@
     };
     editor_model = {
       enabled = true;
-      model = "claude-3-7-sonnet-thinking-latest";
+      model = "claude-3-7-sonnet-latest";
       provider = "zed.dev";
     };
     version = "2";
@@ -18,7 +27,7 @@
   base_keymap = "VSCode";
 
   buffer_font_family = "CaskaydiaCove Nerd Font";
-  buffer_font_size = 15;
+  buffer_font_size = if isLinux then 16 else 15;
   buffer_line_height = {
     custom = 1.6;
   };
@@ -115,13 +124,13 @@
         };
         options = {
           darwin = {
-            expr = "(builtins.getFlake (\"git+file://\" + toString ./.)).darwinConfigurations.macmini-m4.options";
+            expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).darwinConfigurations.macmini-m4.options";
           };
           home-manager = {
-            expr = "(builtins.getFlake (\"git+file://\" + toString ./.)).darwinConfigurations.macmini-m4.options.home-manager.users.type.getSubOptions []";
+            expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).darwinConfigurations.macmini-m4.options.home-manager.users.type.getSubOptions []";
           };
           nixos = {
-            expr = "(builtins.getFlake (\"git+file://\" + toString ./.)).nixosConfigurations.macmini-m1.options";
+            expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).nixosConfigurations.macmini-m1.options";
           };
         };
       };
@@ -136,7 +145,7 @@
     ruff = {
       initialization_options = {
         settings = {
-          lineLength = 100;
+          lineLength = 80;
         };
       };
     };
@@ -153,7 +162,7 @@
 
   project_panel = {
     auto_fold_dirs = false;
-    indent_size = 23;
+    indent_size = 22;
     scrollbar = {
       show = "never";
     };
@@ -195,6 +204,9 @@
       };
     };
     dock = "bottom";
+    env = {
+      EDITOR = "${lib.getExe package} --wait";
+    };
     font_family = "CaskaydiaCove Nerd Font Mono";
     font_size = 15;
     line_height = "comfortable";

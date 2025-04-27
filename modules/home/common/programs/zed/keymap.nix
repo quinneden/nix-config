@@ -1,20 +1,22 @@
+{ lib, pkgs, ... }:
+let
+  ifLinux = str: lib.optionalString pkgs.stdenv.isLinux str;
+in
 [
   {
     bindings = {
-      "cmd-," = "zed::OpenSettings";
-      "cmd-k cmd-s" = "zed::OpenKeymap";
       cmd-shift-e = "project_panel::ToggleFocus";
       cmd-shift-g = "git_panel::ToggleFocus";
       cmd-shift-p = "command_palette::Toggle";
       cmd-shift-w = "workspace::ToggleBottomDock";
-      ctrl-shift-c = null;
+      secondary-shift-c = null;
     };
   }
 
   # Context: AssistantPanel
   {
     bindings = {
-      ctrl-r = "workspace::ToggleRightDock";
+      secondary-r = "workspace::ToggleRightDock";
     };
     context = "AssistantPanel";
   }
@@ -22,8 +24,8 @@
   # Context: ContextEditor > Editor
   {
     bindings = {
-      ctrl-r = "workspace::ToggleRightDock";
-      ctrl-shift-c = "assistant::CycleMessageRole";
+      secondary-r = "workspace::ToggleRightDock";
+      secondary-shift-c = "assistant::CycleMessageRole";
     };
     context = "ContextEditor > Editor";
   }
@@ -31,19 +33,14 @@
   # Context: Editor
   {
     bindings = {
-      "cmd-/" = "editor::ToggleComments";
-      "cmd-k i" = "editor::SortLinesCaseInsensitive";
       alt-backspace = "editor::DeleteToPreviousWordStart";
-      cmd-c = "editor::Copy";
-      cmd-d = "editor::DuplicateLineDown";
-      cmd-shift-f = [ "workspace::SendKeystrokes" ] ++ [ "ctrl-shift-f" ];
-      cmd-shift-left = [ "editor::SelectToBeginningOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
-      cmd-shift-right = [ "editor::SelectToEndOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
-      cmd-shift-z = "editor::Redo";
-      cmd-v = "editor::Paste";
-      cmd-z = "editor::Undo";
+      "cmd-k i" = "editor::SortLinesCaseInsensitive";
       ctrl-d = "editor::DuplicateLineDown";
-      ctrl-j = "editor::JoinLines";
+      secondary-d = "editor::DuplicateLineDown";
+      secondary-j = "editor::JoinLines";
+      secondary-shift-f = "pane::DeploySearch";
+      secondary-shift-left = [ "editor::SelectToBeginningOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
+      secondary-shift-right = [ "editor::SelectToEndOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
     };
     context = "Editor";
     use_key_equivalents = true;
@@ -52,7 +49,7 @@
   # Context: Editor && Jupyter
   {
     bindings = {
-      cmd-escape = "repl::ClearOutputs";
+      secondary-escape = "repl::ClearOutputs";
     };
     context = "Editor && jupyter";
   }
@@ -60,26 +57,27 @@
   # Context: Workspace
   {
     bindings = {
-      "cmd-k c" = "workspace::ToggleCenteredLayout";
-      cmd-alt-left = "pane::ActivatePreviousItem";
-      cmd-alt-right = "pane::ActivateNextItem";
+      secondary-0 = "pane::ActivateLastItem";
+      secondary-1 = [ "pane::ActivateItem" ] ++ [ 0 ];
+      secondary-2 = [ "pane::ActivateItem" ] ++ [ 1 ];
+      secondary-3 = [ "pane::ActivateItem" ] ++ [ 2 ];
+      secondary-4 = [ "pane::ActivateItem" ] ++ [ 3 ];
+      secondary-5 = [ "pane::ActivateItem" ] ++ [ 4 ];
+      secondary-6 = [ "pane::ActivateItem" ] ++ [ 5 ];
+      secondary-7 = [ "pane::ActivateItem" ] ++ [ 6 ];
+      secondary-8 = [ "pane::ActivateItem" ] ++ [ 7 ];
+      secondary-9 = [ "pane::ActivateItem" ] ++ [ 8 ];
+      secondary-alt-left = "pane::ActivatePreviousItem";
+      secondary-alt-right = "pane::ActivateNextItem";
       cmd-ctrl-down = "workspace::ActivatePaneDown";
       cmd-ctrl-left = "workspace::ActivatePaneLeft";
       cmd-ctrl-right = "workspace::ActivatePaneRight";
       cmd-ctrl-up = "workspace::ActivatePaneUp";
-      cmd-s = "workspace::Save";
+      "secondary-k c" = "workspace::ToggleCenteredLayout";
+      secondary-r = "assistant::ToggleFocus";
       cmd-w = "pane::CloseActiveItem";
-      ctrl-0 = "pane::ActivateLastItem";
-      ctrl-1 = [ "pane::ActivateItem" ] ++ [ 0 ];
-      ctrl-2 = [ "pane::ActivateItem" ] ++ [ 1 ];
-      ctrl-3 = [ "pane::ActivateItem" ] ++ [ 2 ];
-      ctrl-4 = [ "pane::ActivateItem" ] ++ [ 3 ];
-      ctrl-5 = [ "pane::ActivateItem" ] ++ [ 4 ];
-      ctrl-6 = [ "pane::ActivateItem" ] ++ [ 5 ];
-      ctrl-7 = [ "pane::ActivateItem" ] ++ [ 6 ];
-      ctrl-8 = [ "pane::ActivateItem" ] ++ [ 7 ];
-      ctrl-9 = [ "pane::ActivateItem" ] ++ [ 8 ];
-      ctrl-r = "assistant::ToggleFocus";
+      cmd-s = "workspace::Save";
+      ctrl-s = "workspace::Save";
     };
     context = "Workspace";
   }
@@ -87,9 +85,9 @@
   # Context: Terminal
   {
     bindings = {
-      ctrl-shift-c = "terminal::Copy";
-      ctrl-shift-t = "workspace::NewTerminal";
-      ctrl-shift-v = "terminal::Paste";
+      "secondary${ifLinux "-shift"}-t" = "workspace::NewTerminal";
+      "secondary${ifLinux "-shift"}-c" = "terminal::Copy";
+      "secondary${ifLinux "-shift"}-v" = "terminal::Paste";
     };
     context = "Terminal";
   }

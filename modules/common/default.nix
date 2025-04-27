@@ -24,12 +24,12 @@
         "flakes"
       ];
       extra-substituters = [
-        "https://quinneden.cachix.org"
         "https://nix-community.cachix.org"
+        "https://quinneden.cachix.org"
       ];
       extra-trusted-public-keys = [
-        "quinneden.cachix.org-1:1iSAVU2R8SYzxTv3Qq8j6ssSPf0Hz+26gfgXkvlcbuA="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "quinneden.cachix.org-1:1iSAVU2R8SYzxTv3Qq8j6ssSPf0Hz+26gfgXkvlcbuA="
       ];
       trusted-users = [
         "quinn"

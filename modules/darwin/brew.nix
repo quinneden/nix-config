@@ -32,7 +32,6 @@
       "tailscale"
       "utm"
       "vagrant"
-      "zed@preview"
     ];
 
     brews = [

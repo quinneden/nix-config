@@ -6,10 +6,11 @@
     btop
     gh
     git
+    glow
     ripgrep
     jq
     jq-lsp
     nodejs
-    glow
+    parted
   ];
 }

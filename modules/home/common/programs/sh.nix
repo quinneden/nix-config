@@ -17,6 +17,7 @@ let
       ll = "eza -glAh --octal-permissions --group-directories-first";
       ls = "eza";
       push = "git push";
+      zed = "zeditor";
     }
     // lib.optionalAttrs isDarwin {
       lc = "limactl";
@@ -24,12 +25,9 @@ let
       sed = "gsed";
       shutdown = "sudo shutdown -h now";
       darwin-man = "man configuration.nix";
-      zed = "zed-preview";
     }
     // lib.optionalAttrs isLinux {
-      bs = "stat -c%s";
       tree = "eza -ATL3 --git-ignore";
-      zed = "zeditor";
     };
 
   sessionVariables =
@@ -40,7 +38,7 @@ let
       MICRO_TRUECOLOR = "1";
     }
     // lib.optionalAttrs isDarwin {
-      PATH = "/run/current-system/sw/bin:/etc/profiles/per-user/quinn/bin:/Users/quinn/.local/bin:\${PATH:+$PATH}";
+      PATH = "\${PATH:+$PATH}:/Users/quinn/.local/bin";
       TMPDIR = "/tmp";
       PAGER = "less";
       LESS = "-RF";
@@ -57,20 +55,6 @@ with lib;
     enable = true;
     enableCompletion = true;
     historyFileSize = 10000;
-    bashrcExtra = ''
-      git_branch() {
-          git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-      }
-
-      RESET="\[\033[0m\]"
-      YELLOW="\[\033[0;33m\]"
-      BOLD_GREEN="\[\033[1;32m\]"
-      BOLD_BLUE="\[\033[1;34m\]"
-      PS1="''${BOLD_GREEN}\u@\h''${RESET}:''${BOLD_BLUE}\w''${YELLOW}\$(git_branch)''${RESET}\$ "
-
-      HISTTIMEFORMAT="%F %T "
-      HISTCONTROL=ignoredups:erasedups
-    '';
   };
 
   programs.zsh = {
@@ -81,39 +65,41 @@ with lib;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     history.path = "${config.xdg.configHome}/zsh/.zsh_history";
+
     oh-my-zsh = {
       enable = true;
       plugins = [
         "colored-man-pages"
-        "direnv"
-        "eza"
-        "fzf"
         "${optionalString isDarwin "iterm2"}"
-        "zoxide"
       ];
-      custom = "${config.xdg.configHome}/zsh";
     };
-
-    initExtra = ''
-      for f ($HOME/.config/zsh/functions/*(N.)); do
-        source "$f"
-      done
-
-      ${optionalString isDarwin "eval $(/opt/homebrew/bin/brew shellenv)"}
-    '';
-
-    initExtraBeforeCompInit = ''
-      fpath+=(
-        ${config.nix.package}/share/zsh/site-functions
-        /etc/profiles/per-user/quinn/share/zsh/site-functions
-        ${config.xdg.configHome}/zsh/completions
-        ${optionalString isDarwin "/opt/homebrew/share/zsh/site-functions"}
-      )
-    '';
 
     completionInit = ''
       autoload -U compinit && compinit
       autoload -U bashcompinit && bashcompinit
     '';
+
+    # Common order values:
+    # - 500 (mkBefore): Early initialization (replaces initExtraFirst)
+    # - 550: Before completion initialization (replaces initExtraBeforeCompInit)
+    # - 1000 (default): General configuration (replaces initExtra)
+    # - 1500 (mkAfter): Last to run configuration
+    initContent = lib.mkMerge [
+      (lib.mkOrder 1000 ''
+        for f ($HOME/.config/zsh/functions/*(N.)); do
+          source "$f"
+        done
+
+        ${optionalString isDarwin "eval $(/opt/homebrew/bin/brew shellenv)"}
+      '')
+      (lib.mkOrder 550 ''
+        fpath+=(
+          ${config.nix.package}/share/zsh/site-functions
+          /etc/profiles/per-user/quinn/share/zsh/site-functions
+          ${config.xdg.configHome}/zsh/completions
+          ${optionalString isDarwin "/opt/homebrew/share/zsh/site-functions"}
+        )
+      '')
+    ];
   };
 }

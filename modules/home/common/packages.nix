@@ -17,7 +17,6 @@
     nix-prefetch-git
     nix-prefetch-github
     nixfmt-rfc-style
-    parted
     qemu
     zoxide
   ];

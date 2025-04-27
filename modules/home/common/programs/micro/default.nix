@@ -11,6 +11,10 @@
       nix = ./syntax/nix.yaml;
     };
 
+    keybindings = {
+      "Ctrl-j" = "lua:joinLines.joinLines";
+    };
+
     plugins = [
       "joinLines"
       "quoter"

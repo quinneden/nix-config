@@ -24,8 +24,9 @@ let
   );
 in
 {
-  programs.zed-editor = {
-    enable = pkgs.stdenv.isLinux;
+  programs.zed-editor = rec {
+    enable = true;
+    package = pkgs.zed-editor;
 
     extensions = [
       "basher"
@@ -64,7 +65,6 @@ in
       tailwindcss-language-server
       vtsls
       ruff
-
     ];
 
     themes =
@@ -75,7 +75,14 @@ in
         })
       );
 
-    userKeymaps = import ./keymap.nix;
-    userSettings = import ./settings.nix { inherit inputs; };
+    userKeymaps = import ./keymap.nix { inherit lib pkgs; };
+    userSettings = import ./settings.nix {
+      inherit
+        package
+        lib
+        inputs
+        pkgs
+        ;
+    };
   };
 }

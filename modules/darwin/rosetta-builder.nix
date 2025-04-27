@@ -9,14 +9,7 @@
     extraConfig = {
       nix = {
         optimise.automatic = true;
-        settings = {
-          inherit (config.nix.settings)
-            access-tokens
-            extra-substituters
-            extra-trusted-public-keys
-            warn-dirty
-            ;
-        };
+        settings = { inherit (config.nix.settings) access-tokens; };
       };
     };
     memory = "8GiB";
