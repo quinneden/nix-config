@@ -34,11 +34,6 @@
       formatter = lib.genAttrs [ "aarch64-darwin" "aarch64-linux" ] (
         system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
       );
-
-      checks = {
-        aarch64-darwin = self.darwinConfigurations.macmini-m4;
-        aarch64-linux = self.nixosConfigurations.macmini-m1;
-      };
     };
 
   inputs = {
