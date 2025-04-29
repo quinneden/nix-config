@@ -18,6 +18,7 @@ let
       ls = "eza";
       push = "git push";
       zed = "zeditor";
+      "zed /" = "zeditor .";
     }
     // lib.optionalAttrs isDarwin {
       lc = "limactl";

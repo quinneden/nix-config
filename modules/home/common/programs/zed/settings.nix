@@ -72,15 +72,7 @@ in
 
   languages = {
     HTML = {
-      formatter = {
-        language_server = {
-          name = "superhtml";
-        };
-      };
-      language_servers = [
-        "vscode-html-language-server"
-        "superhtml"
-      ];
+      language_servers = [ "vscode-html-language-server" ];
     };
     JSONC = {
       preferred_line_length = 100;

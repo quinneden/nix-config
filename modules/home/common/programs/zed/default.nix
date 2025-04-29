@@ -30,23 +30,19 @@ in
 
     extensions = [
       "basher"
-      "dockerfile"
       "env"
       "git-firefly"
       "html"
       "ini"
-      "justfile"
-      "lua"
+      "just"
       "make"
       "markdown-oxide"
       "marksman"
       "nix"
-      "oh"
       "pylsp"
+      "ruby"
       "ruff"
       "scss"
-      "superhtml"
-      "swift"
       "symbols"
       "toml"
     ];
@@ -57,14 +53,14 @@ in
       marksman
       nixd
       nixfmt-rfc-style
+      yaml-language-server
       package-version-server
       pythonEnv
+      ruby
+      ruff
       superhtml
-      vscode-langservers-extracted
-      yaml-language-server
       tailwindcss-language-server
       vtsls
-      ruff
     ];
 
     themes =

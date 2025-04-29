@@ -9,6 +9,7 @@
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
       nerd-fonts.jetbrains-mono
+      nerd-fonts.meslo-lg
       nerd-fonts.noto
       nerd-fonts.symbols-only
       nerd-fonts.victor-mono
