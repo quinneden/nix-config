@@ -38,7 +38,7 @@ in
     };
 
     settings = {
-      command = "${pkgs.zsh}/bin/zsh";
+      command = "${pkgs.zsh}/bin/zsh -l";
       confirm-close-surface = false;
       copy-on-select = false;
       cursor-style = "bar";

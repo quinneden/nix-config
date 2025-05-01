@@ -105,15 +105,28 @@
       };
 
       windowrule = [
-        "animation fade, class:ghostty.hdrop"
-        "center,         class:ghostty.hdrop"
-        "float,          class:ghostty.hdrop"
-        "opacity 0.88,   class:ghostty.hdrop"
-        "size 60% 65%,   class:ghostty.hdrop"
-        "stayfocused,    class:ghostty.hdrop"
+        "animation fade,    class:(ghostty.hdrop)"
+        "center,            class:(ghostty.hdrop)"
+        "float,             class:(ghostty.hdrop)"
+        "opacity 0.88,      class:(ghostty.hdrop)"
+        "size 60% 65%,      class:(ghostty.hdrop)"
+        "stayfocused,       class:(ghostty.hdrop)"
+        "float,             class:(pinentry-)(.*)"
+        "stayfocused,       class:(pinentry-)(.*)"
+      ];
 
-        "float,          class:(pinentry-)(.*)"
-        "stayfocused,    class:(pinentry-)(.*)"
+      windowrulev2 = [
+        "float,          class:(xdg-desktop-portal-gtk), initialTitle:(Open )(File|Folder)"
+        "center,         class:(xdg-desktop-portal-gtk), initialTitle:(Open )(File|Folder)"
+        "stayfocused,    class:(xdg-desktop-portal-gtk), initialTitle:(Open )(File|Folder)"
+        "size 1000 650,  class:(xdg-desktop-portal-gtk), initialTitle:(Open )(File|Folder)"
+
+        "float,          class:(zen), initialTitle:(Library)"
+        "center,         class:(zen), initialTitle:(Library)"
+        "size 900 1200,  class:(zen), initialTitle:(Library)"
+
+        "float,          class:org.gnome.Nautilus"
+        "size 1200 850,  class:org.gnome.Nautilus"
       ];
 
       bind =
@@ -142,7 +155,7 @@
           "SUPER, Return,    exec, ghostty"
           "SUPER CTRL, W,    exec, hdrop -c ghostty.hdrop -- ghostty --class=ghostty.hdrop"
           "SUPER, B,         exec, zen"
-          "SUPER, E,         exec, ghostty -e lf"
+          "SUPER, E,         exec, nautilus"
 
           "SUPER, Q,         killactive"
           "SUPER, G,         togglefloating"

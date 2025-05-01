@@ -9,34 +9,34 @@ let
 
     selection = {
       bg = "#EBFF71";
-      fg = "#313234";
+      fg = "#3c3d3d";
     };
 
     cursor = {
       bg = "#eaeaea";
-      fg = "#373839";
+      fg = "#282829";
     };
 
-    black = "#373839";
-    red = "#e55f86";
-    green = "#00D787";
-    yellow = "#EBFF71";
+    black = "#282829";
+    red = "#ed586e";
+    green = "#00d781";
+    yellow = "#ffff71";
     blue = "#50a4e7";
-    magenta = "#9076e7";
+    magenta = "#a274f7";
     cyan = "#50e6e6";
     pink = "#e781d6";
     white = "#e7e7e7";
 
     bright = {
-      black = "#313234";
-      red = "#d15577";
-      green = "#43c383";
-      yellow = "#d8e77b";
-      blue = "#4886c8";
-      magenta = "#8861dd";
-      cyan = "#43c3c3";
-      pink = "#d76dc5";
-      white = "#c1c4c2";
+      black = "#3c3d3d";
+      red = "#fc4761";
+      green = "#2dfa93";
+      yellow = "#fcfc53";
+      blue = "#5cb7ff";
+      magenta = "#9359ff";
+      cyan = "#3dffff";
+      pink = "#fa73e3";
+      white = "#f7f7f7";
     };
   };
 

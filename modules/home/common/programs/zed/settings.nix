@@ -40,7 +40,21 @@ in
   confirm_quit = true;
 
   context_servers = {
+    Context7 = {
+      command = {
+        path = "${pkgs.nodejs}/bin/npx";
+        args = [
+          "-y"
+          "@upstash/context7-mcp@latest"
+        ];
+      };
+      settings = { };
+    };
     mcp-server-github = {
+      command = {
+        path = "${pkgs.github-mcp-server}/bin/github-mcp-server";
+        args = [ "stdio" ];
+      };
       settings = {
         github_personal_access_token = inputs.secrets.git.token;
       };
@@ -51,7 +65,7 @@ in
 
   edit_predictions = {
     disabled_globs = [ "secrets.yml,secrets.yaml" ];
-    enabled_in_assistant = true;
+    enabled_in_assistant = false;
     mode = "subtle";
   };
 
@@ -69,6 +83,8 @@ in
   };
 
   icon_theme = "Symbols";
+
+  jupyter.enabled = false;
 
   languages = {
     HTML = {
@@ -108,7 +124,7 @@ in
         formatting = {
           command = [
             "nixfmt"
-            "--"
+            "--strict"
           ];
         };
         nixpkgs = {
@@ -154,6 +170,7 @@ in
 
   project_panel = {
     auto_fold_dirs = false;
+    entry_spacing = "standard";
     indent_size = 22;
     scrollbar = {
       show = "never";

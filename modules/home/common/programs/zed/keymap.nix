@@ -13,6 +13,13 @@ in
     };
   }
 
+  {
+    bindings = {
+      secondary-enter = "assistant::InlineAssist";
+    };
+    context = "Editor && mode == full && !(ContextEditor > Editor)";
+  }
+
   # Context: AssistantPanel
   {
     bindings = {
@@ -26,8 +33,9 @@ in
     bindings = {
       secondary-r = "workspace::ToggleRightDock";
       secondary-shift-c = "assistant::CycleMessageRole";
+      secondary-enter = "assistant::Assist";
     };
-    context = "ContextEditor > Editor";
+    context = "ContextEditor > Editor && mode == full";
   }
 
   # Context: Editor
@@ -38,21 +46,21 @@ in
       ctrl-d = "editor::DuplicateLineDown";
       secondary-d = "editor::DuplicateLineDown";
       secondary-j = "editor::JoinLines";
+      secondary-r = "assistant::ToggleFocus";
       secondary-shift-f = "pane::DeploySearch";
       secondary-shift-left = [ "editor::SelectToBeginningOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
       secondary-shift-right = [ "editor::SelectToEndOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
     };
     context = "Editor";
-    use_key_equivalents = true;
   }
 
   # Context: Editor && Jupyter
-  {
-    bindings = {
-      secondary-escape = "repl::ClearOutputs";
-    };
-    context = "Editor && jupyter";
-  }
+  # {
+  #   bindings = {
+  #     secondary-escape = "repl::ClearOutputs";
+  #   };
+  #   context = "Editor && jupyter";
+  # }
 
   # Context: Workspace
   {
@@ -74,10 +82,10 @@ in
       cmd-ctrl-right = "workspace::ActivatePaneRight";
       cmd-ctrl-up = "workspace::ActivatePaneUp";
       "secondary-k c" = "workspace::ToggleCenteredLayout";
-      secondary-r = "assistant::ToggleFocus";
       cmd-w = "pane::CloseActiveItem";
       cmd-s = "workspace::Save";
       ctrl-s = "workspace::Save";
+      secondary-return = null;
     };
     context = "Workspace";
   }

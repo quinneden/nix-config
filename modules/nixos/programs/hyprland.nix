@@ -20,12 +20,10 @@
   environment.systemPackages = with pkgs; [
     morewaita-icon-theme
     adwaita-icon-theme
-    qogir-icon-theme
     loupe
     nautilus
     baobab
     gnome-calendar
-    gnome-boxes
     gnome-system-monitor
     gnome-control-center
     gnome-weather
@@ -69,13 +67,4 @@
       tinysparql.enable = true;
     };
   };
-
-  # services.xserver.displayManager.lightdm = {
-  #   enable = true;
-  #   greeters.gtk.enable = true;
-  # };
-
-  # systemd.tmpfiles.rules = [
-  #   "d '/var/cache/greeter' - greeter greeter - -"
-  # ];
 }

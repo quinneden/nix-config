@@ -234,11 +234,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745894335,
-        "narHash": "sha256-m47zhftaod/oHOwoVT25jstdcVLhkrVGyvEHKjbnFHI=",
+        "lastModified": 1746040799,
+        "narHash": "sha256-osgPX/SzIpkR50vev/rqoTEAVkEcOWXoQXmbzsaI4KU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1ad123239957d40e11ef66c203d0a7e272eb48aa",
+        "rev": "5f217e5a319f6c186283b530f8c975e66c028433",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745404012,
-        "narHash": "sha256-SSyQXbkGCMAzpw8S9QQtZxGeaHPqiQQjgFsQnCxr7UQ=",
+        "lastModified": 1746123670,
+        "narHash": "sha256-uAsYjBhkl9J4BZ8X6OO1t4ZIDrVOTP/ucAEGAGP9J2o=",
         "ref": "aarch64-linux/main",
-        "rev": "576e5f6fe200d7624c8722f71850872501966859",
-        "revCount": 8,
+        "rev": "a97b5f299c1e87f3103bab091e5e98dfda44a1ce",
+        "revCount": 13,
         "type": "git",
         "url": "ssh://git@github.com/quinneden/marble-shell"
       },
@@ -444,11 +444,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745701677,
-        "narHash": "sha256-ajEl9nV4XFW7H98XCPUshzYL+K0+gVqEWUC4+MBAUFw=",
+        "lastModified": 1746032033,
+        "narHash": "sha256-BCD0tfDNlQHFM75THRtXM3GegMg/KbREsYllg7Az9ao=",
         "owner": "viperml",
         "repo": "nh",
-        "rev": "7c913894581c21a8669384a366dc486c136ea7d5",
+        "rev": "894bb7ebf3adb58f76d1f7d9f6b33f58758d40f0",
         "type": "github"
       },
       "original": {
@@ -599,11 +599,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1745900683,
-        "narHash": "sha256-ZGi2gjgPtmPmplCVz7dNufqkBr00g6EeAloX3GrFQls=",
+        "lastModified": 1746061036,
+        "narHash": "sha256-OxYwCGJf9VJ2KnUO+w/hVJVTjOgscdDg/lPv8Eus07Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ffa0bb043c25cfc79ff3bc20ba2e44c3724499b1",
+        "rev": "3afd19146cac33ed242fc0fc87481c67c758a59e",
         "type": "github"
       },
       "original": {

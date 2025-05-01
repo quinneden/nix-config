@@ -1,6 +1,6 @@
 {
   services.ollama = {
-    enable = true;
+    enable = false;
     openFirewall = true;
   };
 }

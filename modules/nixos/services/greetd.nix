@@ -18,7 +18,7 @@
     };
     font = {
       package = pkgs.nerd-fonts.ubuntu;
-      name = "Ubuntu Nerd Fonts";
+      name = "Ubuntu Nerd Font";
       size = 13;
     };
     iconTheme = {
