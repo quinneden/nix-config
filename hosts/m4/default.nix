@@ -8,7 +8,7 @@
   imports = (lib.custom.scanPaths ./.) ++ [
     inputs.home-manager.darwinModules.default
     inputs.lix-module.nixosModules.default
-    inputs.mac-app-util.darwinModules.default
+    # inputs.mac-app-util.darwinModules.default
     inputs.sops-nix.darwinModules.default
     ../../modules/darwin
   ];

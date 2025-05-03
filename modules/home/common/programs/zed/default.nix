@@ -26,7 +26,7 @@ in
 {
   programs.zed-editor = rec {
     enable = true;
-    package = pkgs.zed-editor;
+    package = inputs.zed.packages.${pkgs.system}.default;
 
     extensions = [
       "basher"
@@ -81,4 +81,6 @@ in
         ;
     };
   };
+
+  # xdg.configFile."zed/settings.json".enable = pkgs.stdenv.isLinux;
 }

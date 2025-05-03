@@ -20,14 +20,6 @@ in
     context = "Editor && mode == full && !(ContextEditor > Editor)";
   }
 
-  # Context: AssistantPanel
-  {
-    bindings = {
-      secondary-r = "workspace::ToggleRightDock";
-    };
-    context = "AssistantPanel";
-  }
-
   # Context: ContextEditor > Editor
   {
     bindings = {
@@ -35,10 +27,10 @@ in
       secondary-shift-c = "assistant::CycleMessageRole";
       secondary-enter = "assistant::Assist";
     };
-    context = "ContextEditor > Editor && mode == full";
+    context = "ContextEditor > Editor";
   }
 
-  # Context: Editor
+  # Context: Editor && mode == full
   {
     bindings = {
       alt-backspace = "editor::DeleteToPreviousWordStart";
@@ -51,7 +43,7 @@ in
       secondary-shift-left = [ "editor::SelectToBeginningOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
       secondary-shift-right = [ "editor::SelectToEndOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
     };
-    context = "Editor";
+    context = "Editor && mode == full && !(ContextEditor > Editor)";
   }
 
   # Context: Editor && Jupyter

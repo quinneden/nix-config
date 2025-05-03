@@ -230,8 +230,8 @@ in
   };
 
   theme = {
-    dark = "Aylin Selene";
-    light = "Aylin Selene";
+    dark = "Aylin";
+    light = "Aylin";
     mode = "dark";
   };
 

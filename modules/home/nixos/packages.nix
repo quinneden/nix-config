@@ -7,6 +7,7 @@
     gh
     git
     glow
+    rclone
     ripgrep
     jq
     jq-lsp
