@@ -1,16 +1,15 @@
 { config, ... }:
 let
-  himalayaGmail =
+  mkGmail =
     {
-      address,
+      email,
       passwordFile,
-      primary ? false,
+      default ? false,
     }:
     {
       enable = true;
       settings = {
-        default = primary;
-        email = address;
+        inherit default email;
         display-name = "Quinn Edenfield";
         downloads-dir = "/home/quinn/Downloads";
         folder.aliases = {
@@ -23,7 +22,7 @@ let
           type = "imap";
           host = "imap.gmail.com";
           port = 993;
-          login = address;
+          login = email;
           encryption.type = "tls";
           auth.type = "password";
           auth.cmd = "cat ${passwordFile}";
@@ -32,7 +31,7 @@ let
           type = "smtp";
           host = "smtp.gmail.com";
           port = 465;
-          login = address;
+          login = email;
           encryption.type = "tls";
           auth.type = "password";
           auth.cmd = "cat ${passwordFile}";
@@ -41,26 +40,17 @@ let
     };
 in
 {
+  programs.himalaya.enable = true;
+
   accounts.email.accounts = {
-    qedenfield = rec {
-      address = "qedenfield@gmail.com";
-      realName = "Quinn Edenfield";
-      primary = true;
-      himalaya = himalayaGmail {
-        inherit address primary;
-        passwordFile = config.sops.secrets."passwords/himalaya-qedenfield".path;
-      };
+    qedenfield.himalaya = mkGmail {
+      email = "qedenfield@gmail.com";
+      passwordFile = config.sops.secrets."passwords/himalaya-qedenfield".path;
     };
 
-    quinnyxboy = rec {
-      address = "quinnyxboy@gmail.com";
-      realName = "Quinn Edenfield";
-      himalaya = himalayaGmail {
-        inherit address;
-        passwordFile = config.sops.secrets."passwords/himalaya-quinnyxboy".path;
-      };
+    quinnyxboy.himalaya = mkGmail {
+      email = "quinnyxboy@gmail.com";
+      passwordFile = config.sops.secrets."passwords/himalaya-quinnyxboy".path;
     };
   };
-
-  programs.himalaya.enable = true;
 }
