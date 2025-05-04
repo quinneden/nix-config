@@ -109,7 +109,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zed = {
-      url = "github:zed-industries/zed";
+      url = "github:zed-industries/zed?ref=v0.185.4-pre";
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

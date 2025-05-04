@@ -27,8 +27,8 @@ in
 {
   programs.zed-editor = rec {
     enable = true;
-    package = inputs.zed.packages.${pkgs.system}.default;
-    # package = pkgs.zed-editor;
+    # package = inputs.zed.packages.${pkgs.system}.default;
+    package = pkgs.zed-editor;
 
     extensions = [
       "basher"

@@ -46,6 +46,7 @@
     overlays = [
       inputs.shellpers.overlays.default
       inputs.nh.overlays.default
+      inputs.zed.overlays.default
       self.overlays.default
     ];
   };
