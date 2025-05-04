@@ -20,12 +20,21 @@ in
     context = "Editor && mode == full && !(ContextEditor > Editor)";
   }
 
+  {
+    bindings = {
+      secondary-w = "pane::CloseActiveItem";
+      secondary-r = "workspace::ToggleRightDock";
+    };
+    context = "MessageEditor > Editor";
+  }
+
   # Context: ContextEditor > Editor
   {
     bindings = {
       secondary-r = "workspace::ToggleRightDock";
       secondary-shift-c = "assistant::CycleMessageRole";
       secondary-enter = "assistant::Assist";
+      secondary-w = "pane::CloseActiveItem";
     };
     context = "ContextEditor > Editor";
   }

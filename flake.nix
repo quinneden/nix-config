@@ -13,6 +13,7 @@
       specialArgs = { inherit inputs lib self; };
     in
     {
+      inherit self;
       darwinConfigurations = {
         macmini-m4 = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";

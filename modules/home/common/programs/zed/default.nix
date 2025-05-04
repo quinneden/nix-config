@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -27,6 +28,7 @@ in
   programs.zed-editor = rec {
     enable = true;
     package = inputs.zed.packages.${pkgs.system}.default;
+    # package = pkgs.zed-editor;
 
     extensions = [
       "basher"
@@ -74,13 +76,14 @@ in
     userKeymaps = import ./keymap.nix { inherit lib pkgs; };
     userSettings = import ./settings.nix {
       inherit
-        package
-        lib
+        config
         inputs
+        lib
         pkgs
+        package
         ;
     };
   };
 
-  # xdg.configFile."zed/settings.json".enable = pkgs.stdenv.isLinux;
+  xdg.configFile."zed/settings.json".enable = false;
 }
