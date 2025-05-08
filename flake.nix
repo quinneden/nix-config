@@ -60,10 +60,6 @@
       url = "github:quinneden/icon-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lf-icons = {
-      url = "github:gokcehan/lf";
-      flake = false;
-    };
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -108,8 +104,9 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zed = {
-      url = "github:zed-industries/zed?ref=v0.185.4-pre";
+    zed-extensions = {
+      url = "github:DuskSystems/nix-zed-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

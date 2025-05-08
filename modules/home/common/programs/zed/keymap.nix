@@ -15,13 +15,6 @@ in
 
   {
     bindings = {
-      secondary-enter = "assistant::InlineAssist";
-    };
-    context = "Editor && mode == full && !(ContextEditor > Editor)";
-  }
-
-  {
-    bindings = {
       secondary-w = "pane::CloseActiveItem";
       secondary-r = "workspace::ToggleRightDock";
     };
@@ -51,17 +44,11 @@ in
       secondary-shift-f = "pane::DeploySearch";
       secondary-shift-left = [ "editor::SelectToBeginningOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
       secondary-shift-right = [ "editor::SelectToEndOfLine" ] ++ [ { stop_at_soft_wraps = true; } ];
+      secondary-enter = "assistant::InlineAssist";
+      secondary-shift-v = "markdown::OpenPreviewToTheSide";
     };
     context = "Editor && mode == full && !(ContextEditor > Editor)";
   }
-
-  # Context: Editor && Jupyter
-  # {
-  #   bindings = {
-  #     secondary-escape = "repl::ClearOutputs";
-  #   };
-  #   context = "Editor && jupyter";
-  # }
 
   # Context: Workspace
   {

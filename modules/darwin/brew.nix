@@ -22,6 +22,7 @@
       "deskflow"
       "element"
       "eqmac"
+      "iina"
       "iterm2"
       "macfuse"
       "obsidian"
@@ -30,6 +31,7 @@
       "tailscale"
       "utm"
       "vagrant"
+      "zed@preview"
     ];
 
     brews = [
@@ -64,7 +66,6 @@
       "lftp"
       "libb2"
       "libffi"
-      "libvirt"
       "lima"
       "llvm"
       "lzip"
@@ -76,6 +77,13 @@
       "ncdu"
       "node"
       "oci-cli"
+
+      {
+        name = "ollama";
+        start_service = true;
+        restart_service = "changed";
+      }
+
       "openssl@3"
       "perl"
       "pipenv"
