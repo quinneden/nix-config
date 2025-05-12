@@ -14,12 +14,11 @@
     taps = [
       "homebrew/bundle"
       "homebrew/services"
-      "deskflow/homebrew-tap"
+      "iina/homebrew-mpv-iina"
     ];
 
     casks = [
       "betterdisplay"
-      "deskflow"
       "element"
       "eqmac"
       "iina"

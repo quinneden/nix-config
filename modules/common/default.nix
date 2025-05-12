@@ -20,8 +20,9 @@
       always-allow-substitutes = true;
       builders-use-substitutes = true;
       experimental-features = [
-        "nix-command"
         "flakes"
+        "nix-command"
+        "repl-flake"
       ];
       extra-substituters = [
         "https://nix-community.cachix.org"
