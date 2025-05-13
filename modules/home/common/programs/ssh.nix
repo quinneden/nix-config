@@ -1,4 +1,12 @@
-{ config, ... }:
+{
+  darwinConfig,
+  nixosConfig,
+  pkgs,
+  ...
+}:
+let
+  systemConfig = if pkgs.stdenv.isDarwin then darwinConfig else nixosConfig;
+in
 {
   programs.ssh = {
     enable = true;
@@ -7,7 +15,7 @@
       "oc-runner" = {
         hostname = "129.146.66.178";
         user = "root";
-        identityFile = config.sops.secrets."private_keys/oc-runner".path;
+        identityFile = systemConfig.sops.secrets."keys/oc-runner".path;
       };
 
       "picache" = {

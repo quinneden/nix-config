@@ -5,7 +5,7 @@
   ...
 }:
 let
-  secretsPath = toString inputs.secrets + "/sops";
+  secretsPath = "${inputs.secrets}/sops";
   homeDir = "${if pkgs.stdenv.isDarwin then "/Users" else "/home"}/quinn";
 in
 {
@@ -23,15 +23,17 @@ in
       "github_token" = { };
       "passwords/quinn" = { };
       "passwords/root" = { };
-      "private_keys/oc-runner" = {
+      "keys/oc-runner" = {
         mode = "0600";
         owner = config.users.users.quinn.name;
         path = "${homeDir}/.ssh/keys/oc-runner";
+        sopsFile = "${secretsPath}/keys/ssh_ed25519_oc-runner";
       };
-      "private_keys/picache" = {
+      "keys/picache" = {
         mode = "0600";
         owner = config.users.users.quinn.name;
         path = "${homeDir}/.ssh/keys/picache";
+        sopsFile = "${secretsPath}/keys/ssh_ed25519_picache";
       };
     };
   };

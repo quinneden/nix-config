@@ -16,6 +16,7 @@ let
       l = "eza -la --group-directories-first";
       ll = "eza -glAh --octal-permissions --group-directories-first";
       ls = "eza";
+      nhs = "nh search";
       push = "git push";
       zed = "zeditor";
     }

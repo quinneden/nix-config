@@ -13,7 +13,6 @@
       specialArgs = { inherit inputs lib self; };
     in
     {
-      inherit self;
       darwinConfigurations = {
         macmini-m4 = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
@@ -61,7 +60,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mac-app-util = {
@@ -85,7 +84,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-rosetta-builder = {
-      url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
+      # url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
+      url = "github:quinneden/nix-rosetta-builder?ref=no-nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {

@@ -4,7 +4,7 @@
   ...
 }:
 let
-  secretsPath = toString inputs.secrets + "/sops";
+  secretsPath = "${inputs.secrets}/sops";
   homeDir = "${if pkgs.stdenv.isDarwin then "/Users" else "/home"}/quinn";
 in
 {
@@ -26,14 +26,18 @@ in
         sopsFile = "${secretsPath}/plain/rclone.ini";
         path = "${homeDir}/.config/rclone/rclone.conf";
       };
-      "private_keys/oc-runner" = {
-        mode = "0600";
-        path = "${homeDir}/.ssh/keys/oc-runner";
-      };
-      "private_keys/picache" = {
-        mode = "0600";
-        path = "${homeDir}/.ssh/keys/picache";
-      };
+
+      # "keys/oc-runner" = {
+      #   mode = "0600";
+      #   path = "${homeDir}/.ssh/keys/oc-runner";
+      #   sopsFile = "${secretsPath}/keys/ssh_ed25519_oc-runner";
+      # };
+
+      # "keys/picache" = {
+      #   mode = "0600";
+      #   path = "${homeDir}/.ssh/keys/picache";
+      #   sopsFile = "${secretsPath}/keys/ssh_ed25519_picache";
+      # };
     };
   };
 }
