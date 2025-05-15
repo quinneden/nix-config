@@ -84,12 +84,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-rosetta-builder = {
-      # url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
-      url = "github:quinneden/nix-rosetta-builder?ref=no-nixos-generators";
+      url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {
-      url = "github:oliverbestmann/nixos-apple-silicon";
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     secrets = {

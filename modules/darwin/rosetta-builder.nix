@@ -9,10 +9,10 @@
     diskSize = "150GiB";
     memory = "8GiB";
     onDemand = true;
-    # withRosetta = false;
+    withRosetta = false;
 
     potentiallyInsecureExtraNixosModule = {
-      # imports = [ inputs.lix-module.nixosModules.default ];
+      imports = [ inputs.lix-module.nixosModules.default ];
 
       nix = {
         optimise.automatic = true;
