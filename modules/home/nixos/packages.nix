@@ -11,7 +11,10 @@
     ripgrep
     jq
     jq-lsp
+    muvm
     nodejs
     parted
+    sommelier
+    waydroid
   ];
 }

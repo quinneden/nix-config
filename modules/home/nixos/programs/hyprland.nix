@@ -105,14 +105,17 @@
       };
 
       windowrule = [
-        "animation fade,    class:(ghostty.hdrop)"
-        "center,            class:(ghostty.hdrop)"
-        "float,             class:(ghostty.hdrop)"
-        "opacity 0.88,      class:(ghostty.hdrop)"
-        "size 60% 65%,      class:(ghostty.hdrop)"
-        "stayfocused,       class:(ghostty.hdrop)"
-        "float,             class:(pinentry-)(.*)"
-        "stayfocused,       class:(pinentry-)(.*)"
+        "animation fade,   class:(ghostty.hdrop)"
+        "center,           class:(ghostty.hdrop)"
+        "float,            class:(ghostty.hdrop)"
+        "opacity 0.88,     class:(ghostty.hdrop)"
+        "size 60% 65%,     class:(ghostty.hdrop)"
+        "stayfocused,      class:(ghostty.hdrop)"
+
+        "float,            class:(pinentry-)(.*)"
+        "stayfocused,      class:(pinentry-)(.*)"
+
+        "workspace emptyn,  class:(dev.zed.Zed)"
       ];
 
       windowrulev2 = [
@@ -125,8 +128,8 @@
         "center,         class:(zen), initialTitle:(Library)"
         "size 900 1200,  class:(zen), initialTitle:(Library)"
 
-        "float,          class:org.gnome.Nautilus"
-        "size 1200 850,  class:org.gnome.Nautilus"
+        "float,          class:(org.gnome.Nautilus)"
+        "size 1200 850,  class:(org.gnome.Nautilus)"
       ];
 
       bind =

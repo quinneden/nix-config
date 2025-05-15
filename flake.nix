@@ -98,6 +98,7 @@
     shellpers = {
       url = "github:quinneden/shellpers";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix-module.follows = "lix-module";
     };
     sops-nix = {
       url = "github:mic92/sops-nix";
