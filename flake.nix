@@ -89,7 +89,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {
-      url = "github:oliverbestmann/nixos-apple-silicon";
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     secrets = {
@@ -99,6 +99,7 @@
     shellpers = {
       url = "github:quinneden/shellpers";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix-module.follows = "lix-module";
     };
     sops-nix = {
       url = "github:mic92/sops-nix";

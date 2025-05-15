@@ -72,15 +72,15 @@
     default_model = {
       enable_experimental_live_diffs = true;
       enabled = true;
-      model = "claude-3-7-sonnet";
-      provider = "copilot_chat";
+      model = "claude-3-7-sonnet-thinking-latest";
+      provider = "zed.dev";
     };
     default_profile = "write";
     default_width = 740;
     editor_model = {
       enabled = true;
-      model = "claude-3-7-sonnet";
-      provider = "copilot_chat";
+      model = "claude-3-7-sonnet-thinking-latest";
+      provider = "zed.dev";
     };
     profiles = {
       ask = {
@@ -228,8 +228,10 @@
   };
 
   features = {
-    edit_prediction_provider = "copilot";
+    edit_prediction_provider = "zed";
   };
+
+  edit_predictions.mode = "subtle";
 
   # Git settings
   git = {

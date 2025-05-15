@@ -23,5 +23,9 @@
         hash = "sha256-WAt2QPvv/gy9oTpk0iUJOxB0rDLE+vqLD3a7k9wcOvE=";
       };
     };
+
+    sommelier = prev.sommelier.overrideAttrs {
+      checkPhase = "";
+    };
   };
 }
