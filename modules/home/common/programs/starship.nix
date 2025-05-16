@@ -8,13 +8,13 @@
       format = lib.concatStrings [
         "$username"
         "($hostname )"
+        "($shell )"
         "$directory"
         "$git_branch"
         "$git_state"
         "$git_status"
         "$cmd_duration"
         "$line_break"
-        "($shell )"
         "($nix_shell )"
         "($python )"
         "$character"
@@ -53,7 +53,7 @@
         style = "cyan";
         ahead = "";
         behind = "";
-        diverged = "";
+        diverged = ""; # 
         conflicted = builtins.fromJSON ''"\u200B"'';
         untracked = builtins.fromJSON ''"\u200B"'';
         modified = builtins.fromJSON ''"\u200B"'';
@@ -89,9 +89,9 @@
 
       shell = {
         format = "[$indicator]($style)";
-        bash_indicator = "bash";
+        bash_indicator = "bash:";
         zsh_indicator = "";
-        style = "green";
+        style = "purple";
         disabled = false;
       };
     };

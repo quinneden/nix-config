@@ -76,13 +76,7 @@
       "ncdu"
       "node"
       "oci-cli"
-
-      {
-        name = "ollama";
-        start_service = true;
-        restart_service = "changed";
-      }
-
+      "ollama"
       "openssl@3"
       "perl"
       "pipenv"

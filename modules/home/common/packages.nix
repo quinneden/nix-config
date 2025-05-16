@@ -16,8 +16,10 @@
     neovim
     nix-prefetch-git
     nix-prefetch-github
+    nixd
     nixfmt-rfc-style
     qemu
+    vesktop
     zoxide
   ];
 }

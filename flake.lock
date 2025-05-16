@@ -508,8 +508,8 @@
     "nixpkgs_2": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-FshoQvr6Aor5SnORVvh/ZdJ1Sa2U4ZrIMwKBX5k2wu0=",
-        "path": "/nix/store/yhc8a0a2mvbp8fp53l57i3d5cnz735fc-source",
+        "narHash": "sha256-ByfPRQuqj+nhtVV0koinEpmJw0KLzNbgcgi9EF+NVow=",
+        "path": "/nix/store/a4lkx9hmv2099n6p1rkzxm481hfw7pwr-source",
         "type": "path"
       },
       "original": {
@@ -615,10 +615,10 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1746834196,
-        "narHash": "sha256-u7OKm0kyuKSzy7RJ7i4VRc2ZLb5prLhE9evu6VqUkyI=",
+        "lastModified": 1747280537,
+        "narHash": "sha256-tLrBDwtXU4qo4MQCv32HCto4+C9VXCGCH+jOQQkfIYs=",
         "ref": "main",
-        "rev": "dafc697f8553ada0f70f12b4b26823d282c8d0c1",
+        "rev": "a1f287dc2bfd1845062d16d092445377b3dc3350",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/quinneden/secrets"

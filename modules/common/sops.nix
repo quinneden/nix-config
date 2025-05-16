@@ -23,17 +23,17 @@ in
       "github_token" = { };
       "passwords/quinn" = { };
       "passwords/root" = { };
-      "keys/oc-runner" = {
+      "ssh_ed25519_oc-runner" = {
         mode = "0600";
         owner = config.users.users.quinn.name;
         path = "${homeDir}/.ssh/keys/oc-runner";
-        sopsFile = "${secretsPath}/keys/ssh_ed25519_oc-runner";
+        sopsFile = "${secretsPath}/ssh-keys.yaml";
       };
-      "keys/picache" = {
+      "ssh_ed25519_picache" = {
         mode = "0600";
         owner = config.users.users.quinn.name;
         path = "${homeDir}/.ssh/keys/picache";
-        sopsFile = "${secretsPath}/keys/ssh_ed25519_picache";
+        sopsFile = "${secretsPath}/ssh-keys.yaml";
       };
     };
   };
