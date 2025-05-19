@@ -8,8 +8,6 @@
 let
   pythonEnv = pkgs.python313.withPackages (
     ps: with ps; [
-      colorama
-      ipykernel
       ipython
       pip
       pycodestyle
@@ -34,6 +32,8 @@ in
         if pkgs.stdenv.isDarwin then
           (
             (pkgs.writeShellScriptBin "zeditor" ''
+              export PATH=${lib.makeBinPath extraPackages}:$PATH
+
               if [[ -e '/Applications/Zed.app' ]]; then
                 exec /Applications/Zed.app/Contents/MacOS/cli "$@"
               elif [[ -e '/Applications/Zed Preview.app' ]]; then
@@ -94,6 +94,7 @@ in
         git-firefly
         html
         ini
+        jinja2
         just
         make
         markdown-oxide
@@ -104,8 +105,8 @@ in
         pylsp
         ruff
         scss
-        superhtml
         symbols
+        tombi
         toml
       ];
     };

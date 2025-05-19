@@ -1,10 +1,10 @@
 {
   system = {
-    activationScripts = {
-      postUserActivation.text = ''
-        /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-      '';
-    };
+    # activationScripts = {
+    #   postUserActivation.text = ''
+    #     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    #   '';
+    # };
 
     defaults = {
       CustomUserPreferences = {
@@ -96,6 +96,7 @@
       remapCapsLockToEscape = true;
     };
 
+    primaryUser = "quinn";
     stateVersion = 5;
   };
 }

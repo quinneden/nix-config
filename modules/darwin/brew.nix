@@ -30,7 +30,7 @@
       "tailscale"
       "utm"
       "vagrant"
-      "zed@preview"
+      "zed"
     ];
 
     brews = [
@@ -57,7 +57,6 @@
       "gobject-introspection"
       "gptfdisk"
       "gum"
-      "ipython"
       "jq"
       "just"
       "ldid"

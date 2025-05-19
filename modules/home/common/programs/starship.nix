@@ -53,7 +53,7 @@
         style = "cyan";
         ahead = "";
         behind = "";
-        diverged = ""; # 
+        diverged = "";
         conflicted = builtins.fromJSON ''"\u200B"'';
         untracked = builtins.fromJSON ''"\u200B"'';
         modified = builtins.fromJSON ''"\u200B"'';
