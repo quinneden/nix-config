@@ -18,7 +18,6 @@ let
       ls = "eza";
       nhs = "nh search";
       push = "git push";
-      zed = "zeditor";
     }
     // lib.optionalAttrs isDarwin {
       lc = "limactl";
@@ -29,6 +28,7 @@ let
     }
     // lib.optionalAttrs isLinux {
       tree = "eza -ATL3 --git-ignore";
+      zed = "zeditor";
     };
 
   sessionVariables =
@@ -71,8 +71,7 @@ with lib;
       enable = true;
       plugins = [
         "colored-man-pages"
-        "${optionalString isDarwin "iterm2"}"
-      ];
+      ] ++ optional isDarwin "iterm2";
     };
 
     completionInit = ''
@@ -86,13 +85,11 @@ with lib;
     # - 1000 (default): General configuration (replaces initExtra)
     # - 1500 (mkAfter): Last to run configuration
     initContent = lib.mkMerge [
-      (lib.mkOrder 1000 ''
-        for f ($HOME/.config/zsh/functions/*(N.)); do
-          source "$f"
-        done
-
-        ${optionalString isDarwin "eval $(/opt/homebrew/bin/brew shellenv)"}
-      '')
+      (lib.mkOrder 500 (
+        optionalString isDarwin ''
+          eval $(/opt/homebrew/bin/brew shellenv)
+        ''
+      ))
       (lib.mkOrder 550 ''
         fpath+=(
           ${config.nix.package}/share/zsh/site-functions
@@ -100,6 +97,11 @@ with lib;
           ${config.xdg.configHome}/zsh/completions
           ${optionalString isDarwin "/opt/homebrew/share/zsh/site-functions"}
         )
+      '')
+      (lib.mkOrder 1000 ''
+        for f ($HOME/.config/zsh/{functions,drop-ins}/*(N.)); do
+          source "$f"
+        done
       '')
     ];
   };

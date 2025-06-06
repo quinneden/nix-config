@@ -82,9 +82,9 @@
       };
 
       nix_shell = {
-        heuristic = true;
         format = "[$name]($style)";
         style = "bright-black";
+        heuristic = true;
       };
 
       shell = {

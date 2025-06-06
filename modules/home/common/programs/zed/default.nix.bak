@@ -68,7 +68,7 @@ in
     };
 
     zed-editor-extensions = {
-      enable = pkgs.stdenv.isLinux;
+      enable = true;
       packages = with pkgs.zed-extensions; [
         basher
         env

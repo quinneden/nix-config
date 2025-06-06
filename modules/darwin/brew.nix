@@ -1,13 +1,12 @@
 {
   homebrew = {
     enable = true;
-    caskArgs.language = "en-US.UTF-8";
     global.brewfile = true;
 
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
-      extraFlags = [ "--quiet" ];
+      extraFlags = [ "--greedy" ];
       upgrade = true;
     };
 
@@ -15,6 +14,7 @@
       "homebrew/bundle"
       "homebrew/services"
       "iina/homebrew-mpv-iina"
+      "slp/krunkit"
     ];
 
     casks = [
@@ -30,7 +30,7 @@
       "tailscale"
       "utm"
       "vagrant"
-      "zed"
+      "zed@preview"
     ];
 
     brews = [
@@ -41,6 +41,7 @@
       "bzip2"
       "chroma"
       "cmake"
+      "commitizen"
       "coreutils"
       "curl"
       "eza"
@@ -50,6 +51,7 @@
       "gh"
       "git-lfs"
       "git"
+      "github-mcp-server"
       "glow"
       "gnu-sed"
       "gnupg"
@@ -57,6 +59,7 @@
       "gobject-introspection"
       "gptfdisk"
       "gum"
+      "krunkit"
       "jq"
       "just"
       "ldid"
@@ -69,20 +72,19 @@
       "lzip"
       "lzo"
       "make"
+      "marksman"
       "mas"
       "meson"
       "most"
       "ncdu"
       "node"
       "oci-cli"
-      "ollama"
       "openssl@3"
       "perl"
       "pipenv"
       "pipx"
       "pkg-config"
       "podman-compose"
-      "podman-tui"
       "podman"
       "pv"
       "qemu"
@@ -92,7 +94,10 @@
       "rsync"
       "rustup"
       "shellcheck"
+      "socat"
       "tree"
+      "uv"
+      "watch"
       "w3m"
       "wget"
       "yq"

@@ -31,10 +31,7 @@
       initlua = true;
       linter = true;
       literate = true;
-      pluginrepos = [
-        "https://github.com/sparques/micro-quoter/raw/refs/heads/master/repo.json"
-        "https://github.com/AndCake/micro-plugin-lsp/raw/refs/heads/master/repo.json"
-      ];
+      pluginrepos = [ "https://github.com/sparques/micro-quoter/raw/refs/heads/master/repo.json" ];
       parsecursor = true;
       reload = "auto";
       rmtrailingws = true;

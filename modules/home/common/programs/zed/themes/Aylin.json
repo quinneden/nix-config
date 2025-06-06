@@ -165,7 +165,7 @@
         "syntax": {
           "attribute": {
             "color": "#c8c8db",
-            "font_style": null,
+            "font_style": "italic",
             "font_weight": null
           },
           "boolean": {
@@ -315,12 +315,12 @@
           },
           "property": {
             "color": null,
-            "font_style": null,
+            "font_style": "italic",
             "font_weight": null
           },
           "property.json_key": {
             "color": null,
-            "font_style": null,
+            "font_style": "italic",
             "font_weight": null
           },
           "punctuation": {
@@ -395,7 +395,7 @@
           },
           "title": {
             "color": "#6cbeff",
-            "font_style": null,
+            "font_style": "italic",
             "font_weight": null
           },
           "type": {
