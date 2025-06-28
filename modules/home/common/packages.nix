@@ -14,6 +14,7 @@
     gnutar
     gptfdisk
     neovim
+    nil
     nix-prefetch-git
     nix-prefetch-github
     nixd

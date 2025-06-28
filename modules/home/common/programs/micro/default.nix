@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.micro = {
     enable = true;
@@ -24,7 +20,7 @@
     settings = {
       autoclose = true;
       autosu = true;
-      colorscheme = "geany";
+      colorscheme = "simple";
       comment = true;
       diff = true;
       ftoptions = true;

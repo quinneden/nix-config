@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+
+with lib;
+
 let
   inherit (pkgs.stdenv) isDarwin isLinux;
 
@@ -11,6 +14,7 @@ let
     {
       cddf = "cd ~/.dotfiles";
       cddl = "cd ~/Downloads";
+      gbl = "git branch --list";
       gst = "git status";
       gsur = "git submodule update --init --recursive";
       l = "eza -la --group-directories-first";
@@ -19,14 +23,14 @@ let
       nhs = "nh search";
       push = "git push";
     }
-    // lib.optionalAttrs isDarwin {
+    // optionalAttrs isDarwin {
+      darwin-man = "man configuration.nix";
       lc = "limactl";
       reboot = "sudo reboot";
       sed = "gsed";
       shutdown = "sudo shutdown -h now";
-      darwin-man = "man configuration.nix";
     }
-    // lib.optionalAttrs isLinux {
+    // optionalAttrs isLinux {
       tree = "eza -ATL3 --git-ignore";
       zed = "zeditor";
     };
@@ -38,18 +42,16 @@ let
       LC_ALL = "en_US.UTF-8";
       MICRO_TRUECOLOR = "1";
     }
-    // lib.optionalAttrs isDarwin {
-      PATH = "\${PATH:+$PATH}:/Users/quinn/.local/bin";
-      TMPDIR = "/tmp";
-      PAGER = "less";
+    // optionalAttrs isDarwin {
       LESS = "-RF";
+      PAGER = "less";
+      TMPDIR = "/tmp";
     }
-    // lib.optionalAttrs isLinux {
-      NIXOS_CONFIG = "$HOME/.dotfiles";
+    // optionalAttrs isLinux {
       NH_FLAKE = "$HOME/.dotfiles";
+      NIXOS_CONFIG = "$HOME/.dotfiles";
     };
 in
-with lib;
 {
   programs.bash = {
     inherit shellAliases sessionVariables;
@@ -69,9 +71,7 @@ with lib;
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "colored-man-pages"
-      ] ++ optional isDarwin "iterm2";
+      plugins = [ "colored-man-pages" ] ++ optional isDarwin "iterm2";
     };
 
     completionInit = ''
@@ -84,22 +84,44 @@ with lib;
     # - 550: Before completion initialization (replaces initExtraBeforeCompInit)
     # - 1000 (default): General configuration (replaces initExtra)
     # - 1500 (mkAfter): Last to run configuration
-    initContent = lib.mkMerge [
-      (lib.mkOrder 500 (
+    initContent = mkMerge [
+      (mkOrder 500 (
         optionalString isDarwin ''
-          eval $(/opt/homebrew/bin/brew shellenv)
+          export HOMEBREW_PREFIX="/opt/homebrew";
+          export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX";
+          export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
+          export INFOPATH="/opt/homebrew/share/info:''${INFOPATH:-}";
+          [[ -z ''${MANPATH-} ]] || export MANPATH=":''${MANPATH#:}";
+          fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+
+          typeset -U path
+
+          if [[ -n $IN_NIX_SHELL || -n $name ]]; then
+            for ((i=''${#path[@]}; i>=1; i--)); do
+              if [[ ''${path[$i]} =~ '/nix/store' ]]; then
+                idx=$((i + 1))
+                break
+              fi
+            done
+            path[$idx,$((idx + 1))]=("/opt/homebrew/bin" "/opt/homebrew/sbin")
+          else
+            path+=("/opt/homebrew/bin" "/opt/homebrew/sbin")
+          fi
         ''
       ))
-      (lib.mkOrder 550 ''
+      (mkOrder 550 ''
+        typeset -U path fpath
+
+        path+=($HOME/.local/bin)
+
         fpath+=(
           ${config.nix.package}/share/zsh/site-functions
           /etc/profiles/per-user/quinn/share/zsh/site-functions
           ${config.xdg.configHome}/zsh/completions
-          ${optionalString isDarwin "/opt/homebrew/share/zsh/site-functions"}
         )
       '')
-      (lib.mkOrder 1000 ''
-        for f ($HOME/.config/zsh/{functions,drop-ins}/*(N.)); do
+      (mkOrder 1000 ''
+        for f (${config.xdg.configHome}/zsh/{functions,drop-ins}/*(N.)); do
           source "$f"
         done
       '')

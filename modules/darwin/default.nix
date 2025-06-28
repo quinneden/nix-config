@@ -2,7 +2,5 @@
 {
   imports = (lib.custom.scanPaths ./.) ++ [ ../common ];
 
-  nixpkgs.overlays = [
-    self.overlays.darwin
-  ];
+  nixpkgs.overlays = [ self.overlays.darwin ];
 }

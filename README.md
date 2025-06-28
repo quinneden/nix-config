@@ -26,10 +26,6 @@ This configuration is highly opinionated and tailored to my specific needs. It i
 - **`pkgs/`**: Custom package derivations
 - **`overlays/`**: Package overlays and overrides
 
-## Notes for Beginners
-
-While tailored for personal use, this repository can serve as a reference for Nix-based configurations, particularly for Home Manager integration and Apple Silicon support.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).

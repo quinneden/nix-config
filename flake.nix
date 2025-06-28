@@ -104,6 +104,10 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    virby = {
+      url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zed-extensions = {
       url = "github:DuskSystems/nix-zed-extensions";
       inputs.nixpkgs.follows = "nixpkgs";

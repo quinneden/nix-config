@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 let
   inherit (pkgs) stdenv fetchgit;
 
@@ -36,9 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-x8va2mcQAK0ProtfYOdDuIO3LxEu8yNX10rm2fWpLEw=";
   };
   buildInputs = [ nixfmt-shim ];
-  makeFlags = [
-    "prefix=${placeholder "out"}"
-  ];
+  makeFlags = [ "prefix=${placeholder "out"}" ];
   installPhase = ''
     rm $out/bin/nixfmt_shim
     cp ${nixfmt-shim}/bin/nixfmt-shim $out/bin/nixfmt_shim

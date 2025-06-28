@@ -1,12 +1,7 @@
 {
   system = {
-    # activationScripts = {
-    #   postUserActivation.text = ''
-    #     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    #   '';
-    # };
-
     defaults = {
+
       CustomUserPreferences = {
         ".GlobalPreferences".AppleSpacesSwitchOnActivate = true;
         "com.apple.AdLib".allowApplePersonalizedAdvertising = false;

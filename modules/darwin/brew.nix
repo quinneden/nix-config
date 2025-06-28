@@ -6,7 +6,7 @@
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
-      extraFlags = [ "--greedy" ];
+      # extraFlags = [ "--quiet" ];
       upgrade = true;
     };
 
@@ -19,8 +19,8 @@
 
     casks = [
       "betterdisplay"
+      "container"
       "element"
-      "eqmac"
       "iina"
       "iterm2"
       "macfuse"
@@ -29,12 +29,10 @@
       "podman-desktop"
       "tailscale"
       "utm"
-      "vagrant"
       "zed@preview"
     ];
 
     brews = [
-      "age"
       "aria2"
       "awscli"
       "bat"
@@ -47,10 +45,11 @@
       "eza"
       "fd"
       "ffmpeg"
+      "fileicon"
       "gcc"
       "gh"
-      "git-lfs"
       "git"
+      "git-lfs"
       "github-mcp-server"
       "glow"
       "gnu-sed"
@@ -59,13 +58,12 @@
       "gobject-introspection"
       "gptfdisk"
       "gum"
-      "krunkit"
       "jq"
       "just"
       "ldid"
-      "lf"
       "lftp"
       "libb2"
+      "libepoxy"
       "libffi"
       "lima"
       "llvm"
@@ -78,14 +76,13 @@
       "most"
       "ncdu"
       "node"
-      "oci-cli"
       "openssl@3"
       "perl"
       "pipenv"
       "pipx"
       "pkg-config"
-      "podman-compose"
       "podman"
+      "podman-compose"
       "pv"
       "qemu"
       "rbenv"
@@ -94,11 +91,15 @@
       "rsync"
       "rustup"
       "shellcheck"
+      "slp/krunkit/krunkit"
+      "slp/krunkit/libkrun-efi"
+      "slp/krunkit/molten-vk-krunkit"
+      "slp/krunkit/virglrenderer"
       "socat"
+      "tlrc"
       "tree"
       "uv"
       "watch"
-      "w3m"
       "wget"
       "yq"
       "zbar"

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 let
   zen-wayland-wrapped = pkgs.symlinkJoin {
     name = "zen-browser-wayland";

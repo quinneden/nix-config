@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 let
   secretsPath = "${inputs.secrets}/sops";
   homeDir = "${if pkgs.stdenv.isDarwin then "/Users" else "/home"}/quinn";
