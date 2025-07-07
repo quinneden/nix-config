@@ -6,8 +6,7 @@
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
-      # extraFlags = [ "--quiet" ];
-      upgrade = true;
+      extraFlags = [ "--quiet" ];
     };
 
     taps = [
@@ -24,11 +23,13 @@
       "iina"
       "iterm2"
       "macfuse"
+      "notion"
       "obsidian"
       "pearcleaner"
       "podman-desktop"
-      "tailscale"
+      "tailscale-app"
       "utm"
+      "zen"
       "zed@preview"
     ];
 

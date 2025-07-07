@@ -1,23 +1,34 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 {
   imports = [ inputs.virby.darwinModules.default ];
 
   services.virby = {
-    enable = false;
+    enable = true;
     debug = true;
     cores = 8;
     diskSize = "150GiB";
     memory = 8192;
-    allowUserSsh = false;
-    # rosetta.enable = true;
-
+    rosetta.enable = false;
     onDemand = {
       enable = true;
-      ttl = 10;
+      ttl = 180;
     };
+    extraConfig = {
+      imports = [ inputs.lix-module.nixosModules.default ];
 
-    # extraConfig = {
-    #   nix.settings = { inherit (config.nix.settings) access-tokens; };
-    # };
+      nix = {
+        optimise.automatic = true;
+        settings = {
+          inherit (config.nix.settings) access-tokens;
+          max-free = lib.mkForce null;
+          mix-free = lib.mkForce null;
+        };
+      };
+    };
   };
 }

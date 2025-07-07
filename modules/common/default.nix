@@ -28,19 +28,17 @@
         "nix-command"
       ];
 
-      substituters = [
-        # "https://cache.nixos.org/"
-        "https://nix-community.cachix.org"
-        "https://quinneden.cachix.org"
-      ];
+      #       substituters = [
+      #         "https://nix-community.cachix.org"
+      #         "https://quinneden.cachix.org"
+      #       ];
+      #
+      #       trusted-public-keys = [
+      #         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      #         "quinneden.cachix.org-1:1iSAVU2R8SYzxTv3Qq8j6ssSPf0Hz+26gfgXkvlcbuA="
+      #       ];
 
-      trusted-public-keys = [
-        # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "quinneden.cachix.org-1:1iSAVU2R8SYzxTv3Qq8j6ssSPf0Hz+26gfgXkvlcbuA="
-      ];
-
-      trusted-substituters = config.nix.settings.substituters;
+      # trusted-substituters = config.nix.settings.substituters;
       trusted-users = [ "quinn" ];
       warn-dirty = false;
     };

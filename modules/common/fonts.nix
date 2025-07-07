@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
 
-  fonts = {
+  fonts = lib.mkIf pkgs.stdenv.isLinux {
     packages = with pkgs; [
       nerd-fonts.caskaydia-cove
       nerd-fonts.fira-code
@@ -14,11 +14,11 @@
       nerd-fonts.symbols-only
       nerd-fonts.victor-mono
       noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      openmoji-color
+      # noto-fonts-cjk-sans
+      # noto-fonts-emoji
+      # openmoji-color
       source-sans
-      twemoji-color-font
+      # twemoji-color-font
     ];
   };
 }
