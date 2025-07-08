@@ -186,7 +186,7 @@
   confirm_quit = true;
   context_servers = {
     mcp-nixos = {
-      command = "${pkgs.uvx}/bin/uvx";
+      command = "${pkgs.uv}/bin/uvx";
       args = [ "mcp-nixos" ];
       source = "custom";
     };
