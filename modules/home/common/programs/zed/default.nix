@@ -44,7 +44,7 @@ in
         with lib;
         mergeAttrsList (
           forEach (attrNames (builtins.readDir ./themes)) (theme: {
-            "${removeSuffix ".json" theme}" = (./themes + ("/" + theme));
+            "${removeSuffix ".json" theme}" = ./themes + ("/" + theme);
           })
         );
 

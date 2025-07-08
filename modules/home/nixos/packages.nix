@@ -14,7 +14,5 @@
     muvm
     nodejs
     parted
-    sommelier
-    waydroid
   ];
 }
