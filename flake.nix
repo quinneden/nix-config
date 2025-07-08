@@ -105,8 +105,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     virby = {
-      # url = "github:quinneden/virby-nix-darwin";
-      url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
+      url = "github:quinneden/virby-nix-darwin?ref=dev";
+      # url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     zed-extensions = {
