@@ -1,93 +1,50 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  # Font and appearance settings
-  agent_font_size = 16.5;
-  buffer_font_family = "CaskaydiaCove Nerd Font";
-  buffer_font_size = 15.5;
-  buffer_line_height = {
-    custom = 1.6;
-  };
-  icon_theme = "Symbols";
-  theme = {
-    dark = "Aylin";
-    light = "Aylin";
-    mode = "dark";
-  };
-  ui_font_family = ".SystemUIFont";
-  ui_font_size = 16;
-
-  # Layout and display settings
-  active_pane_modifiers = {
-    inactive_opacity = 0.8;
-  };
-  centered_layout = {
-    left_padding = 0.2;
-    right_padding = 0.2;
-  };
-  current_line_highlight = "all";
-  project_panel = {
-    auto_fold_dirs = false;
-    entry_spacing = "standard";
-    indent_size = 22;
-    scrollbar = {
-      show = "never";
-    };
-  };
-  scroll_sensitivity = 1.5;
-  scrollbar = {
-    axes = {
-      horizontal = false;
-    };
-  };
-  soft_wrap = "none";
-
-  # General editor settings
-  auto_update = false;
-  base_keymap = "VSCode";
-  confirm_quit = true;
-  extend_comment_on_newline = false;
-  load_direnv = "direct";
-  private_files = [
-    "**/.env*"
-    "**/*.pem"
-    "**/*.key"
-    "**/*.cert"
-    "**/*.crt"
-    "**/secrets.y.*ml"
-  ];
-  tab_size = 2;
-  tabs = {
-    activate_on_close = "history";
-    git_status = true;
-  };
-  telemetry = {
-    diagnostics = false;
-    metrics = false;
-  };
-  when_closing_with_no_tabs = "keep_window_open";
-
-  # AI and assistant settings
   agent = {
     always_allow_tool_actions = true;
+    commit_message_model = {
+      model = "claude-sonnet-3.7-thinking";
+      provider = "copilot_chat";
+    };
     default_model = {
-      enable_experimental_live_diffs = true;
-      enabled = true;
-      model = "claude-3-7-sonnet-thinking-latest";
-      provider = "zed.dev";
+      model = "claude-sonnet-4";
+      provider = "copilot_chat";
     };
     default_profile = "write";
-    default_width = 740;
-    editor_model = {
-      enabled = true;
-      model = "claude-3-7-sonnet-thinking-latest";
-      provider = "zed.dev";
-    };
+    default_width = 780;
+    enable_feedback = false;
+    play_sound_when_agent_done = true;
     profiles = {
       ask = {
-        name = "Ask";
-        enable_all_context_servers = true;
-
         context_servers = {
+          mcp-nixos = {
+            tools = {
+              darwin_info = true;
+              darwin_list_options = true;
+              darwin_options_by_prefix = true;
+              darwin_search = true;
+              darwin_stats = true;
+              home_manager_info = true;
+              home_manager_list_options = true;
+              home_manager_options_by_prefix = true;
+              home_manager_search = true;
+              home_manager_stats = true;
+              nixhub_find_version = true;
+              nixhub_package_versions = true;
+              nixos_channels = true;
+              nixos_flakes_search = true;
+              nixos_flakes_stats = true;
+              nixos_info = true;
+              nixos_search = true;
+              nixos_stats = true;
+            };
+          };
+          mcp-server-byterover = {
+            tools = {
+              create-memories = true;
+              search-memories = true;
+            };
+          };
           mcp-server-context7 = {
             tools = {
               get-library-docs = true;
@@ -96,58 +53,44 @@
           };
           mcp-server-github = {
             tools = {
-              add_issue_comment = false;
-              add_pull_request_review_comment = false;
-              create_branch = false;
-              create_issue = false;
-              create_or_update_file = false;
-              create_pull_request = false;
-              create_pull_request_review = false;
-              create_repository = false;
-              fork_repository = false;
-              get_code_scanning_alert = true;
+              get_code_scanning_alert = false;
               get_commit = true;
               get_file_contents = true;
               get_issue = true;
               get_issue_comments = true;
               get_me = true;
+              get_notification_details = true;
               get_pull_request = true;
               get_pull_request_comments = true;
               get_pull_request_files = true;
               get_pull_request_reviews = true;
               get_pull_request_status = true;
-              get_secret_scanning_alert = true;
+              get_secret_scanning_alert = false;
+              get_tag = true;
               list_branches = true;
-              list_code_scanning_alerts = true;
+              list_code_scanning_alerts = false;
               list_commits = true;
               list_issues = true;
+              list_notifications = false;
               list_pull_requests = true;
-              list_secret_scanning_alerts = true;
-              merge_pull_request = false;
-              push_files = false;
+              list_secret_scanning_alerts = false;
+              list_tags = true;
               search_code = true;
               search_issues = true;
               search_repositories = true;
               search_users = true;
-              update_issue = false;
-              update_pull_request = false;
-              update_pull_request_branch = false;
             };
           };
         };
-
+        enable_all_context_servers = false;
+        name = "Ask";
         tools = {
           contents = true;
-          copy_path = false;
-          create_directory = false;
-          delete_path = false;
           diagnostics = true;
-          edit_file = false;
           fetch = true;
           find_path = true;
           grep = true;
           list_directory = true;
-          move_path = false;
           now = true;
           open = true;
           read_file = true;
@@ -156,11 +99,7 @@
           web_search = true;
         };
       };
-
       minimal = {
-        name = "Minimal";
-        enable_all_context_servers = false;
-
         context_servers = {
           mcp-server-context7 = {
             tools = {
@@ -169,16 +108,15 @@
             };
           };
         };
+        enable_all_context_servers = false;
+        name = "Minimal";
       };
-
       write = {
-        name = "Write";
         enable_all_context_servers = true;
-
+        name = "Write";
         tools = {
           copy_path = true;
           create_directory = true;
-          create_file = true;
           delete_path = true;
           diagnostics = true;
           edit_file = true;
@@ -196,145 +134,291 @@
         };
       };
     };
-
     stream_edits = true;
-    version = "2";
   };
-
+  agent_font_size = 18;
+  auto_install_extensions = {
+    basher = true;
+    charmed-icons = true;
+    env = true;
+    git-firefly = true;
+    html = true;
+    ini = true;
+    just = true;
+    make = true;
+    marksman = true;
+    mcp-server-context7 = true;
+    mcp-server-github = true;
+    nix = true;
+    pylsp = true;
+    ruff = true;
+    tombi = true;
+    toml = true;
+  };
+  auto_update = true;
+  auto_update_extensions = {
+    basher = true;
+    charmed-icons = true;
+    env = true;
+    git-firefly = true;
+    html = true;
+    ini = true;
+    just = true;
+    make = true;
+    marksman = true;
+    mcp-server-byterover = false;
+    mcp-server-context7 = true;
+    mcp-server-github = false;
+    nix = false;
+    pylsp = true;
+    ruff = true;
+    tombi = true;
+    toml = true;
+  };
+  base_keymap = "VSCode";
+  buffer_font_family = "VictorMono Nerd Font";
+  buffer_font_size = 15.5;
+  buffer_font_weight = 501;
+  centered_layout = {
+    left_padding = 0.2;
+    right_padding = 0.2;
+  };
+  confirm_quit = true;
   context_servers = {
-    mcp-server-context7 = {
-      command = {
-        path = "npx";
-        args = [
-          "-y"
-          "@upstash/context7-mcp@latest"
-        ];
-      };
+    mcp-nixos = {
+      command = "${pkgs.uvx}/bin/uvx";
+      args = [ "mcp-nixos" ];
+      source = "custom";
     };
-
-    mcp-server-github =
-      let
-        github-mcp-server-wrapped = pkgs.writeShellScriptBin "github-mcp-server-wrapped" ''
-          export GITHUB_PERSONAL_ACCESS_TOKEN=$(cat ${config.sops.secrets.github_token.path})
-          ${pkgs.github-mcp-server}/bin/github-mcp-server "$@"
-        '';
-      in
-      {
-        command = {
-          path = "${github-mcp-server-wrapped}/bin/github-mcp-server-wrapped";
-          args = [ "stdio" ];
-        };
+    mcp-server-byterover = {
+      settings = {
+        memory_workspace_key = "pk-br-9a546ebb-be82-480a-93e6-1744a104ff90";
+        user_email = "quinn@qeden.dev";
       };
+      source = "extension";
+    };
+    mcp-server-github = {
+      settings = {
+        github_personal_access_token = inputs.secrets.github-token;
+      };
+      source = "extension";
+    };
   };
-
+  current_line_highlight = "all";
+  debugger = {
+    button = true;
+  };
+  edit_predictions = {
+    disabled_globs = [ ".env" ];
+  };
+  extend_comment_on_newline = false;
   features = {
-    edit_prediction_provider = "zed";
+    edit_prediction_provider = "copilot";
   };
-
-  edit_predictions.mode = "subtle";
-
-  # Git settings
   git = {
     inline_blame = {
-      delay_ms = 1800;
+      delay_ms = 1200;
       enabled = true;
     };
   };
-
-  # Language specific settings
+  icon_theme = "Symbols";
   languages = {
-    HTML = {
-      language_servers = [ "vscode-html-language-server" ];
+    "Git Commit" = {
+      allow_rewrap = "anywhere";
+      preferred_line_length = 80;
+      soft_wrap = "editor_width";
     };
-
     JSONC = {
       preferred_line_length = 100;
     };
-
+    Just = {
+      formatter = [
+        {
+          external = {
+            arguments = [
+              "--dump"
+              "--justfile=/dev/stdin"
+            ];
+            command = "just";
+          };
+        }
+      ];
+      tab_size = 4;
+    };
     Markdown = {
       language_servers = [ "marksman" ];
+      remove_trailing_whitespace_on_save = false;
     };
-
     Nix = {
-      language_servers = [ "nixd" ];
+      edit_predictions_disabled_in = [
+        "string"
+        "comment"
+      ];
+      formatter = [
+        {
+          external = {
+            arguments = [ "--strict" ];
+            command = "nixfmt";
+          };
+        }
+      ];
+      language_servers = [
+        "nil"
+        "nixd"
+      ];
     };
-
     Python = {
-      formatter = [ { language_server.name = "ruff"; } ];
+      formatter = [
+        {
+          language_server = {
+            name = "ruff";
+          };
+        }
+      ];
       language_servers = [
         "ruff"
         "pylsp"
       ];
-      preferred_line_length = 80;
       tab_size = 4;
     };
+    TOML = {
+      formatter = [
+        {
+          language_server = {
+            name = "toml";
+          };
+        }
+      ];
+      language_servers = [
+        "toml"
+        "!taplo"
+      ];
+    };
   };
-
-  # LSP settings
-  jupyter.enabled = false;
-
+  load_direnv = "direct";
   lsp = {
-    nixd = {
-      initialization_options = {
-        formatting = {
-          command = [
-            "nixfmt"
-            "--strict"
-          ];
-        };
-
-        nixpkgs.expr = "import (builtins.getFlake \"flake:nixpkgs\") { }";
-
-        options = {
-          darwin.expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).darwinConfigurations.macmini-m4.options";
-          home-manager.expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).darwinConfigurations.macmini-m4.options.home-manager.users.type.getSubOptions [ ]";
-          nixos.expr = "(builtins.getFlake (\"git+file://\" + toString ~/.dotfiles)).nixosConfigurations.macmini-m1.options";
+    nil = {
+      nix = {
+        binary = "/run/current-system/sw/bin/nix";
+        flake = {
+          autoArchive = true;
+          autoEvalInputs = false;
+          nixpkgsInputName = "nixpkgs";
         };
       };
     };
-
-    pylsp.settings.rope.ropeFolder = null;
-    ruff.initialization_options.settings.lineLength = 80;
+    nixd = {
+      initialization_options = {
+        options = {
+          darwin = {
+            expr = "(builtins.getFlake (builtins.toString ~/.dotfiles)).darwinConfigurations.macmini-m4.options";
+          };
+          home-manager = {
+            expr = "(builtins.getFlake (builtins.toString ~/.dotfiles)).nixosConfigurations.macmini-m1.options.home-manager.users.type.getSubOptions []";
+          };
+          nixos = {
+            expr = "(builtins.getFlake (builtins.toString ~/.dotfiles)).nixosConfigurations.macmini-m1.options";
+          };
+        };
+      };
+    };
+    pylsp = {
+      settings = {
+        plugins = {
+          pycodestyle = {
+            enabled = false;
+          };
+        };
+        rope = {
+          ropeFolder = null;
+        };
+      };
+    };
+    ruff = {
+      initialization_options = {
+        settings = {
+          lineLength = 100;
+        };
+      };
+    };
   };
-
-  # Terminal settings
+  lsp_highlight_debounce = 75;
+  private_files = [
+    "**/.env*"
+    "**/*.pem"
+    "**/*.key"
+    "**/*.cert"
+    "**/*.crt"
+    "**/secrets.y.*ml"
+  ];
+  project_panel = {
+    auto_fold_dirs = false;
+    default_width = 300;
+    entry_spacing = "comfortable";
+    indent_size = 20;
+    scrollbar = {
+      show = "never";
+    };
+  };
+  scroll_beyond_last_line = "vertical_scroll_margin";
+  scroll_sensitivity = 3;
+  scrollbar = {
+    axes = {
+      horizontal = false;
+    };
+  };
+  show_edit_predictions = true;
+  soft_wrap = "none";
+  tab_size = 2;
+  tabs = {
+    activate_on_close = "history";
+    git_status = true;
+  };
+  telemetry = {
+    diagnostics = false;
+    metrics = false;
+  };
   terminal = {
     blinking = "on";
     cursor_shape = "bar";
     default_height = 760;
     default_width = 640;
-
     detect_venv = {
       on = {
         activate_script = "default";
         directories = [
-          ".env"
-          "env"
           ".venv"
           "venv"
         ];
       };
     };
-
     dock = "bottom";
-
     env = {
-      GIT_EDITOR = "zeditor --wait";
+      GIT_EDITOR = "zed-preview --wait";
     };
-
-    font_family = "CaskaydiaCove Nerd Font Mono";
+    font_family = "VictorMono Nerd Font Mono";
     font_size = 15;
+    font_weight = 500;
     line_height = "comfortable";
     max_scroll_history_lines = 2000;
-
     scrollbar = {
       show = "never";
     };
-
     shell = "system";
-
     toolbar = {
       breadcrumbs = false;
     };
+    working_directory = "current_project_directory";
   };
+  theme = {
+    dark = "Azutiku Dark  (with italics)";
+    light = "Aylin";
+    mode = "dark";
+  };
+  ui_font_family = "SF Pro Text";
+  ui_font_size = 16;
+  use_system_path_prompts = false;
+  use_system_prompts = false;
+  vertical_scroll_margin = 8;
+  when_closing_with_no_tabs = "keep_window_open";
 }

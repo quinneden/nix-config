@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -26,25 +25,19 @@ in
   imports = [ inputs.zed-extensions.homeManagerModules.default ];
 
   programs = {
-    zed-editor = rec {
+    zed-editor = {
       enable = pkgs.stdenv.isLinux;
-      package = pkgs.zed-editor;
 
       extraPackages = with pkgs; [
         github-mcp-server
         just-lsp
-        markdown-oxide
         marksman
         nixd
         nixfmt-rfc-style
         yaml-language-server
         package-version-server
         pythonEnv
-        ruby
         ruff
-        superhtml
-        tailwindcss-language-server
-        vtsls
       ];
 
       themes =
@@ -56,37 +49,26 @@ in
         );
 
       userKeymaps = import ./keymap.nix { inherit lib pkgs; };
-      userSettings = import ./settings.nix {
-        inherit
-          config
-          inputs
-          lib
-          pkgs
-          package
-          ;
-      };
+      userSettings = import ./settings.nix { inherit inputs pkgs; };
     };
 
     zed-editor-extensions = {
       enable = pkgs.stdenv.isLinux;
       packages = with pkgs.zed-extensions; [
         basher
+        mcp-server-byterover
         env
         git-firefly
         html
         ini
-        jinja2
         just
         make
-        markdown-oxide
         marksman
         mcp-server-context7
         mcp-server-github
         nix
         pylsp
         ruff
-        scss
-        symbols
         tombi
         toml
       ];

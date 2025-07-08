@@ -1,27 +1,5 @@
 {
   "nodes": {
-    "acmsg": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pyproject-nix": "pyproject-nix",
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1747261735,
-        "narHash": "sha256-LQDvriFh+qPUn/gKMte/ZE+459LNSRYd+D0N0CQhkX8=",
-        "owner": "quinneden",
-        "repo": "acmsg",
-        "rev": "6ddc5fb5b7d2ffc1896463e2ac63a8e1ae85de28",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quinneden",
-        "repo": "acmsg",
-        "type": "github"
-      }
-    },
     "ags": {
       "inputs": {
         "astal": "astal",
@@ -143,7 +121,7 @@
     },
     "flake-utils": {
       "inputs": {
-        "systems": "systems_2"
+        "systems": "systems"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -298,7 +276,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_3"
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1742156590,
@@ -339,11 +317,11 @@
     "morewaita": {
       "flake": false,
       "locked": {
-        "lastModified": 1751858541,
-        "narHash": "sha256-WAwx4p+uKr7YVbgz/IkqBcH47NbqiTV6rbCcKdyAuzE=",
+        "lastModified": 1751893303,
+        "narHash": "sha256-tcdHshU8dNeZKd0FR09H9C0PpCTk1bpcZmc2iknKKMg=",
         "owner": "somepaulo",
         "repo": "MoreWaita",
-        "rev": "ac1e78360c08c7bbd0d5da5cd0bc7944bfa50135",
+        "rev": "33b08b85b062027d621f4463c42a3ada0d3d00b2",
         "type": "github"
       },
       "original": {
@@ -431,27 +409,6 @@
         "type": "github"
       }
     },
-    "nix-rosetta-builder": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747607302,
-        "narHash": "sha256-+aJXcVxjHSAQhy2mmTEhMcxQc/2EqnOrWn9o2ceKfVM=",
-        "owner": "quinneden",
-        "repo": "nix-rosetta-builder",
-        "rev": "94c1743a27a19435d73d9d2205dc92d8b9d73cbb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quinneden",
-        "ref": "opinionated",
-        "repo": "nix-rosetta-builder",
-        "type": "github"
-      }
-    },
     "nixos-apple-silicon": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -475,11 +432,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1751786137,
-        "narHash": "sha256-lIlUKVGCGsh0Q2EA7/6xRtKUZjaQ/ur8uUyY+MynHXQ=",
+        "lastModified": 1751852175,
+        "narHash": "sha256-+MLlfTCCOvz4K6AcSPbaPiFM9MYi7fA2Wr1ibmRwIlM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ceb24d94c6feaa4e8737a8e2bd3cf71c3a7eaaa0",
+        "rev": "2defa37146df235ef62f566cde69930a86f14df1",
         "type": "github"
       },
       "original": {
@@ -535,6 +492,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1751382304,
+        "narHash": "sha256-p+UruOjULI5lV16FkBqkzqgFasLqfx0bihLBeFHiZAs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d31a91c9b3bee464d054633d5f8b84e17a637862",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1744536153,
         "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
         "owner": "NixOS",
@@ -561,30 +534,8 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
-    "pyproject-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "acmsg",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1746540146,
-        "narHash": "sha256-QxdHGNpbicIrw5t6U3x+ZxeY/7IEJ6lYbvsjXmcxFIM=",
-        "owner": "pyproject-nix",
-        "repo": "pyproject.nix",
-        "rev": "e09c10c24ebb955125fda449939bfba664c467fd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pyproject-nix",
-        "repo": "pyproject.nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "acmsg": "acmsg",
         "apple-fonts": "apple-fonts",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",
@@ -595,7 +546,6 @@
         "morewaita": "morewaita",
         "nh": "nh",
         "nix-darwin": "nix-darwin",
-        "nix-rosetta-builder": "nix-rosetta-builder",
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs",
         "secrets": "secrets",
@@ -608,7 +558,7 @@
     },
     "rust-overlay": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1751078221,
@@ -790,21 +740,6 @@
     },
     "systems_2": {
       "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_3": {
-      "locked": {
         "lastModified": 1689347925,
         "narHash": "sha256-ozenz5bFe1UUqOn7f60HRmgc01BgTGIKZ4Xl+HbocGQ=",
         "owner": "nix-systems",
@@ -820,16 +755,13 @@
     },
     "virby": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
+        "dirtyRev": "c590c04ba9646b298ba442d6994da1c9289b3d7a-dirty",
+        "dirtyShortRev": "c590c04-dirty",
         "lastModified": 1751805996,
-        "narHash": "sha256-zvHhW/j382gQCmx/E5tvezqfK7Vzz04hyB5Se5Sas30=",
-        "ref": "refs/heads/main",
-        "rev": "c590c04ba9646b298ba442d6994da1c9289b3d7a",
-        "revCount": 22,
+        "narHash": "sha256-dJDZKl8xieUxo69kEqWOx6hMLC9kF/s4oOPdCt0Lvak=",
         "type": "git",
         "url": "file:///Users/quinn/Repositories/personal/virby-nix-darwin"
       },

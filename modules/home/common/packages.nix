@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    inputs.acmsg.packages.${pkgs.system}.acmsg
+    # inputs.acmsg.packages.${pkgs.system}.acmsg
     inputs.shellpers.packages.${pkgs.system}.metapackage
     bat
     cachix

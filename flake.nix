@@ -39,10 +39,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    acmsg = {
-      url = "github:quinneden/acmsg";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # acmsg = {
+    #   url = "github:quinneden/acmsg";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,10 +83,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-rosetta-builder = {
-      url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nix-rosetta-builder = {
+    #   url = "github:quinneden/nix-rosetta-builder?ref=opinionated";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nixos-apple-silicon = {
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -105,8 +105,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     virby = {
+      # url = "github:quinneden/virby-nix-darwin";
       url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     zed-extensions = {
       url = "github:DuskSystems/nix-zed-extensions";
