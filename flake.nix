@@ -77,6 +77,7 @@
     };
     matshell = {
       url = "github:neurarian/matshell";
+      inputs.ags.follows = "ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nh = {
