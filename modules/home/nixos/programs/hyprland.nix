@@ -1,15 +1,6 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    inputs.marble-shell.packages.${pkgs.system}.astal
-    inputs.marble-shell.packages.${pkgs.system}.default
-    astal.mpris
-    brightnessctl
     pulseaudio # pactl
     qt5.qtwayland
     qt6.qtwayland
@@ -33,9 +24,7 @@
     settings = {
       exec-once = [
         "hyprctl setcursor phinger-cursors-dark 24"
-        "uwsm app -- marble && sleep 2 && astal -t launcher"
-        # "uwsm app -- marble-launcher"
-        "swww-daemon"
+        # "swww-daemon"
       ];
 
       monitor = [ ",preferred,auto,1,bitdepth,10" ];
@@ -47,9 +36,7 @@
         # "col.active_border" = "rgba(51a4e7ff)";
       };
 
-      render = {
-        explicit_sync = 0;
-      };
+      render.explicit_sync = 0;
 
       misc = {
         disable_splash_rendering = true;
@@ -87,9 +74,7 @@
         persistent_warps = true;
       };
 
-      binds = {
-        allow_workspace_cycles = true;
-      };
+      binds.allow_workspace_cycles = true;
 
       dwindle = {
         pseudotile = true;
@@ -145,15 +130,6 @@
         in
         [
           "CTRL ALT, Delete, exec, uwsm stop"
-          # "CTRL ALT, R,      exec, marble quit; marble"
-          # "SUPER, R,         exec, marble-launcher --open"
-          # "SUPER, Tab,       exec, marble-launcher ':sh'"
-          # ",XF86PowerOff,    exec, marble shutdown"
-          # ",XF86MenuKB,      exec, marble lockscreen"
-          "CTRL ALT, R,      exec, marble quit; uwsm app -- marble && sleep 2 && astal -t launcher"
-          "SUPER, R,         exec, astal -t launcher"
-          "SUPER, Tab,       exec, astal eval \"launcher('sh')\""
-          ",XF86MenuKB,      exec, astal -t powermenu"
 
           "SUPER, Return,    exec, ghostty"
           "SUPER CTRL, W,    exec, hdrop -c ghostty.hdrop -- ghostty --class=ghostty.hdrop"
@@ -185,11 +161,11 @@
       ];
 
       bindl = [
-        ",XF86AudioPlay,  exec, astal-mpris play-pause"
-        ",XF86AudioStop,  exec, astal-mpris pause"
-        ",XF86AudioPause, exec, astal-mpris pause"
-        ",XF86AudioPrev,  exec, astal-mpris previous"
-        ",XF86AudioNext,  exec, astal-mpris next"
+        # ",XF86AudioPlay,  exec, astal-mpris play-pause"
+        # ",XF86AudioStop,  exec, astal-mpris pause"
+        # ",XF86AudioPause, exec, astal-mpris pause"
+        # ",XF86AudioPrev,  exec, astal-mpris previous"
+        # ",XF86AudioNext,  exec, astal-mpris next"
         ",XF86AudioMute,  exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
       ];
 

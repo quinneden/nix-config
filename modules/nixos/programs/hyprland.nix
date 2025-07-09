@@ -14,7 +14,7 @@
 
   security = {
     polkit.enable = true;
-    pam.services.astal-auth = { };
+    # pam.services.astal-auth = { };
   };
 
   environment.systemPackages = with pkgs; [

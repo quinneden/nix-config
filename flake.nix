@@ -39,10 +39,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # acmsg = {
-    #   url = "github:quinneden/acmsg";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,6 +71,10 @@
       url = "github:somepaulo/MoreWaita";
       flake = false;
     };
+    matshell = {
+      url = "github:neurarian/matshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nh = {
       url = "github:viperml/nh";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -106,8 +106,7 @@
     };
     virby = {
       url = "github:quinneden/virby-nix-darwin?ref=dev";
-      # url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     zed-extensions = {
       url = "github:DuskSystems/nix-zed-extensions";
