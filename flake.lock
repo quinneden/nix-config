@@ -261,7 +261,7 @@
         "narHash": "sha256-SXUAlxpjPRkArRMHy5+Hdi+PiC+ND9yzzIjiaHmTvQU=",
         "rev": "8b1094356f4723d6e89d3f8a95b333ee16d9ab02",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/8b1094356f4723d6e89d3f8a95b333ee16d9ab02.tar.gz?rev=8b1094356f4723d6e89d3f8a95b333ee16d9ab02"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/8b1094356f4723d6e89d3f8a95b333ee16d9ab02.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -318,7 +318,7 @@
       "flake": false,
       "locked": {
         "lastModified": 1751893303,
-        "narHash": "sha256-tcdHshU8dNeZKd0FR09H9C0PpCTk1bpcZmc2iknKKMg=",
+        "narHash": "sha256-Gi73Cn/FwI055Inodo8huHeaWGTy9IR3qPMbjAHBsPw=",
         "owner": "somepaulo",
         "repo": "MoreWaita",
         "rev": "33b08b85b062027d621f4463c42a3ada0d3d00b2",
@@ -465,8 +465,8 @@
     "nixpkgs_2": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-4E7wWftF1ExK5ZEDzj41+9mVgxtuRV3wWCId7QAYMAU=",
-        "path": "/nix/store/i7ykaggappvy548qa4m5aw9msj5cz2vf-source",
+        "narHash": "sha256-lIlUKVGCGsh0Q2EA7/6xRtKUZjaQ/ur8uUyY+MynHXQ=",
+        "path": "/nix/store/gfwa82ddpxsccq89rm4pnm2bk9y4cprp-source",
         "type": "path"
       },
       "original": {
@@ -579,10 +579,10 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1751687311,
-        "narHash": "sha256-iYeRW8LnCYRwbZx/Z2HJCyB5CwIyLvKqMYVh1H1+aEU=",
+        "lastModified": 1751934190,
+        "narHash": "sha256-JPfmJgR5zQ1PINm2pWcjvYqBgjP2RRSg4rRd85FXu6w=",
         "ref": "main",
-        "rev": "0f010e029434dd71ba2235820c1fa3f28da1ae17",
+        "rev": "6b5e97bbb8c28f754f7f3d4e9aa85105b74b6133",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/quinneden/secrets"
@@ -758,16 +758,18 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "dirtyRev": "c590c04ba9646b298ba442d6994da1c9289b3d7a-dirty",
-        "dirtyShortRev": "c590c04-dirty",
         "lastModified": 1751805996,
-        "narHash": "sha256-dJDZKl8xieUxo69kEqWOx6hMLC9kF/s4oOPdCt0Lvak=",
-        "type": "git",
-        "url": "file:///Users/quinn/Repositories/personal/virby-nix-darwin"
+        "narHash": "sha256-zvHhW/j382gQCmx/E5tvezqfK7Vzz04hyB5Se5Sas30=",
+        "owner": "quinneden",
+        "repo": "virby-nix-darwin",
+        "rev": "c590c04ba9646b298ba442d6994da1c9289b3d7a",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///Users/quinn/Repositories/personal/virby-nix-darwin"
+        "owner": "quinneden",
+        "ref": "dev",
+        "repo": "virby-nix-darwin",
+        "type": "github"
       }
     },
     "zed-extensions": {

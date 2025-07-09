@@ -1,34 +1,45 @@
-{ lib, modulesPath, ... }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
+
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "usbhid"
   ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7fe199f1-cc9d-45dd-a9c1-57da345630ab";
+    device = "/dev/disk/by-uuid/65b89f3d-51f5-4b2b-b287-7df9e34702ab";
     fsType = "btrfs";
     options = [
+      "subvol=@"
       "compress=zstd"
       "noatime"
-      "subvol=@"
     ];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/7fe199f1-cc9d-45dd-a9c1-57da345630ab";
+    device = "/dev/disk/by-uuid/65b89f3d-51f5-4b2b-b287-7df9e34702ab";
     fsType = "btrfs";
     options = [
-      "compress=zstd"
-      "noatime"
       "subvol=@nix"
+      "noatime"
+      "compress=zstd"
     ];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/73C8-161E";
+    device = "/dev/disk/by-uuid/65E9-15F3";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -37,11 +48,11 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/7fe199f1-cc9d-45dd-a9c1-57da345630ab";
+    device = "/dev/disk/by-uuid/65b89f3d-51f5-4b2b-b287-7df9e34702ab";
     fsType = "btrfs";
     options = [
-      "compress=zstd"
       "subvol=@home"
+      "compress=zstd"
     ];
   };
 
