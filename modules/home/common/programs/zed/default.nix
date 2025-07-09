@@ -18,6 +18,7 @@ let
       pyyaml
       requests
       rope
+      uv
     ]
   );
 in
