@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   services.logind.extraConfig = ''
     HandlePowerKey=ignore

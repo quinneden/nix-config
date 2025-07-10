@@ -12,6 +12,6 @@
   '';
 
   xdg.configFile."uwsm/env-hyprland".text = ''
-    export AQ_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
+    export AQ_DRM_DEVICES=/dev/dri/card2:/dev/dri/card1
   '';
 }

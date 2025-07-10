@@ -33,7 +33,7 @@
     settings = {
       exec-once = [
         "hyprctl setcursor phinger-cursors-dark 24"
-        "uwsm app -- marble && sleep 2 && astal -t launcher"
+        "uwsm app -- marble"
         # "uwsm app -- marble-launcher"
         "swww-daemon"
       ];
