@@ -14,6 +14,7 @@
       "homebrew/services"
       "iina/homebrew-mpv-iina"
       "slp/krunkit"
+      "sst/tap"
     ];
 
     casks = [
@@ -37,6 +38,7 @@
       "aria2"
       "awscli"
       "bat"
+      "bazelisk"
       "bzip2"
       "chroma"
       "cmake"
@@ -59,6 +61,7 @@
       "gobject-introspection"
       "gptfdisk"
       "gum"
+      "hugo"
       "jq"
       "just"
       "ldid"
@@ -97,6 +100,8 @@
       "slp/krunkit/molten-vk-krunkit"
       "slp/krunkit/virglrenderer"
       "socat"
+      "sst/tap/opencode"
+      "superhtml"
       "tlrc"
       "tree"
       "uv"
