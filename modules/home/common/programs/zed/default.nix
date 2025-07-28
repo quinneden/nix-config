@@ -23,7 +23,7 @@ let
   );
 in
 {
-  imports = [ inputs.zed-extensions.homeManagerModules.default ];
+  # imports = [ inputs.zed-extensions.homeManagerModules.default ];
 
   programs = {
     zed-editor = {
@@ -53,26 +53,26 @@ in
       userSettings = import ./settings.nix { inherit inputs pkgs; };
     };
 
-    zed-editor-extensions = {
-      enable = pkgs.stdenv.isLinux;
-      packages = with pkgs.zed-extensions; [
-        basher
-        mcp-server-byterover
-        env
-        git-firefly
-        html
-        ini
-        just
-        make
-        marksman
-        mcp-server-context7
-        mcp-server-github
-        nix
-        pylsp
-        ruff
-        tombi
-        toml
-      ];
-    };
+    # zed-editor-extensions = {
+    #   enable = pkgs.stdenv.isLinux;
+    #   packages = with pkgs.zed-extensions; [
+    #     basher
+    #     mcp-server-byterover
+    #     env
+    #     git-firefly
+    #     html
+    #     ini
+    #     just
+    #     make
+    #     marksman
+    #     mcp-server-context7
+    #     mcp-server-github
+    #     nix
+    #     pylsp
+    #     ruff
+    #     tombi
+    #     toml
+    #   ];
+    # };
   };
 }

@@ -29,9 +29,9 @@
       "pearcleaner"
       "podman-desktop"
       "tailscale-app"
-      "utm"
+      "utm@beta"
       "zen"
-      "zed@preview"
+      "zed"
     ];
 
     brews = [
@@ -85,6 +85,7 @@
       "pipenv"
       "pipx"
       "pkg-config"
+      "pnpm"
       "podman"
       "podman-compose"
       "pv"

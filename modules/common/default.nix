@@ -48,7 +48,6 @@
     config.allowUnfree = true;
     overlays = [
       inputs.shellpers.overlays.default
-      inputs.nh.overlays.default
       self.overlays.default
     ];
   };

@@ -1,37 +1,21 @@
-{
-  # config,
-  inputs,
-  # lib,
-  ...
-}:
+{ inputs, ... }:
 {
   imports = [ inputs.virby.darwinModules.default ];
 
-  # nix.linux-builder.enable = true;
+  nix.settings = {
+    extra-substituters = [ "https://virby-nix-darwin.cachix.org" ];
+    extra-trusted-public-keys = [
+      "virby-nix-darwin.cachix.org-1:z9GiEZeBU5bEeoDQjyfHPMGPBaIQJOOvYOOjGMKIlLo="
+    ];
+  };
+
   services.virby = {
     enable = true;
-
     cores = 8;
-    memory = 8192;
-    diskSize = "150GiB";
-
     debug = true;
-    onDemand = {
-      enable = true;
-      ttl = 180;
-    };
-
-    # extraConfig = {
-    #   imports = [ inputs.lix-module.nixosModules.default ];
-
-    #   nix = {
-    #     optimise.automatic = true;
-    #     settings = {
-    #       inherit (config.nix.settings) access-tokens;
-    #       max-free = lib.mkForce null;
-    #       mix-free = lib.mkForce null;
-    #     };
-    #   };
-    # };
+    memory = 8192;
+    onDemand.enable = true;
+    # onDemand.ttl = 1;
+    speedFactor = 2;
   };
 }

@@ -39,22 +39,22 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # apple-fonts = {
+    #   url = "github:Lyndeno/apple-fonts.nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    icon-browser = {
-      url = "github:quinneden/icon-browser";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland-contrib = {
+    #   url = "github:hyprwm/contrib";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # icon-browser = {
+    #   url = "github:quinneden/icon-browser";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,26 +63,22 @@
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    marble-shell = {
-      url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    morewaita = {
-      url = "github:somepaulo/MoreWaita";
-      flake = false;
-    };
-    nh = {
-      url = "github:viperml/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # marble-shell = {
+    #   url = "git+ssh://git@github.com/quinneden/marble-shell?ref=aarch64-linux/main";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # morewaita = {
+    #   url = "github:somepaulo/MoreWaita";
+    #   flake = false;
+    # };
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-apple-silicon = {
+    #   url = "github:nix-community/nixos-apple-silicon";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     secrets = {
       url = "git+ssh://git@github.com/quinneden/secrets?ref=main&shallow=1";
       inputs = { };
@@ -90,23 +86,23 @@
     shellpers = {
       url = "github:quinneden/shellpers";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix-module.follows = "lix-module";
     };
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     virby = {
-      url = "github:quinneden/virby-nix-darwin?ref=dev";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:quinneden/virby-nix-darwin";
+      # url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
-    zed-extensions = {
-      url = "github:DuskSystems/nix-zed-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # zed-extensions = {
+    #   url = "github:DuskSystems/nix-zed-extensions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # zen-browser = {
+    #   url = "github:youwen5/zen-browser-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 }
