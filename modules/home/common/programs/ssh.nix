@@ -13,8 +13,8 @@ in
     includes = [ "config.d/*.conf" ];
     matchBlocks = {
       "oc-runner" = {
-        hostname = "129.146.66.178";
-        user = "root";
+        hostname = "100.88.22.94"; # 129.146.66.178
+        user = "quinn";
         identityFile = systemConfig.sops.secrets.ssh_ed25519_oc-runner.path;
       };
 

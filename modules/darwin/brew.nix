@@ -108,6 +108,7 @@
       "uv"
       "watch"
       "wget"
+      "withered-magic/brew/starpls"
       "yq"
       "zbar"
       "zlib"
