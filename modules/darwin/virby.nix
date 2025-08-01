@@ -2,12 +2,12 @@
 {
   imports = [ inputs.virby.darwinModules.default ];
 
-  nix.settings = {
-    extra-substituters = [ "https://virby-nix-darwin.cachix.org" ];
-    extra-trusted-public-keys = [
-      "virby-nix-darwin.cachix.org-1:z9GiEZeBU5bEeoDQjyfHPMGPBaIQJOOvYOOjGMKIlLo="
-    ];
-  };
+  # nix.settings = {
+  #   extra-substituters = [ "https://virby-nix-darwin.cachix.org" ];
+  #   extra-trusted-public-keys = [
+  #     "virby-nix-darwin.cachix.org-1:z9GiEZeBU5bEeoDQjyfHPMGPBaIQJOOvYOOjGMKIlLo="
+  #   ];
+  # };
 
   services.virby = {
     enable = true;
@@ -15,7 +15,5 @@
     debug = true;
     memory = 8192;
     onDemand.enable = true;
-    # onDemand.ttl = 1;
-    speedFactor = 2;
   };
 }

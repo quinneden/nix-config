@@ -10,47 +10,46 @@ with lib;
 let
   inherit (pkgs.stdenv) isDarwin isLinux;
 
-  shellAliases =
-    {
-      cddf = "cd ~/.dotfiles";
-      cddl = "cd ~/Downloads";
-      gbl = "git branch --list";
-      gst = "git status";
-      gsur = "git submodule update --init --recursive";
-      l = "eza -la --group-directories-first";
-      ll = "eza -glAh --octal-permissions --group-directories-first";
-      ls = "eza";
-      nhs = "nh search";
-      push = "git push";
-    }
-    // optionalAttrs isDarwin {
-      darwin-man = "man configuration.nix";
-      lc = "limactl";
-      reboot = "sudo reboot";
-      sed = "gsed";
-      shutdown = "sudo shutdown -h now";
-    }
-    // optionalAttrs isLinux {
-      tree = "eza -ATL3 --git-ignore";
-      zed = "zeditor";
-    };
+  shellAliases = {
+    cddf = "cd ~/.dotfiles";
+    cddl = "cd ~/Downloads";
+    ga = "git add";
+    gbl = "git branch --list";
+    gst = "git status";
+    gsur = "git submodule update --init --recursive";
+    l = "eza -la --group-directories-first";
+    ll = "eza -glAh --octal-permissions --group-directories-first";
+    ls = "eza";
+    nhs = "nh search";
+    push = "git push";
+  }
+  // optionalAttrs isDarwin {
+    darwin-man = "man configuration.nix";
+    lc = "limactl";
+    reboot = "sudo reboot";
+    sed = "gsed";
+    shutdown = "sudo shutdown -h now";
+  }
+  // optionalAttrs isLinux {
+    tree = "eza -ATL3 --git-ignore";
+    zed = "zeditor";
+  };
 
-  sessionVariables =
-    {
-      EDITOR = "micro";
-      LANG = "en_US.UTF-8";
-      LC_ALL = "en_US.UTF-8";
-      MICRO_TRUECOLOR = "1";
-    }
-    // optionalAttrs isDarwin {
-      LESS = "-RF";
-      PAGER = "less";
-      TMPDIR = "/tmp";
-    }
-    // optionalAttrs isLinux {
-      NH_FLAKE = "$HOME/.dotfiles";
-      NIXOS_CONFIG = "$HOME/.dotfiles";
-    };
+  sessionVariables = {
+    EDITOR = "micro";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    MICRO_TRUECOLOR = "1";
+  }
+  // optionalAttrs isDarwin {
+    LESS = "-RF";
+    PAGER = "less";
+    TMPDIR = "/tmp";
+  }
+  // optionalAttrs isLinux {
+    NH_FLAKE = "$HOME/.dotfiles";
+    NIXOS_CONFIG = "$HOME/.dotfiles";
+  };
 in
 {
   programs.bash = {
@@ -63,7 +62,7 @@ in
   programs.zsh = {
     inherit shellAliases sessionVariables;
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -103,6 +102,7 @@ in
                 break
               fi
             done
+            idx=''${idx:-1}
             path[$idx,$((idx + 1))]=("/opt/homebrew/bin" "/opt/homebrew/sbin")
           else
             path+=("/opt/homebrew/bin" "/opt/homebrew/sbin")
@@ -124,6 +124,8 @@ in
         for f (${config.xdg.configHome}/zsh/{functions,drop-ins}/*(N.)); do
           source "$f"
         done
+
+        [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
       '')
     ];
   };

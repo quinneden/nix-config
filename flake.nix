@@ -56,7 +56,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mac-app-util = {
@@ -91,11 +91,7 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    virby = {
-      url = "github:quinneden/virby-nix-darwin";
-      # url = "git+file:///Users/quinn/Repositories/personal/virby-nix-darwin";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    virby.url = "path:/Users/quinn/Repositories/personal/virby-nix-darwin";
     # zed-extensions = {
     #   url = "github:DuskSystems/nix-zed-extensions";
     #   inputs.nixpkgs.follows = "nixpkgs";
