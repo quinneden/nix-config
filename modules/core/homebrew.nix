@@ -13,15 +13,11 @@
       extraFlags = [ "--quiet" ];
     };
 
-    taps = [
-      "homebrew/bundle"
-      "homebrew/services"
-    ];
+    taps = [ "withered-magic/brew" ];
 
     casks = [
       "iterm2"
       "zen"
-      "zed"
     ];
 
     brews = [

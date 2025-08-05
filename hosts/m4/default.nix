@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/external/sops.nix
     ../../modules/external/nh-darwin.nix
     ../../modules/optional/nh.nix
     ../../modules/optional/virby.nix

@@ -18,6 +18,7 @@
       "podman-desktop"
       "tailscale-app"
       "utm@beta"
+      "zed"
     ];
 
     brews = [

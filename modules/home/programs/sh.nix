@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  user,
+  ...
+}:
 
 with lib;
 
@@ -97,8 +102,8 @@ in
         path+=($HOME/.local/bin)
 
         fpath+=(
-          ${config.nix.package}/share/zsh/site-functions
-          /etc/profiles/per-user/quinn/share/zsh/site-functions
+          ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}
+          /etc/profiles/per-user/${user}/share/zsh/site-functions
           ${config.xdg.configHome}/zsh/completions
         )
       '')

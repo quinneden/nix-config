@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   programs.git = {
     enable = true;
@@ -20,11 +19,6 @@
       github.user = "quinneden";
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-      url = {
-        "https://oauth2:${inputs.secrets.git.token}@github.com" = {
-          insteadOf = "https://github.com";
-        };
-      };
     };
     userEmail = "quinn@qeden.dev";
     userName = "Quinn Edenfield";

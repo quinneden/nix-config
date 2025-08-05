@@ -1,7 +1,12 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 
 {
-  nix = {
+  nix = lib.mkIf config.nix.enable {
     distributedBuilds = true;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     optimise.automatic = true;

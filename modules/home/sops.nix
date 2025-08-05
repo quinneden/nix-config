@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ inputs, user, pkgs, ... }:
 let
   secretsPath = "${inputs.secrets}/sops";
-  homeDir = "${if pkgs.stdenv.isDarwin then "/Users" else "/home"}/quinn";
+  homeDir = "/Users/${user}";
 in
 {
   imports = [ inputs.sops-nix.homeManagerModules.sops ];

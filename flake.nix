@@ -16,7 +16,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    secrets.url = "git+ssh://git@github.com/quinneden/secrets?ref=main&shallow=1";
+    secrets.url = "git+ssh://git@github.com/quinneden/secrets";
     secrets.inputs = { };
 
     shellpers.url = "github:quinneden/shellpers";
