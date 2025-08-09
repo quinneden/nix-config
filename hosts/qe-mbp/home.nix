@@ -15,13 +15,15 @@
 
       users."William.Edenfield" = {
         imports = [
+          ../../modules/home/external
+          ../../modules/home/files.nix
+          ../../modules/home/packages.nix
           ../../modules/home/programs/micro
           ../../modules/home/programs/direnv.nix
           ../../modules/home/programs/eza.nix
           ../../modules/home/programs/sh.nix
           ../../modules/home/programs/starship.nix
           ../../modules/home/programs/zoxide.nix
-          ../../modules/home/external
         ];
         programs.home-manager.enable = true;
         home.stateVersion = "25.11";
