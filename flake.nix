@@ -26,7 +26,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     virby.url = "github:quinneden/virby-nix-darwin";
-    virby.inputs.nixpkgs.follows = "nixpkgs";
+    # virby.url = "path:/Users/William.Edenfield/src/personal/virby-nix-darwin";
+    # virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

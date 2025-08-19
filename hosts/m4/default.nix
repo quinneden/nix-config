@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../../modules/external/sops.nix
     ../../modules/external/nh-darwin.nix
     ../../modules/optional/nh.nix
+    ../../modules/optional/sops.nix
     ../../modules/optional/virby.nix
     ./brew.nix
     ./home.nix

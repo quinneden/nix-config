@@ -1,4 +1,9 @@
-{ inputs, self, ... }:
+{
+  config,
+  inputs,
+  self,
+  ...
+}:
 
 {
   lix.enable = false;
@@ -12,6 +17,7 @@
     ];
 
     settings = {
+      access-tokens = [ "github=@${config.sops.secrets.github_token.path}" ];
       accept-flake-config = true;
       always-allow-substitutes = true;
       trusted-users = [ "quinn" ];

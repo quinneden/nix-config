@@ -12,6 +12,7 @@
     ];
 
     signing.format = "ssh";
+
     extraConfig = {
       color.ui = true;
       core.editor = "micro";
@@ -20,7 +21,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
     };
-    userEmail = "quinn@qeden.dev";
+
     userName = "Quinn Edenfield";
   };
 }
