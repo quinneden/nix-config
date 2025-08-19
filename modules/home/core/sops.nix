@@ -1,4 +1,5 @@
 { inputs, user, ... }:
+
 let
   secretsPath = "${inputs.secrets}/sops";
   homeDir = "/Users/${user}";

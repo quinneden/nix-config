@@ -1,4 +1,5 @@
 { darwinConfig, ... }:
+
 {
   programs.ssh = {
     enable = true;

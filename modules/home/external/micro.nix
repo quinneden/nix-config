@@ -5,6 +5,7 @@
   pkgs,
   ...
 }:
+
 with lib;
 let
   cfg = config.programs.micro;
