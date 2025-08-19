@@ -1,6 +1,7 @@
 {
   homebrew = {
     casks = [
+      "claude-code"
       "betterdisplay"
       "ghostty@tip"
       "zed@preview"
@@ -8,7 +9,6 @@
 
     brews = [
       "awscli"
-      "claude-code"
       "gitlab-ci-ls"
       "glab"
       "go"

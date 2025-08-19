@@ -6,7 +6,7 @@
 }:
 
 {
-  lix.enable = false;
+  lix.enable = true;
 
   nix = {
     daemonProcessType = "Adaptive";

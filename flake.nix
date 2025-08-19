@@ -7,8 +7,12 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    lix-module.url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
+    lix.url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+    lix.flake = false;
+
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
     lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    lix-module.inputs.lix.follows = "lix";
 
     mac-app-util.url = "github:hraban/mac-app-util";
     mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,8 +29,8 @@
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    virby.url = "github:quinneden/virby-nix-darwin";
-    # virby.url = "path:/Users/William.Edenfield/src/personal/virby-nix-darwin";
+    # virby.url = "github:quinneden/virby-nix-darwin";
+    virby.url = "path:/Users/William.Edenfield/src/personal/virby-nix-darwin";
     # virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 

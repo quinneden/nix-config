@@ -1,7 +1,9 @@
 { inputs, ... }:
+
 {
   imports = [ inputs.virby.darwinModules.default ];
 
+  nix.linux-builder.enable = true;
   nix.settings = {
     extra-substituters = [ "https://virby-nix-darwin.cachix.org" ];
     extra-trusted-public-keys = [

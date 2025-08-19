@@ -38,15 +38,15 @@
     };
   };
 
-  home.file."micro-colors" = {
-    recursive = true;
-    target = config.xdg.configHome + "/micro/colorschemes";
-    source = pkgs.micro-colors;
-  };
+  # home.file."micro-colors" = {
+  #   recursive = true;
+  #   target = config.xdg.configHome + "/micro/colorschemes";
+  #   source = pkgs.micro-colors;
+  # };
 
-  home.file."micro-autofmt" = {
-    recursive = true;
-    target = config.xdg.configHome + "/micro/plug/autofmt";
-    source = pkgs.micro-autofmt;
-  };
+  # home.file."micro-autofmt" = {
+  #   recursive = true;
+  #   target = config.xdg.configHome + "/micro/plug/autofmt";
+  #   source = pkgs.micro-autofmt;
+  # };
 }

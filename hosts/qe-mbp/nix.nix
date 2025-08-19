@@ -1,7 +1,15 @@
 { self, ... }:
 
 {
-  nix.enable = false;
+  nix = {
+    settings = {
+      access-tokens = [ "github=@/Users/William.Edenfield/.local/github-token" ];
+      accept-flake-config = true;
+      always-allow-substitutes = true;
+      trusted-users = [ "quinn" ];
+    };
+  };
+
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [ self.overlays.default ];
