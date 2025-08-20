@@ -1,7 +1,6 @@
 {
   homebrew = {
     casks = [
-      "claude-code"
       "betterdisplay"
       "ghostty@tip"
       "zed@preview"

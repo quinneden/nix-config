@@ -17,5 +17,6 @@
     debug = true;
     memory = 8192;
     onDemand.enable = true;
+    rosetta = true;
   };
 }
