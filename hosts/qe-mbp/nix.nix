@@ -6,7 +6,7 @@
       access-tokens = [ "github=@/Users/William.Edenfield/.local/github-token" ];
       accept-flake-config = true;
       always-allow-substitutes = true;
-      trusted-users = [ "quinn" ];
+      trusted-users = [ "William.Edenfield" ];
     };
   };
 
