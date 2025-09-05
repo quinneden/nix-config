@@ -19,7 +19,7 @@ let
     ll = "eza -glAh --octal-permissions --group-directories-first";
     ls = "eza";
     nhs = "nh search";
-    push = "git push";
+    gp = "git push";
     darwin-man = "man configuration.nix";
     lc = "limactl";
     reboot = "sudo reboot";
