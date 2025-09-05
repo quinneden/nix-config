@@ -3,7 +3,6 @@
 {
   imports = [ inputs.virby.darwinModules.default ];
 
-  # nix.linux-builder.enable = true;
   # nix.settings = {
   #   extra-substituters = [ "https://virby-nix-darwin.cachix.org" ];
   #   extra-trusted-public-keys = [
@@ -15,7 +14,7 @@
     enable = true;
     cores = 8;
     debug = true;
-    memory = 8192;
+    memory = 16384;
     onDemand.enable = true;
     rosetta = true;
   };

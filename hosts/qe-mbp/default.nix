@@ -1,5 +1,3 @@
-{ inputs, ... }:
-
 {
   imports = [
     ../../modules/optional/virby.nix
@@ -8,6 +6,5 @@
     ./nix.nix
     ./system.nix
     ./users.nix
-    inputs.lix-module.nixosModules.default
   ];
 }

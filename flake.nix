@@ -11,8 +11,8 @@
     # lix.flake = false;
 
     # lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-    lix-module.url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    # lix-module.url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
+    # lix-module.inputs.nixpkgs.follows = "nixpkgs";
     # lix-module.inputs.lix.follows = "lix";
 
     mac-app-util.url = "github:hraban/mac-app-util";

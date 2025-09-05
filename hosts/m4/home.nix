@@ -21,6 +21,7 @@
         ../../modules/home/optional/pyenv.nix
         ../../modules/home/optional/python.nix
         ../../modules/home/optional/sh.nix
+        ../../modules/home/optional/sops.nix
         ../../modules/home/optional/ssh.nix
         ../../modules/home/optional/starship.nix
         ../../modules/home/optional/zoxide.nix
