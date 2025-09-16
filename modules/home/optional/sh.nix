@@ -9,8 +9,9 @@ with lib;
 
 let
   shellAliases = {
-    cddf = "cd ~/.dotfiles";
-    cddl = "cd ~/Downloads";
+    cd = "z";
+    cddf = "z ~/.dotfiles";
+    cddl = "z ~/Downloads";
     ga = "git add";
     gbl = "git branch --list";
     gst = "git status";
@@ -19,7 +20,8 @@ let
     ll = "eza -glAh --octal-permissions --group-directories-first";
     ls = "eza";
     nhs = "nh search";
-    gp = "git push";
+    gpl = "git pull";
+    gps = "git push";
     darwin-man = "man configuration.nix";
     lc = "limactl";
     reboot = "sudo reboot";
@@ -64,7 +66,8 @@ in
 
     completionInit = ''
       autoload -U compinit && compinit
-      autoload -U bashcompinit && bashcompinit
+      autoload -U +X bashcompinit && bashcompinit
+      complete -o nospace -C /Users/William.Edenfield/.local/go/bin/gocomplete go
     '';
 
     # Common order values:
@@ -99,7 +102,7 @@ in
       (mkOrder 550 ''
         typeset -U path fpath
 
-        path+=($HOME/.local/bin)
+        path+=("$HOME/.local/bin" "$HOME/.local/go/bin")
 
         fpath+=(
           ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}

@@ -19,6 +19,7 @@
       "tailscale-app"
       "utm@beta"
       "zed"
+      "zen"
     ];
 
     brews = [

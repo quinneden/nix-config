@@ -1,10 +1,10 @@
 {
   homebrew = {
-    taps = [ "jgavris/rs-git-fsmonitor" ];
-
     casks = [
       "betterdisplay"
       "ghostty@tip"
+      "podman-desktop"
+      "utm@beta"
       "zed"
     ];
 
@@ -12,6 +12,7 @@
       "ast-grep"
       "awscli"
       "bottom"
+      "buildifier"
       "fx"
       "gemini-cli"
       "gitlab-ci-ls"
@@ -22,7 +23,6 @@
       "neovim"
       "openssh"
       "python-lsp-server"
-      "jgavris/rs-git-fsmonitor/rs-git-fsmonitor"
       "rustup"
       "shellcheck"
       "superhtml"

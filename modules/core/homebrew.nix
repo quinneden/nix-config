@@ -15,10 +15,7 @@
 
     taps = [ "withered-magic/brew" ];
 
-    casks = [
-      "iterm2"
-      "zen"
-    ];
+    casks = [ "iterm2" ];
 
     brews = [
       "bat"
