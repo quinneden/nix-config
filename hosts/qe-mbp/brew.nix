@@ -2,9 +2,7 @@
   homebrew = {
     casks = [
       "betterdisplay"
-      "ghostty@tip"
       "podman-desktop"
-      "utm@beta"
       "zed"
     ];
 
@@ -15,6 +13,7 @@
       "buildifier"
       "fx"
       "gemini-cli"
+      "git"
       "gitlab-ci-ls"
       "glab"
       "go"

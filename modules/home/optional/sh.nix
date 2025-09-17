@@ -96,7 +96,8 @@ in
           idx=''${idx:-1}
           path[$idx,$((idx + 1))]=("/opt/homebrew/bin" "/opt/homebrew/sbin")
         else
-          path+=("/opt/homebrew/bin" "/opt/homebrew/sbin")
+          # path+=("/opt/homebrew/bin" "/opt/homebrew/sbin")
+          eval "$(PATH_HELPER_ROOT=/opt/homebrew /usr/libexec/path_helper -s)"
         fi
       '')
       (mkOrder 550 ''
