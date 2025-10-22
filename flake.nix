@@ -14,8 +14,14 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
 
+    nh.url = "github:nix-community/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    nvix.url = "github:niksingh710/nvix";
+    nvix.inputs.nixpkgs.follows = "nixpkgs";
 
     secrets.url = "git+ssh://git@github.com/quinneden/secrets";
     secrets.inputs = { };

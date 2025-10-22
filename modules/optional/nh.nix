@@ -7,4 +7,6 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 7d";
   };
+
+  environment.variables.NH_DARWIN_FLAKE = config.programs.nh.flake;
 }

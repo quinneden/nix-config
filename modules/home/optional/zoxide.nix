@@ -1,1 +1,6 @@
-{ programs.zoxide.enable = true; }
+{
+  programs = {
+    zoxide.enable = true;
+    zsh.shellAliases.cd = "z";
+  };
+}

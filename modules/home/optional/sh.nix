@@ -9,21 +9,20 @@ with lib;
 
 let
   shellAliases = {
-    cd = "z";
     cddf = "z ~/.dotfiles";
     cddl = "z ~/Downloads";
+    darwin-man = "man configuration.nix";
     ga = "git add";
     gbl = "git branch --list";
+    gpl = "git pull";
+    gps = "git push";
     gst = "git status";
     gsur = "git submodule update --init --recursive";
     l = "eza -la --group-directories-first";
+    lc = "limactl";
     ll = "eza -glAh --octal-permissions --group-directories-first";
     ls = "eza";
     nhs = "nh search";
-    gpl = "git pull";
-    gps = "git push";
-    darwin-man = "man configuration.nix";
-    lc = "limactl";
     reboot = "sudo reboot";
     sed = "gsed";
     shutdown = "sudo shutdown -h now";
@@ -54,7 +53,7 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    history.path = "${config.xdg.configHome}/zsh/.zsh_history";
+    history.path = "${config.programs.zsh.dotDir}/.zsh_history";
 
     oh-my-zsh = {
       enable = true;
@@ -96,7 +95,6 @@ in
           idx=''${idx:-1}
           path[$idx,$((idx + 1))]=("/opt/homebrew/bin" "/opt/homebrew/sbin")
         else
-          # path+=("/opt/homebrew/bin" "/opt/homebrew/sbin")
           eval "$(PATH_HELPER_ROOT=/opt/homebrew /usr/libexec/path_helper -s)"
         fi
       '')

@@ -11,4 +11,6 @@
 
     stateVersion = 6;
   };
+
+  networking.hostName = "qe-mbp";
 }

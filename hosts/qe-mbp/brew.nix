@@ -1,31 +1,41 @@
 {
   homebrew = {
-    casks = [
-      "betterdisplay"
-      "podman-desktop"
-      "zed"
-    ];
-
     brews = [
+      "--help"
+      "-h"
+      "aria2"
       "ast-grep"
       "awscli"
       "bottom"
       "buildifier"
+      "container"
       "fx"
       "gemini-cli"
       "git"
       "gitlab-ci-ls"
       "glab"
       "go"
+      "gum"
       "k9s"
       "marksman"
-      "neovim"
+      "nushell"
       "openssh"
       "python-lsp-server"
+      "ruff"
       "rustup"
       "shellcheck"
+      "shfmt"
       "superhtml"
+      "tldr"
+      "tree"
       "wget"
+    ];
+    casks = [
+      "betterdisplay"
+      "obsidian"
+      "podman-desktop"
+      "utm@beta"
+      "zed"
     ];
   };
 }
