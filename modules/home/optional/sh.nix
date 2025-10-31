@@ -8,6 +8,8 @@
 with lib;
 
 let
+  homeDirectory = "/Users/${user}";
+
   shellAliases = {
     cddf = "z ~/.dotfiles";
     cddl = "z ~/Downloads";
@@ -33,6 +35,7 @@ let
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     MICRO_TRUECOLOR = "1";
+    NH_DARWIN_FLAKE = "${homeDirectory}/.dotfiles";
     LESS = "-RF";
     PAGER = "less";
     TMPDIR = "/tmp";
@@ -66,7 +69,7 @@ in
     completionInit = ''
       autoload -U compinit && compinit
       autoload -U +X bashcompinit && bashcompinit
-      complete -o nospace -C /Users/William.Edenfield/.local/go/bin/gocomplete go
+      complete -o nospace -C ${config.xdg.configHome}/go/bin/gocomplete go
     '';
 
     # Common order values:
@@ -76,12 +79,12 @@ in
     #   - 1500 (mkAfter): Last to run configuration
     initContent = mkMerge [
       (mkOrder 500 ''
-        export HOMEBREW_PREFIX="/opt/homebrew";
-        export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX";
-        export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
-        export INFOPATH="/opt/homebrew/share/info:''${INFOPATH:-}";
-        [[ -z ''${MANPATH-} ]] || export MANPATH=":''${MANPATH#:}";
-        fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+        export HOMEBREW_PREFIX="/opt/homebrew"
+        export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
+        export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+        export INFOPATH="/opt/homebrew/share/info:''${INFOPATH:-}"
+        [[ -z ''${MANPATH-} ]] || export MANPATH=":''${MANPATH#:}"
+        fpath[1,0]="/opt/homebrew/share/zsh/site-functions"
 
         typeset -U path
 
@@ -101,19 +104,27 @@ in
       (mkOrder 550 ''
         typeset -U path fpath
 
-        path+=("$HOME/.local/bin" "$HOME/.local/go/bin")
+        for p (
+          "$HOME"/.local/bin
+          "$HOME"/.local/go/bin(N/)
+          /opt/podman/bin(N/)
+        ); do path+=("$p"); done
 
         fpath+=(
+          ${config.xdg.configHome}/zsh/completions
+          ${config.xdg.configHome}/zsh/drop-ins
+          ${config.xdg.configHome}/zsh/functions
           ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}
           /etc/profiles/per-user/${user}/share/zsh/site-functions
-          ${config.xdg.configHome}/zsh/completions
+
+          autoload -Uz ~/.config/zsh/{drop-ins,functions}/*(.:t:r)
         )
       '')
 
       (mkOrder 1000 ''
-        for f (${config.xdg.configHome}/zsh/{functions,drop-ins}/*(N.)); do
-          source "$f"
-        done
+        # for f (${config.xdg.configHome}/zsh/{functions,drop-ins}/*(N.)); do
+        #   source "$f"
+        # done
 
         [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
       '')

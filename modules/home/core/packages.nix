@@ -21,28 +21,6 @@ let
           ''
         );
       });
-
-  bash-language-server = pkgs.bash-language-server.overrideAttrs (old: {
-    patches = (old.patches or [ ]) ++ [
-      (pkgs.writeText "bashls-tldr.patch" ''
-        diff --git a/src/bash.rs b/src/bash.rs
-        index d9cdd6b..d8fc8f5 100644
-        --- a/src/bash.rs
-        +++ b/src/bash.rs
-        @@ -1,8 +1,8 @@
-         use std::{env, fs};
-         use zed_extension_api::{self as zed, Result};
-
-        -const SERVER_PATH: &str = "node_modules/bash-language-server/out/cli.js";
-        -const PACKAGE_NAME: &str = "bash-language-server";
-        +const SERVER_PATH: &str = "node_modules/neo-bash-ls/out/cli.js";
-        +const PACKAGE_NAME: &str = "neo-bash-ls";
-
-         struct BashExtension {
-             did_find_server: bool,
-      '')
-    ];
-  });
 in
 
 {

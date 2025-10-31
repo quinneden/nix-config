@@ -4,9 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nixpkgs2305.url = "github:nixos/nixpkgs?rev=19cf008bb18e47b6e3b4e16e32a9a4bdd4b45f7e";
-    nixpkgs2405.url = "github:nixos/nixpkgs?rev=c8257f4524ee5863ee3421508e8b9ed500decf48";
-    nixpkgs2511.url = "github:nixos/nixpkgs?rev=a595dde4d0d31606e19dcec73db02279db59d201";
+    direnv-instant.url = "github:mic92/direnv-instant";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

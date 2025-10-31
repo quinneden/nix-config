@@ -1,14 +1,11 @@
 {
   homebrew = {
     brews = [
-      "--help"
-      "-h"
       "aria2"
       "ast-grep"
       "awscli"
       "bottom"
       "buildifier"
-      "container"
       "fx"
       "gemini-cli"
       "git"
@@ -18,6 +15,7 @@
       "gum"
       "k9s"
       "marksman"
+      "mise"
       "nushell"
       "openssh"
       "python-lsp-server"
@@ -27,11 +25,15 @@
       "shfmt"
       "superhtml"
       "tldr"
+      "tmux"
       "tree"
       "wget"
+      "xcodes"
     ];
     casks = [
       "betterdisplay"
+      "container"
+      "ghostty@tip"
       "obsidian"
       "podman-desktop"
       "utm@beta"

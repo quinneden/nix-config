@@ -8,5 +8,5 @@
     clean.extraArgs = "--keep-since 7d";
   };
 
-  environment.variables.NH_DARWIN_FLAKE = config.programs.nh.flake;
+  environment.sessionVariables.NH_DARWIN_FLAKE = config.programs.nh.flake;
 }

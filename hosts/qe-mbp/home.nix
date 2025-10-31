@@ -16,6 +16,7 @@
       users."William.Edenfield" = {
         imports = [
           ../../modules/home/core
+          ../../modules/home/optional/direnv.nix
           ../../modules/home/optional/micro
           ../../modules/home/optional/neovim.nix
           ../../modules/home/optional/programs.nix
