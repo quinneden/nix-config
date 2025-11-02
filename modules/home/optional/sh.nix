@@ -117,7 +117,7 @@ in
           ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}
           /etc/profiles/per-user/${user}/share/zsh/site-functions
 
-          autoload -Uz ~/.config/zsh/{drop-ins,functions}/*(.:t:r)
+          autoload -Uz ~/.config/zsh/functions/*(.:t:r)
         )
       '')
 
