@@ -16,6 +16,7 @@ let
     darwin-man = "man configuration.nix";
     ga = "git add";
     gbl = "git branch --list";
+    gcap = "git commit --amend --no-edit && git push --force";
     gpl = "git pull";
     gps = "git push";
     gst = "git status";
@@ -67,8 +68,8 @@ in
     };
 
     completionInit = ''
-      autoload -U compinit && compinit
-      autoload -U +X bashcompinit && bashcompinit
+      autoload -Uz compinit; compinit
+      autoload -U +X bashcompinit; bashcompinit
       complete -o nospace -C ${config.xdg.configHome}/go/bin/gocomplete go
     '';
 
@@ -104,11 +105,11 @@ in
       (mkOrder 550 ''
         typeset -U path fpath
 
-        for p (
+        path+=(
           "$HOME"/.local/bin
           "$HOME"/.local/go/bin(N/)
           /opt/podman/bin(N/)
-        ); do path+=("$p"); done
+        )
 
         fpath+=(
           ${config.xdg.configHome}/zsh/completions
@@ -116,17 +117,46 @@ in
           ${config.xdg.configHome}/zsh/functions
           ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}
           /etc/profiles/per-user/${user}/share/zsh/site-functions
-
-          autoload -Uz ~/.config/zsh/functions/*(.:t:r)
         )
+
+        ZFUNCTION_DIGEST=$ZDOTDIR/functions/zfunctions.zwc
+
+        if [[ ! -f $ZFUNCTION_DIGEST ]] \
+        || [[ $ZFUNCTION_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
+          zcompile $ZFUNCTION_DIGEST $ZDOTDIR/functions/*(N.)
+        fi
+
+        autoload -Uz $ZDOTDIR/functions/*(N.:t)
       '')
 
       (mkOrder 1000 ''
-        # for f (${config.xdg.configHome}/zsh/{functions,drop-ins}/*(N.)); do
-        #   source "$f"
-        # done
-
         [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+      '')
+
+      (mkOrder 1500 ''
+        (
+          zcompare() {
+            if [[ -s $1 && ( ! -s $1.zwc || $1 -nt $1.zwc) ]]; then
+              zcompile $1
+            fi
+          }
+
+          setopt EXTENDED_GLOB
+
+          zcompare $ZDOTDIR/.zshrc
+
+          for file in $ZDOTDIR/.zcomp^(*.zwc)(.); do
+            zcompare $file
+          done
+
+          if [[ $ZDOTDIR/zfunctions.zwc -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
+            zcompile $ZDOTDIR/functions/zfunctions.zwc $ZDOTDIR/functions/*(N.)
+          fi
+
+          for file in $ZDOTDIR/drop-ins/^(*.zwc)(.); do
+            zcompare $file
+          done
+        ) &!
       '')
     ];
   };

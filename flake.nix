@@ -24,8 +24,8 @@
     rift.url = "git+file:///Users/William.Edenfield/src/rift";
     rift.inputs.nixpkgs.follows = "nixpkgs";
 
-    secrets.url = "git+ssh://git@github.com/quinneden/secrets";
-    secrets.inputs = { };
+    # secrets.url = "git+ssh://git@github.com/quinneden/secrets";
+    # secrets.inputs = { };
 
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
