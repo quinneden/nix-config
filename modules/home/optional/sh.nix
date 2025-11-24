@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   user,
   ...
@@ -160,4 +161,10 @@ in
       '')
     ];
   };
+
+  home.activation."zcompile-rcfiles" =
+    inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ]
+      ''
+        find ${homeDirectory}/.config/zsh -iname "*.zwc" -delete
+      '';
 }

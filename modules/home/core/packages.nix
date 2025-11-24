@@ -25,7 +25,7 @@ in
 
 {
   home.packages = with pkgs; [
-    inputs.shellpers.packages.${pkgs.system}.metapackage
+    inputs.shellpers.packages.${pkgs.stdenv.hostPlatform.system}.metapackage
     bash-language-server
     bat
     cachix
