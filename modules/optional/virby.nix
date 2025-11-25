@@ -3,6 +3,8 @@
 {
   imports = [ inputs.virby.darwinModules.default ];
 
+  # nix.linux-builder.enable = true;
+
   services.virby = {
     enable = true;
     cores = 8;

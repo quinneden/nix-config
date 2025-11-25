@@ -15,17 +15,17 @@
     nh.url = "github:nix-community/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nvix.url = "github:niksingh710/nvix";
     nvix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # rift.url = "git+file:///Users/William.Edenfield/src/rift";
+    # rift.url = "github:quinneden/rift";
     # rift.inputs.nixpkgs.follows = "nixpkgs";
 
-    secrets.url = "git+ssh://git@github.com/quinneden/secrets";
-    secrets.inputs = { };
+    # secrets.url = "git+ssh://git@github.com/quinneden/secrets";
+    # secrets.inputs = { };
 
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
