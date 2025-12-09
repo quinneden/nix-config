@@ -115,7 +115,7 @@ in
           ${config.xdg.configHome}/zsh/completions
           ${config.xdg.configHome}/zsh/drop-ins
           ${config.xdg.configHome}/zsh/functions
-          ${optionalString config.nix.enable config.nix.package + "/share/zsh/site-functions"}
+          /nix/var/nix/profiles/default/share/zsh/site-functions
           /etc/profiles/per-user/${user}/share/zsh/site-functions
         )
 
