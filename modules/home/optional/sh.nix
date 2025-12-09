@@ -109,7 +109,6 @@ in
         path+=(
           "$HOME"/.local/bin
           "$HOME"/.local/go/bin(N/)
-          /opt/podman/bin(N/)
         )
 
         fpath+=(

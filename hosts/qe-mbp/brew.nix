@@ -14,6 +14,7 @@
       "go"
       "gum"
       "k9s"
+      "krunkit"
       "marksman"
       "mise"
       "nushell"
@@ -38,6 +39,9 @@
       "podman-desktop"
       "utm@beta"
       "zed"
+    ];
+    taps = [
+      "slp/krunkit"
     ];
   };
 }
