@@ -7,7 +7,6 @@
       "bottom"
       "buildifier"
       "fx"
-      "gemini-cli"
       "git"
       "gitlab-ci-ls"
       "glab"
@@ -40,8 +39,6 @@
       "utm@beta"
       "zed"
     ];
-    taps = [
-      "slp/krunkit"
-    ];
+    taps = [ "slp/krunkit" ];
   };
 }
