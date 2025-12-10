@@ -9,12 +9,10 @@
       "fx"
       "gemini-cli"
       "git"
-      # "gitlab-ci-ls"
       "glab"
       "go"
       "gum"
       "k9s"
-      #"marksman"
       "mise"
       "nushell"
       "openssh"
@@ -32,11 +30,11 @@
     ];
     casks = [
       "betterdisplay"
-      # "container"
       "font-victor-mono-nerd-font"
       "ghostty@tip"
       "obsidian"
       "podman-desktop"
+      "tailscale-app"
       "utm@beta"
       "zed"
     ];
