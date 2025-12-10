@@ -1,9 +1,7 @@
 { inputs, pkgs, ... }:
 
 let
-  neovim = inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.default.extend {
-
-  };
+  neovim = inputs.nvix.packages.${pkgs.stdenv.hostPlatform.system}.core;
 in
 
 {
