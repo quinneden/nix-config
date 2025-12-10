@@ -113,20 +113,24 @@ in
 
         fpath+=(
           ${config.xdg.configHome}/zsh/completions
-          ${config.xdg.configHome}/zsh/drop-ins
           ${config.xdg.configHome}/zsh/functions
-          /nix/var/nix/profiles/default/share/zsh/site-functions
+          /nix/var/nix/profiles/default/share/zsh/site-functions(N)
           /etc/profiles/per-user/${user}/share/zsh/site-functions
         )
 
-        ZFUNCTION_DIGEST=$ZDOTDIR/functions/zfunctions.zwc
+        ZCOMPLETIONS_DIGEST=$ZDOTDIR/completions/.digest.zwc
+        ZFUNCTIONS_DIGEST=$ZDOTDIR/functions/.digest.zwc
 
-        if [[ ! -f $ZFUNCTION_DIGEST ]] \
-        || [[ $ZFUNCTION_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
-          zcompile $ZFUNCTION_DIGEST $ZDOTDIR/functions/*(N.)
+        if [[ ! -f $ZCOMPLETIONS_DIGEST || $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions(#qN.om[1]) ]]; then
+          zcompile $ZCOMPLETIONS_DIGEST $ZDOTDIR/completions/*(N.)
         fi
 
-        autoload -Uz $ZDOTDIR/functions/*(N.:t)
+        if [[ ! -f $ZFUNCTIONS_DIGEST || $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
+          zcompile $ZFUNCTIONS_DIGEST $ZDOTDIR/functions/*(N.)
+        fi
+
+        autoload -wUz $ZCOMPLETIONS_DIGEST(N)
+        autoload -wUz $ZFUNCTIONS_DIGEST(N)
       '')
 
       (mkOrder 1000 ''
@@ -145,25 +149,27 @@ in
 
           zcompare $ZDOTDIR/.zshrc
 
-          for file in $ZDOTDIR/.zcomp^(*.zwc)(.); do
+          for file in $ZDOTDIR/.zcomp^(*.zwc)(N.); do
             zcompare $file
           done
 
-          if [[ $ZDOTDIR/zfunctions.zwc -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
-            zcompile $ZDOTDIR/functions/zfunctions.zwc $ZDOTDIR/functions/*(N.)
+          if [[ $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
+            zcompile $ZFUNCTIONS_DIGEST $ZDOTDIR/functions/*(N.)
           fi
 
-          for file in $ZDOTDIR/drop-ins/^(*.zwc)(.); do
-            zcompare $file
-          done
+          if [[ $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions(#qN.om[1]) ]]; then
+            zcompile $ZCOMPLETIONS_DIGEST $ZDOTDIR/completions/*(N.)
+          fi
         ) &!
+
+        for file in $ZDOTDIR/drop-ins/*(N.); do
+          source $file
+        done
       '')
     ];
   };
 
-  home.activation."zcompile-rcfiles" =
-    inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ]
-      ''
-        find ${homeDirectory}/.config/zsh -iname "*.zwc" -delete
-      '';
+  home.activation."recompile-zwc" = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    find ${config.xdg.configHome}/zsh -name "*.zwc" -or -name ".zcompdump*" -delete
+  '';
 }
