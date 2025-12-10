@@ -20,6 +20,7 @@
           ../../modules/home/optional/micro
           ../../modules/home/optional/nh.nix
           ../../modules/home/optional/programs.nix
+          # ../../modules/home/optional/rift.nix
           ../../modules/home/optional/sh.nix
           ../../modules/home/optional/starship.nix
           ../../modules/home/optional/zoxide.nix

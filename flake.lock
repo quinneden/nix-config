@@ -448,6 +448,23 @@
         "type": "github"
       }
     },
+    "rift": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765332031,
+        "narHash": "sha256-kFHPA7MqyTW782RdxvU8p+tv+v2MuDdE1obKVHa7UOs=",
+        "path": "/Users/William.Edenfield/src/rift",
+        "type": "path"
+      },
+      "original": {
+        "path": "/Users/William.Edenfield/src/rift",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "direnv-instant": "direnv-instant",
@@ -457,6 +474,7 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
         "nvix": "nvix",
+        "rift": "rift",
         "shellpers": "shellpers",
         "sops-nix": "sops-nix",
         "virby": "virby"

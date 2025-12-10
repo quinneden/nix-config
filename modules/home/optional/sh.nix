@@ -169,7 +169,7 @@ in
     ];
   };
 
-  home.activation."recompile-zwc" = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation."refreshZwcFiles" = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     find ${config.xdg.configHome}/zsh -name "*.zwc" -or -name ".zcompdump*" -delete
   '';
 }
