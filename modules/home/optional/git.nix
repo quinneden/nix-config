@@ -15,7 +15,7 @@
 
     extraConfig = {
       color.ui = true;
-      core.editor = "micro";
+      core.editor = "nvim";
       credential.helper = "store";
       github.user = "quinneden";
       init.defaultBranch = "main";

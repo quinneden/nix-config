@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [ inputs.home-manager.darwinModules.default ];
@@ -30,7 +30,7 @@
       ];
 
       programs.home-manager.enable = true;
-      home.stateVersion = "25.11";
+      home.stateVersion = lib.versions.majorMinor lib.version;
     };
   };
 }
