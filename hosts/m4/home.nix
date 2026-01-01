@@ -18,7 +18,6 @@
         ../../modules/home/optional/git.nix
         ../../modules/home/optional/micro
         ../../modules/home/optional/nh.nix
-        ../../modules/home/optional/packages.nix
         ../../modules/home/optional/pyenv.nix
         ../../modules/home/optional/python.nix
         ../../modules/home/optional/sh.nix
