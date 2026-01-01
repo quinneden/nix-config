@@ -62,16 +62,12 @@ in
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "colored-man-pages"
-        "iterm2"
-      ];
+      plugins = [ "colored-man-pages" ];
     };
 
     completionInit = ''
       autoload -Uz compinit; compinit
       autoload -U +X bashcompinit; bashcompinit
-      complete -o nospace -C ${config.xdg.configHome}/go/bin/gocomplete go
     '';
 
     # Common order values:
@@ -107,7 +103,7 @@ in
         typeset -U path fpath
 
         path+=(
-          "$HOME"/.local/bin
+          "$HOME"/.local/bin(N/)
           "$HOME"/.local/go/bin(N/)
         )
 

@@ -586,8 +586,8 @@
         "rift": "rift_2"
       },
       "locked": {
-        "lastModified": 1765503827,
-        "narHash": "sha256-Rqg6rtNT4q/uuuExYoYP275bkMNnSggj5zaxbIfi65Q=",
+        "lastModified": 1767255541,
+        "narHash": "sha256-rTkrDZpvUFJLPq7DYYTNG9oy2mKDRLY9g2wMkGy9ZNk=",
         "path": "/Users/qeden/src/rift.nix",
         "type": "path"
       },
@@ -646,16 +646,19 @@
     },
     "shellpers": {
       "inputs": {
+        "nh": [
+          "nh"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1761094563,
-        "narHash": "sha256-7/R7VM4h4R6LLozkqAhtv7usEikR+QWgbjXGLIGU0ss=",
+        "lastModified": 1767256513,
+        "narHash": "sha256-sArROgVciCNp1tkXOIqzQ4pVCsuaTPYRaRw7t2C37no=",
         "owner": "quinneden",
         "repo": "shellpers",
-        "rev": "c69cd6560847281aa135d3f3ad2ba72df4292f19",
+        "rev": "d28be268b76449d456076f7a589f8525de2e8f87",
         "type": "github"
       },
       "original": {
