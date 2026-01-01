@@ -12,7 +12,10 @@
 
     settings = {
       builders-use-substitutes = true;
-      experimental-features = "flakes nix-command";
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
       warn-dirty = false;
     };
   };

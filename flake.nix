@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    # determinate-nix.url = "github:determinatesystems/nix-src";
     direnv-instant.url = "github:mic92/direnv-instant";
 
     home-manager.url = "github:nix-community/home-manager/master";

@@ -1,7 +1,6 @@
 {
   imports = [
     # ../../modules/optional/virby.nix
-    ../../modules/external/detsys
     ./brew.nix
     ./home.nix
     ./nix.nix
