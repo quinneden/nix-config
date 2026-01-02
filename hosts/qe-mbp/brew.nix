@@ -14,6 +14,7 @@
       "fx"
       "gcc"
       "gh"
+      "gist"
       "git"
       "git-lfs"
       "github-mcp-server"

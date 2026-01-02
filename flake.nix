@@ -22,8 +22,8 @@
     nvix.url = "github:niksingh710/nvix";
     nvix.inputs.nixpkgs.follows = "nixpkgs";
 
-    rift.url = "path:/Users/qeden/src/rift.nix";
-    rift.inputs.nixpkgs.follows = "nixpkgs";
+    # rift.url = "path:/Users/qeden/src/rift.nix";
+    # rift.inputs.nixpkgs.follows = "nixpkgs";
 
     # secrets.url = "git+ssh://git@github.com/quinneden/secrets";
     # secrets.inputs = { };
