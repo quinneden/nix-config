@@ -6,6 +6,6 @@
     ./nix.nix
     ./system.nix
     ./users.nix
-    ./gitlab-runners.nix
+    # ./gitlab-runners.nix
   ];
 }

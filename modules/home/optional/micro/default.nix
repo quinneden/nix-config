@@ -39,11 +39,11 @@
     };
   };
 
-  home.file."micro-colors" = {
-    recursive = true;
-    target = config.xdg.configHome + "/micro/colorschemes";
-    source = pkgs.micro-colors;
-  };
+  # home.file."micro-colors" = {
+  #   recursive = true;
+  #   target = config.xdg.configHome + "/micro/colorschemes";
+  #   source = pkgs.micro-colors;
+  # };
 
   home.file."micro-autofmt" = {
     recursive = true;

@@ -13,6 +13,7 @@
       "fd"
       "fx"
       "gcc"
+      "gemini-cli"
       "gh"
       "gist"
       "git"
