@@ -3,7 +3,7 @@
 {
   environment.systemPackages = [
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.amp
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.catnip
+    # inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.catnip
   ];
 
   system = {

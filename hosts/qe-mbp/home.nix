@@ -25,6 +25,7 @@
           ../../modules/home/optional/sh.nix
           ../../modules/home/optional/starship.nix
           ../../modules/home/optional/zoxide.nix
+          inputs.mac-app-util.homeManagerModules.default
         ];
 
         programs.home-manager.enable = true;

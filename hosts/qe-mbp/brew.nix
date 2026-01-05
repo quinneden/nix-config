@@ -4,10 +4,12 @@
       "aria2"
       "ast-grep"
       "awscli"
+      "backlog-md"
       "bat"
       "bazelisk"
       "bottom"
       "buildifier"
+      "container"
       "curl"
       "eza"
       "fd"
@@ -63,7 +65,6 @@
     ];
     casks = [
       "betterdisplay"
-      "container"
       "ghostty@tip"
       "obsidian"
       "podman-desktop"

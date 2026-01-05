@@ -4,13 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # determinate-nix.url = "github:determinatesystems/nix-src";
     direnv-instant.url = "github:mic92/direnv-instant";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
+
+    mac-app-util.url = "github:hraban/mac-app-util";
 
     nh.url = "github:nix-community/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
