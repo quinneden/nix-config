@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+findTopThree() {
+	git status --porcelain |
+		sed 's/^...//' |
+		sed 's/.* -> //' |
+		awk -F/ '{if (NF > 1) print $1}' |
+		sort | uniq -c |
+		sort -rn |
+		head -3 |
+		awk '{print $2}' |
+		sort |
+		xargs
+}
+
+repoRoot=$(git rev-parse --show-toplevel)
+
+[[ $PWD == "$repoRoot" ]] || cd "$repoRoot"
+
+git add .
+
+gitStatus=$(git status --porcelain)
+description=$(findTopThree | sed 's| |, |g')
+commitMsg="general: $description\n\n$gitStatus"
+
+git commit --file <(echo -e "$commitMsg")
