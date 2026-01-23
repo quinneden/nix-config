@@ -22,6 +22,7 @@
       ];
 
       command_timeout = 1200;
+      scan_timeout = 40;
 
       directory = {
         style = "blue";
