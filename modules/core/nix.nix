@@ -12,7 +12,7 @@
 
     settings = {
       builders-use-substitutes = true;
-      experimental-features = [
+      extra-experimental-features = [
         "flakes"
         "nix-command"
       ];

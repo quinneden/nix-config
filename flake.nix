@@ -34,11 +34,10 @@
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
 
-    sops-nix.url = "github:mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # sops-nix.url = "github:mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # virby.url = "github:quinneden/virby-nix-darwin";
-    virby.url = "git+file:///Users/William.Edenfield/src/virby-nix-darwin";
+    virby.url = "github:quinneden/virby-nix-darwin";
     virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -74,4 +73,8 @@
           directory = ./pkgs;
         });
     };
+
+  nixConfig = {
+    extra-substituters = [ "" ];
+  };
 }

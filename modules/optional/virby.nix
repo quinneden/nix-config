@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ inputs, ... }:
 
 {
   imports = [ inputs.virby.darwinModules.default ];
@@ -10,6 +10,6 @@
     memory = 16384;
     onDemand.enable = true;
     rosetta = true;
-    supportDeterminateNix = config.determinateNix.enable or false;
+    supportDeterminateNix = true;
   };
 }

@@ -11,6 +11,8 @@
     package = pkgs.nixVersions.latest;
     settings = {
       access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
+      accept-flake-config = true;
+      extra-experimental-features = [ "external-builders" ];
       always-allow-substitutes = true;
       trusted-users = [ "qeden" ];
     };
