@@ -5,14 +5,16 @@
 
   determinateNix = {
     enable = true;
-    nixosVmBasedLinuxBuilder.enable = true;
+    determinateNixd.builder.state = "disabled";
+    distributedBuilds = true;
     customSettings = {
       accept-flake-config = true;
       access-tokens = [ "github=@/Users/William.Edenfield/.local/github-token" ];
       connect-timeout = 5;
       extra-experimental-features = [
-        "parallel-eval"
         "build-time-fetch-tree"
+        "external-builders"
+        "parallel-eval"
       ];
       fallback = true;
       trusted-users = [ "@admin" ];

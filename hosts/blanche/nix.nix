@@ -3,8 +3,6 @@
 {
   imports = [ inputs.determinate.darwinModules.default ];
 
-  nix.enable = false;
-
   determinateNix = {
     enable = true;
     distributedBuilds = true;
@@ -16,8 +14,8 @@
     customSettings = {
       accept-flake-config = true;
       access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
-      always-allow-substitutes = true;
       extra-experimental-features = [
+        "build-time-fetch-tree"
         "external-builders"
         "parallel-eval"
       ];
@@ -25,6 +23,8 @@
       warn-dirty = false;
     };
   };
+
+  nix.enable = false;
 
   nixpkgs = {
     config.allowUnfree = true;
