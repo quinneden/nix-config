@@ -1,14 +1,15 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [ inputs.virby.darwinModules.default ];
 
   services.virby = {
     enable = true;
-    cores = 1;
+    cores = 8;
     debug = true;
     memory = 16384;
     onDemand.enable = true;
-    rosetta = false;
+    rosetta = true;
+    supportDeterminateNix = config.determinateNix.enable or false;
   };
 }

@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    determinate.url = "github:determinatesystems/determinate";
+
     direnv-instant.url = "github:mic92/direnv-instant";
 
     home-manager.url = "github:nix-community/home-manager/master";
@@ -35,7 +37,8 @@
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    virby.url = "github:quinneden/virby-nix-darwin";
+    # virby.url = "github:quinneden/virby-nix-darwin";
+    virby.url = "git+file:///Users/William.Edenfield/src/virby-nix-darwin";
     virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 
