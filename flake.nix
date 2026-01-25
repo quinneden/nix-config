@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     determinate.url = "github:determinatesystems/determinate";
-
     direnv-instant.url = "github:mic92/direnv-instant";
 
     home-manager.url = "github:nix-community/home-manager/master";
@@ -73,8 +72,4 @@
           directory = ./pkgs;
         });
     };
-
-  nixConfig = {
-    extra-substituters = [ "" ];
-  };
 }

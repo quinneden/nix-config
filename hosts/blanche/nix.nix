@@ -1,20 +1,28 @@
-{
-  inputs,
-  pkgs,
-  self,
-  ...
-}:
+{ inputs, self, ... }:
 
 {
-  nix = {
+  imports = [ inputs.determinate.darwinModules.default ];
+
+  nix.enable = false;
+
+  determinateNix = {
     enable = true;
-    package = pkgs.nixVersions.latest;
-    settings = {
-      access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
+    distributedBuilds = true;
+    determinateNixd = {
+      builder.cpuCount = 8;
+      builder.memoryBytes = 16 * 1024 * 1024;
+      builder.state = "enabled";
+    };
+    customSettings = {
       accept-flake-config = true;
-      extra-experimental-features = [ "external-builders" ];
+      access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
       always-allow-substitutes = true;
+      extra-experimental-features = [
+        "external-builders"
+        "parallel-eval"
+      ];
       trusted-users = [ "qeden" ];
+      warn-dirty = false;
     };
   };
 

@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../modules/optional/virby.nix
+    # ../../modules/optional/virby.nix
     ./brew.nix
     ./home.nix
     ./nix.nix
