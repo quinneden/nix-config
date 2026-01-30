@@ -30,6 +30,7 @@
       "llvm"
       "make"
       "meson"
+      "neovim"
       "node"
       "openssh"
       "openssl@3"

@@ -42,5 +42,6 @@ in
     nixfmt
     nixfmt-tree
     qemu
+    tree-sitter
   ];
 }

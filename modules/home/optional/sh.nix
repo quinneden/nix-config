@@ -131,6 +131,8 @@ in
 
       (mkOrder 1000 ''
         [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
+
+        bindkey '^U' backward-kill-line
       '')
 
       (mkOrder 1500 ''
