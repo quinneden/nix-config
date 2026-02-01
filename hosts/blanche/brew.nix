@@ -25,7 +25,7 @@
       "gum"
       "jq"
       "just"
-      "k9s"
+      "slp/krunkit/krunkit"
       "lima"
       "llvm"
       "make"
@@ -36,6 +36,7 @@
       "openssl@3"
       "pkg-config"
       "pnpm"
+      "podman"
       "pv"
       "python-lsp-server"
       "rclone"
@@ -66,6 +67,9 @@
       "tailscale-app"
       "utm@beta"
       "zed"
+    ];
+    taps = [
+      "slp/krunkit"
     ];
   };
 }

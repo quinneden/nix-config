@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+
     determinate.url = "github:determinatesystems/determinate";
     direnv-instant.url = "github:mic92/direnv-instant";
 
@@ -23,18 +26,18 @@
     nvix.url = "github:niksingh710/nvix";
     nvix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # rift.url = "path:/Users/qeden/src/rift.nix";
-    # rift.inputs.nixpkgs.follows = "nixpkgs";
+    rift.url = "path:/Users/qeden/src/rift.nix";
+    rift.inputs.nixpkgs.follows = "nixpkgs";
 
-    # secrets.url = "git+ssh://git@github.com/quinneden/secrets";
-    # secrets.inputs = { };
+    secrets.url = "git+ssh://git@github.com/quinneden/secrets";
+    secrets.inputs = { };
 
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
 
-    # sops-nix.url = "github:mic92/sops-nix";
-    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     virby.url = "github:quinneden/virby-nix-darwin";
     virby.inputs.nixpkgs.follows = "nixpkgs";

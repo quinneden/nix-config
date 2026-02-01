@@ -137,25 +137,25 @@ in
 
       (mkOrder 1500 ''
         (
+          setopt extendedglob
+
           zcompare() {
-            if [[ -s $1 && ( ! -s $1.zwc || $1 -nt $1.zwc) ]]; then
+            if [[ -s $1 && (! -s $1.zwc || $1 -nt $1.zwc) ]]; then
               zcompile $1
             fi
           }
 
-          setopt EXTENDED_GLOB
-
           zcompare $ZDOTDIR/.zshrc
 
-          for file in $ZDOTDIR/.zcomp^(*.zwc)(N.); do
+          for file in $ZDOTDIR/.zcomp*~*.zwc(.); do
             zcompare $file
           done
 
-          if [[ $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
+          if [[ $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions/*(#qN.om[1]) ]]; then
             zcompile $ZFUNCTIONS_DIGEST $ZDOTDIR/functions/*(N.)
           fi
 
-          if [[ $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions(#qN.om[1]) ]]; then
+          if [[ $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions/*(#qN.om[1]) ]]; then
             zcompile $ZCOMPLETIONS_DIGEST $ZDOTDIR/completions/*(N.)
           fi
         ) &!

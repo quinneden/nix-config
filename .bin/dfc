@@ -23,6 +23,6 @@ git add .
 
 gitStatus=$(git status --porcelain)
 description=$(findTopThree | sed 's| |, |g')
-commitMsg="general: $description\n\n$gitStatus"
+commitMsg="scope: $description\n\n$gitStatus"
 
 git commit --file <(echo -e "$commitMsg")

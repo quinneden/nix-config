@@ -8,8 +8,9 @@
     cores = 8;
     debug = true;
     memory = 16384;
+    diskSize = "150GiB";
     onDemand.enable = true;
-    rosetta = true;
-    supportDeterminateNix = true;
+    rosetta = false;
+    # supportDeterminateNix = true;
   };
 }
