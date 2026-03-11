@@ -1,19 +1,20 @@
 {
-  description = "Nix-darwin configurations";
+  description = "NixOS and Nix-darwin configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-
     determinate.url = "github:determinatesystems/determinate";
     direnv-instant.url = "github:mic92/direnv-instant";
+
+    dms.url = "github:AvengeMedia/DankMaterialShell/stable";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    lf.url = "github:gokcehan/lf";
+    lf.flake = false;
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
@@ -27,21 +28,18 @@
 
     nixd.url = "github:nix-community/nixd";
 
-    nvix.url = "github:niksingh710/nvix";
-    nvix.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
-    rift.url = "path:/Users/qeden/src/rift.nix";
-    rift.inputs.nixpkgs.follows = "nixpkgs";
-
-    secrets.url = "git+ssh://git@github.com/quinneden/secrets";
-    secrets.inputs = { };
+    # secrets.url = "git+ssh://git@github.com/quinneden/secrets";
+    # secrets.inputs = { };
 
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
 
-    sops-nix.url = "github:mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # sops-nix.url = "github:mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # virby.url = "github:quinneden/virby-nix-darwin";
     virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/krunkit";
@@ -51,28 +49,17 @@
 
   outputs =
     { nixpkgs, self, ... }@inputs:
-
-    let
-      inherit (nixpkgs) lib;
-
-      system = "aarch64-darwin";
-
-      mkCfg =
-        host:
-        inputs.nix-darwin.lib.darwinSystem {
-          inherit system;
-
-          specialArgs = { inherit inputs self; };
-
-          modules = [
-            ./modules/core
-            (lib.path.append ./hosts host)
-          ];
-        };
-    in
-
     {
-      darwinConfigurations = lib.genAttrs (lib.attrNames (builtins.readDir ./hosts)) (host: mkCfg host);
+      darwinConfigurations.blanche = inputs.nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = { inherit inputs self; };
+        modules = [ ./darwin ];
+      };
+
+      nixosConfigurations.blanche = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs self; };
+        modules = [ ./nixos ];
+      };
 
       overlays.default =
         final: prev:
