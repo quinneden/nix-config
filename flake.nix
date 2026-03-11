@@ -20,8 +20,12 @@
     nh.url = "github:nix-community/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
 
+    nil.url = "github:oxalica/nil";
+
     nix-darwin.url = "github:nix-darwin/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixd.url = "github:nix-community/nixd";
 
     nvix.url = "github:niksingh710/nvix";
     nvix.inputs.nixpkgs.follows = "nixpkgs";
@@ -39,8 +43,10 @@
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    virby.url = "github:quinneden/virby-nix-darwin";
-    virby.inputs.nixpkgs.follows = "nixpkgs";
+    # virby.url = "github:quinneden/virby-nix-darwin";
+    virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/krunkit";
+    # virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/main";
+    # virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

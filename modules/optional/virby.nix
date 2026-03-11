@@ -11,6 +11,6 @@
     diskSize = "150GiB";
     onDemand.enable = true;
     rosetta = false;
-    # supportDeterminateNix = true;
+    supportDeterminateNix = true;
   };
 }

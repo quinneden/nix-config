@@ -22,7 +22,7 @@ let
     gps = "git push";
     gst = "git status";
     gsur = "git submodule update --init --recursive";
-    l = "eza -la --group-directories-first";
+    l = "eza -lA --no-permissions --no-user --group-directories-first";
     lc = "limactl";
     ll = "eza -glAh --octal-permissions --group-directories-first";
     ls = "eza";
