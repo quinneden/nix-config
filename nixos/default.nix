@@ -12,6 +12,7 @@
     ./locale.nix
     ./nautilus.nix
     ./system.nix
+    ../shared
   ];
 
   # gnome.enable = false;

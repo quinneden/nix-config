@@ -6,5 +6,6 @@
     ./system.nix
     ./users.nix
     ./virby.nix
+    ../shared
   ];
 }
