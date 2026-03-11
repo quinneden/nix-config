@@ -1,3 +1,3 @@
 # nix-config
 
-Nix-darwin configurations.
+NixOS and Nix-darwin configurations.
