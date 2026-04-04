@@ -6,6 +6,7 @@
     pkgs.pulseaudio # pactl
     pkgs.wf-recorder
     pkgs.slurp
+    pkgs.phinger-cursors
   ];
 
   xdg.desktopEntries."org.gnome.Settings" = {

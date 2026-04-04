@@ -44,5 +44,6 @@ in
     nixfmt-tree
     qemu
     tree-sitter
+    ripgrep
   ];
 }

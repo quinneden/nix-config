@@ -11,7 +11,7 @@
     backupFileExtension = "hm.bck";
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs self; };
+    extraSpecialArgs = { inherit inputs self; user = "qeden"; };
     users.qeden = {
       imports = [
         ../home/nixos
@@ -24,7 +24,7 @@
       home = {
         username = "qeden";
         homeDirectory = "/home/qeden";
-        sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
+        sessionPath = [ "/home/qeden/.local/bin" ];
         sessionVariables = {
           BAT_THEME = "base16";
           PAGER = "${pkgs.bat}/bin/bat --style=plain";
@@ -33,7 +33,7 @@
 
       xdg.configFile."gtk-4.0/bookmarks".text =
         let
-          home = config.home.homeDirectory;
+          home = "/home/qeden";
         in
         ''
           file://${home}/Desktop

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.hyprland.withUWSM = true;
   programs.hyprland.enable = true;
 
   services.displayManager.dms-greeter = {

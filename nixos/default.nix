@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 
 {
   imports = [
@@ -21,6 +21,7 @@
 
   nixpkgs = {
     hostPlatform = "aarch64-linux";
+    overlays  = [self.overlays.default];
     config.allowUnfree = true;
   };
 
