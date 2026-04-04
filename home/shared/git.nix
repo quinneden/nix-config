@@ -3,25 +3,31 @@
     enable = true;
 
     ignores = [
-      ".DS_Store"
+      "*.bck"
       ".direnv"
-      "result"
-      "result*"
+      ".DS_Store"
       ".env"
       ".env.*"
+      ".gemini"
+      "result"
+      "result*"
     ];
 
     signing.format = "ssh";
 
-    extraConfig = {
+    settings = {
       color.ui = true;
       core.editor = "micro";
+      core.excludesfile = "~/.config/git/ignore";
+      core.ui = true;
       credential.helper = "store";
       github.user = "quinneden";
+      index.version = "4";
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      rerere.enabled = true;
+      user.email = "quinn@qeden.dev";
+      user.name = "Quinn Edenfield";
     };
-
-    userName = "Quinn Edenfield";
   };
 }

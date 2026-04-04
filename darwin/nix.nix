@@ -38,7 +38,7 @@
       self.overlays.default
       inputs.nh.overlays.default
       inputs.nil.overlays.default
-      inputs.nixd.overlays.default
+      # inputs.nixd.overlays.default
     ];
   };
 }

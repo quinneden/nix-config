@@ -20,12 +20,12 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-	extraConfig = ''
-	  source = ~/.config/hypr/dms/colors.conf
-	  source = ~/.config/hypr/dms/layout.conf
-	  source = ~/.config/hypr/dms/outputs.conf
-	  source = ~/.config/hypr/dms/windowrules.conf
-	'';
+    extraConfig = ''
+      	  source = ~/.config/hypr/dms/colors.conf
+      	  source = ~/.config/hypr/dms/layout.conf
+      	  source = ~/.config/hypr/dms/outputs.conf
+      	  source = ~/.config/hypr/dms/windowrules.conf
+      	'';
 
     settings = {
       exec-once = [ "hyprctl setcursor phinger-cursors-dark 24" ];
@@ -95,7 +95,6 @@
           "SHIFT, Print, exec,          screenshot --full"
           "SUPER, Return, exec,         xterm" # xterm is a symlink, not actually xterm
           "SUPER, B, exec,              firefox"
-          "SUPER, E, exec,              xterm -e lf"
 
           # "SUPER, Space, exec,  ${kb_layout_switch}"
           "ALT, Tab, exec,      hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top"
