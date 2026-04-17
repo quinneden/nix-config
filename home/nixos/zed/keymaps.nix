@@ -1,29 +1,29 @@
 [
   {
     bindings = {
-      cmd-shift-c = null;
+      # cmd-shift-c = null;
       cmd-shift-e = "project_panel::ToggleFocus";
-      cmd-shift-g = "git_panel::ToggleFocus";
+      # cmd-shift-g = "git_panel::ToggleFocus";
       cmd-shift-p = "command_palette::Toggle";
       cmd-shift-w = "terminal_panel::ToggleFocus";
     };
   }
-  {
-    bindings = {
-      cmd-r = "workspace::ToggleRightDock";
-      cmd-w = "pane::CloseActiveItem";
-    };
-    context = "MessageEditor > Editor";
-  }
-  {
-    bindings = {
-      cmd-enter = "assistant::Assist";
-      cmd-r = "workspace::ToggleRightDock";
-      cmd-shift-c = "assistant::CycleMessageRole";
-      cmd-w = "pane::CloseActiveItem";
-    };
-    context = "ContextEditor > Editor";
-  }
+  # {
+  #   bindings = {
+  #     cmd-r = "workspace::ToggleRightDock";
+  #     cmd-w = "pane::CloseActiveItem";
+  #   };
+  #   context = "MessageEditor > Editor";
+  # }
+  # {
+  #   bindings = {
+  #     cmd-enter = "assistant::Assist";
+  #     cmd-r = "workspace::ToggleRightDock";
+  #     cmd-shift-c = "assistant::CycleMessageRole";
+  #     cmd-w = "pane::CloseActiveItem";
+  #   };
+  #   context = "ContextEditor > Editor";
+  # }
   {
     bindings = {
       alt-backspace = "editor::DeleteToPreviousWordStart";
