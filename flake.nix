@@ -22,7 +22,7 @@
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
     virby.url = "github:quinneden/virby-nix-darwin";
-    # virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/kernel-boot";
+    # virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/direct-boot";
     virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 

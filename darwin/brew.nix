@@ -78,6 +78,7 @@
       "xcodes"
       "yq"
     ];
+
     casks = [
       "betterdisplay"
       "font-victor-mono-nerd-font"
@@ -89,6 +90,7 @@
       "utm@beta"
       "zed"
     ];
+
     taps = [
       "oven-sh/bun"
       "slp/krunkit"
