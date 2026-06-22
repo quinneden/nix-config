@@ -13,6 +13,8 @@
       "result*"
     ];
 
+    includes = [ { path = "~/.config/git/aliases"; } ];
+
     signing.format = "ssh";
 
     settings = {
