@@ -9,7 +9,7 @@
 
     onActivation = {
       upgrade = true;
-      cleanup = "zap";
+      # cleanup = "zap";
       extraFlags = [ "--quiet" ];
     };
 
@@ -43,6 +43,7 @@
       "lima"
       "lld"
       "llvm"
+      "luarocks"
       "make"
       "meson"
       "neovim"

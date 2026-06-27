@@ -5,16 +5,12 @@
 
   services.virby = {
     enable = true;
-    # directBoot = true;
-    # storeOnDisk = {
-    #   enable = true;
-    #   size = "30GiB";
-    # };
     cores = 8;
     debug = true;
-    memory = 8192;
     diskSize = "150GiB";
+    memory = 8192;
     onDemand.enable = true;
+    onDemand.ttl = 60;
     rosetta = false;
     supportDeterminateNix = true;
   };
