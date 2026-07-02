@@ -21,8 +21,7 @@
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
-    # virby.url = "github:quinneden/virby-nix-darwin";
-    virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/main";
+    virby.url = "github:quinneden/virby-nix-darwin";
     virby.inputs.nixpkgs.follows = "nixpkgs";
   };
 

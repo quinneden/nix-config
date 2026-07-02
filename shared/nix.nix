@@ -11,7 +11,6 @@
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     settings = {
-      builders-use-substitutes = true;
       extra-experimental-features = [
         "flakes"
         "nix-command"

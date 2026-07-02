@@ -39,7 +39,6 @@
       "hugo"
       "jq"
       "just"
-      "slp/krunkit/krunkit"
       "lima"
       "lld"
       "llvm"
@@ -60,12 +59,13 @@
       "pv"
       "python-lsp-server"
       "rclone"
+      "restic"
       "ripgrep"
       "rsync"
-      # "ruff"
       "rustup"
       "shellcheck"
       "shfmt"
+      "slp/krun/krunkit"
       "superhtml"
       "tldr"
       "tmux"
@@ -94,7 +94,7 @@
 
     taps = [
       "oven-sh/bun"
-      "slp/krunkit"
+      "slp/krun"
     ];
   };
 }
