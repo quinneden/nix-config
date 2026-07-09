@@ -9,7 +9,6 @@
     dms.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
     nh.url = "github:nix-community/nh";
     nh.inputs.nixpkgs.follows = "nixpkgs";
     nil.url = "github:oxalica/nil";
