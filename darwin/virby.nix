@@ -10,10 +10,10 @@
     diskSize = "150GiB";
     driver = "vfkit";
     memory = 8192;
-    nestedVirtualization = true;
     onDemand.enable = true;
     onDemand.ttl = 60;
     rosetta = false;
     supportDeterminateNix = true;
+    # useEfiImage = false;
   };
 }
