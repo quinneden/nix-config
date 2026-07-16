@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     determinate.url = "github:determinatesystems/determinate";
-    direnv-instant.url = "github:mic92/direnv-instant";
     dms.url = "github:AvengeMedia/DankMaterialShell/stable";
     dms.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
@@ -21,8 +20,8 @@
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.inputs.nh.follows = "nh";
     virby.url = "github:quinneden/virby-nix-darwin";
-    # virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/restructure";
     # virby.inputs.nixpkgs.follows = "nixpkgs";
+    # virby.url = "path:/Users/qeden/src/virby-nix-darwin/worktrees/feat/restructure";
   };
 
   outputs =

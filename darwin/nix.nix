@@ -12,9 +12,9 @@
     enable = true;
     distributedBuilds = true;
     determinateNixd = {
-      builder.cpuCount = 4;
-      builder.memoryBytes = 16 * 1024 * 1024;
-      builder.state = "disabled";
+      # builder.cpuCount = 4;
+      builder.memoryBytes = 16 * 1024 * 1024 * 1024;
+      builder.state = "enabled";
     };
     customSettings = {
       accept-flake-config = true;

@@ -17,7 +17,7 @@ let
   shellAliases = {
     cddf = "z ~/.dotfiles";
     cddl = "z ~/Downloads";
-    ga = "git add";
+    # ga = "git add";
     gbl = "git branch --list";
     gcap = "git commit --amend --no-edit && git push --force";
     gpl = "git pull";

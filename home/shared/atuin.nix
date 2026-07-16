@@ -1,6 +1,6 @@
 {
   programs.atuin = {
-    enable = true;
+    enable = false;
     daemon.enable = true;
     flags = [ "--disable-up-arrow" ];
     settings = {
