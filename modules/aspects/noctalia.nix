@@ -2,13 +2,32 @@
 
 {
   den.aspects.noctalia = {
-    nixos = {
-      imports = [ inputs.noctalia.nixosModules.default ];
+    nixos = { pkgs, ... }: {
+      imports = [
+        inputs.noctalia.nixosModules.default
+        inputs.noctalia-greeter.nixosModules.default
+      ];
 
-      programs.noctalia = {
-        enable = true;
-        recommendedServices.enable = true;
-        systemd.enable = true;
+      programs = {
+        noctalia = {
+          enable = true;
+          recommendedServices.enable = true;
+          systemd.enable = true;
+        };
+
+        noctalia-greeter = {
+          enable = true;
+          greeter-args = "";
+          settings = {
+            cursor = {
+              path = "${pkgs.phinger-cursors}/share/icons";
+              size = 24;
+              theme = "phinger-cursors-dark";
+            };
+
+            keyboard.layout = "us";
+          };
+        };
       };
     };
 
@@ -113,7 +132,7 @@
               show_running = true;
             };
 
-            hooks.battery_low_percent_threshold = 0;
+            hooks.battery_low_percent_threshold = 10;
             idle = {
               behavior = {
                 lock = {

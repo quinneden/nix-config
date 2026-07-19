@@ -12,22 +12,18 @@
 
     _.to-users.homeManager = { pkgs, ... }: { home.packages = [ pkgs.nautilus ]; };
 
-    nixos = { pkgs, ... }: {
-      imports = [ /etc/nixos/hardware-configuration.nix ];
-
+    nixos = {
       boot = {
-        bootspec.enable = true;
         consoleLogLevel = 0;
+        initrd.availableKernelModules = [
+          "usb_storage"
+          "sdhci_pci"
+        ];
+
         initrd.verbose = false;
         loader.efi.canTouchEfiVariables = false;
         loader.systemd-boot.enable = true;
         loader.timeout = 1;
-
-        m1n1CustomLogo = pkgs.fetchurl {
-          url = "https://f.qeden.me/nixos-logomark-white-256x.png";
-          hash = "sha256-DiBuefj89zhU6XvOt3RlNlr7Vg1uYynqhLvda6bMSx0=";
-        };
-
         tmp.cleanOnBoot = true;
         kernelParams = [
           "quiet"
@@ -38,18 +34,68 @@
         ];
       };
 
+      fileSystems = {
+        "/" = {
+          device = "/dev/disk/by-uuid/55a94650-7105-496d-9c93-50c3edfbf870";
+          fsType = "btrfs";
+          options = [
+            "compress=zstd"
+            "subvol=@"
+          ];
+        };
+
+        "/boot" = {
+          device = "/dev/disk/by-uuid/BFF5-1CF8";
+          fsType = "vfat";
+          options = [
+            "fmask=0022"
+            "dmask=0022"
+          ];
+        };
+
+        "/home" = {
+          device = "/dev/disk/by-uuid/55a94650-7105-496d-9c93-50c3edfbf870";
+          fsType = "btrfs";
+          options = [
+            "compress=zstd"
+            "subvol=@home"
+          ];
+        };
+
+        "/nix" = {
+          device = "/dev/disk/by-uuid/55a94650-7105-496d-9c93-50c3edfbf870";
+          fsType = "btrfs";
+          options = [
+            "compress=zstd"
+            "noatime"
+            "subvol=@nix"
+          ];
+        };
+      };
+
       hardware.bluetooth = {
         enable = true;
         powerOnBoot = true;
       };
 
       i18n.defaultLocale = "en_US.UTF-8";
-      networking.networkmanager.wifi.backend = "iwd";
+
+      networking = {
+        networkmanager.wifi.backend = "iwd";
+        wireless.enable = false;
+        wireless.iwd.enable = true;
+      };
+
       nixpkgs.config.allowUnfree = true;
+      security = {
+        polkit.enable = true;
+        sudo.wheelNeedsPassword = false;
+      };
 
       services = {
         accounts-daemon.enable = true;
         devmon.enable = true;
+        greetd.enable = true;
         gvfs.enable = true;
         libinput.enable = true;
 

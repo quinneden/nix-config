@@ -9,8 +9,13 @@
 
     _.to-users = {
       homeManager = {
-        # xdg.configFile."uwsm/env".text = ''
-        # '';
+        xdg = {
+          configFile."uwsm/env".text = ''
+            export XCURSOR_SIZE="24"
+          '';
+
+          portal.config.common.default = [ "hyprland" ];
+        };
 
         wayland.windowManager.hyprland = {
           enable = true;
@@ -43,7 +48,7 @@
             hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
             hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
             hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-            hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+            -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
             hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
             hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
@@ -62,6 +67,10 @@
             end
 
             hl.config({
+              cursor = {
+                hide_on_key_press = true,
+              }
+
               decoration = {
                 rounding = 20,
                 rounding_power = 2,

@@ -24,6 +24,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
     shellpers.url = "github:quinneden/shellpers";
     shellpers.inputs.nixpkgs.follows = "nixpkgs";
     virby.url = "github:quinneden/virby-nix-darwin";
