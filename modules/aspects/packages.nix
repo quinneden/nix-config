@@ -24,11 +24,13 @@
           gawk
           gnutar
           gptfdisk
-          nh
           nerd-fonts.noto
           nerd-fonts.ubuntu-sans
           nerd-fonts.victor-mono
+          nh
           nil
+          nish
+          nix-clean
           nix-prefetch-git
           nix-prefetch-github
           nixd
