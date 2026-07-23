@@ -5,6 +5,7 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       debug = true;
+      flake.overlays.default = import ./pkgs;
       imports = [ (inputs.import-tree ./modules) ];
     };
 

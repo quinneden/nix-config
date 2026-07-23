@@ -1,4 +1,4 @@
-{ den, ... }:
+{ den, self, ... }:
 
 {
   den.aspects.dorothy = {
@@ -10,7 +10,12 @@
       den.aspects.zen
     ];
 
-    _.to-users.homeManager = { pkgs, ... }: { home.packages = [ pkgs.nautilus ]; };
+    _.to-users.homeManager = { pkgs, ... }: {
+      home.packages = with pkgs; [
+        nautilus
+        sf-pro-font
+      ];
+    };
 
     nixos = {
       boot = {
@@ -26,6 +31,7 @@
         loader.timeout = 1;
         tmp.cleanOnBoot = true;
         kernelParams = [
+          "appledrm.show_notch=1"
           "quiet"
           "rd.systemd.show_status=false"
           "rd.udev.log_level=3"
@@ -86,7 +92,11 @@
         wireless.iwd.enable = true;
       };
 
-      nixpkgs.config.allowUnfree = true;
+      nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [ self.overlays.default ];
+      };
+
       security = {
         polkit.enable = true;
         sudo.wheelNeedsPassword = false;

@@ -5,6 +5,8 @@
     darwin = { config, ... }: {
       imports = [ inputs.determinate.darwinModules.default ];
 
+      home-manager.useGlobalPkgs = true;
+
       determinateNix = {
         enable = true;
         distributedBuilds = true;
@@ -29,6 +31,8 @@
     };
 
     nixos = {
+      home-manager.useGlobalPkgs = true;
+
       nix = {
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
