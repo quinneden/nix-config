@@ -5,7 +5,11 @@
     darwin = { config, ... }: {
       imports = [ inputs.determinate.darwinModules.default ];
 
-      home-manager.useGlobalPkgs = true;
+      home-manager = {
+        backupFileExtension = "hm-bck";
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
 
       determinateNix = {
         enable = true;
@@ -22,6 +26,7 @@
             "wasm-builtin"
           ];
 
+          nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
           trusted-users = [ "qeden" ];
           warn-dirty = false;
         };
@@ -31,7 +36,11 @@
     };
 
     nixos = {
-      home-manager.useGlobalPkgs = true;
+      home-manager = {
+        backupFileExtension = "hm-bck";
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
 
       nix = {
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

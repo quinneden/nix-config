@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   den.aspects.packages = {
     homeManager = { pkgs, ... }: {
@@ -24,6 +26,7 @@
           gawk
           gnutar
           gptfdisk
+          inputs.tack.packages.${pkgs.stdenv.hostPlatform.system}.tack
           nerd-fonts.noto
           nerd-fonts.ubuntu-sans
           nerd-fonts.victor-mono

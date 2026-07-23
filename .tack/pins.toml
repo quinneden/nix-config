@@ -10,16 +10,16 @@ nixpkgs = "nixpkgs"
 url = "gh:nix-darwin/nix-darwin"
 
 [inputs.den]
-url = "gh:denful/den"
 exclude_follow = ["nixpkgs"]
+url = "gh:denful/den"
 
 [inputs.determinate]
-url = "gh:determinatesystems/determinate"
 exclude_follow = ["nixpkgs"]
+url = "gh:determinatesystems/determinate"
 
 [inputs.flake-parts]
-url = "gh:hercules-ci/flake-parts"
 exclude_follow = ["nixpkgs"]
+url = "gh:hercules-ci/flake-parts"
 
 [inputs.home-manager]
 url = "gh:nix-community/home-manager/master"
@@ -46,5 +46,8 @@ url = "gh:quinneden/shellpers"
 url = "gh:quinneden/virby-nix-darwin"
 
 [inputs.zen-browser]
-url = "gh:0xc000022070/zen-browser-flake"
 follows = { home-manager = "home-manager" }
+url = "gh:0xc000022070/zen-browser-flake"
+
+[inputs.tack]
+url = "gh:manic-systems/tack"

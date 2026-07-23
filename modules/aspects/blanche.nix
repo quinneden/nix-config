@@ -1,10 +1,18 @@
-{ den, ... }:
+{ den, self, ... }:
 
 {
   den.aspects.blanche = {
-    includes = [ den.aspects.virby ];
+    includes = [
+      den.aspects.homebrew
+      den.aspects.virby
+    ];
 
     darwin = {
+      nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [ self.overlays.default ];
+      };
+
       system = {
         defaults = {
           CustomUserPreferences = {

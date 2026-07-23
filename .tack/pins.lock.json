@@ -87,6 +87,14 @@
     "narHash": "sha256-CSQF2qO51+XIUZjraPk429KhgcjRqYTSr5I5bZ8dL9k=",
     "lastModified": 1781468297
   },
+  "tack": {
+    "type": "github",
+    "owner": "manic-systems",
+    "repo": "tack",
+    "rev": "e177aaa81375394be33ebc383c15773c47941980",
+    "narHash": "sha256-eUzdato8njCzt5TqvFaUePkUOtOkM1Lu5JfbzoT0NiU=",
+    "lastModified": 1784415866
+  },
   "virby": {
     "type": "github",
     "owner": "quinneden",
