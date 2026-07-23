@@ -1,0 +1,50 @@
+# tack pins
+
+[shorturls]
+gh = "github:{path}"
+
+[all_follow]
+nixpkgs = "nixpkgs"
+
+[inputs.darwin]
+url = "gh:nix-darwin/nix-darwin"
+
+[inputs.den]
+url = "gh:denful/den"
+exclude_follow = ["nixpkgs"]
+
+[inputs.determinate]
+url = "gh:determinatesystems/determinate"
+exclude_follow = ["nixpkgs"]
+
+[inputs.flake-parts]
+url = "gh:hercules-ci/flake-parts"
+exclude_follow = ["nixpkgs"]
+
+[inputs.home-manager]
+url = "gh:nix-community/home-manager/master"
+
+[inputs.import-tree]
+url = "gh:denful/import-tree"
+
+[inputs.nixos-apple-silicon]
+url = "gh:nix-community/nixos-apple-silicon"
+
+[inputs.nixpkgs]
+url = "gh:nixos/nixpkgs/nixpkgs-unstable"
+
+[inputs.noctalia]
+url = "gh:noctalia-dev/noctalia"
+
+[inputs.noctalia-greeter]
+url = "gh:noctalia-dev/noctalia-greeter"
+
+[inputs.shellpers]
+url = "gh:quinneden/shellpers"
+
+[inputs.virby]
+url = "gh:quinneden/virby-nix-darwin"
+
+[inputs.zen-browser]
+url = "gh:0xc000022070/zen-browser-flake"
+follows = { home-manager = "home-manager" }
