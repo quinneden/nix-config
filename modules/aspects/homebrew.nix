@@ -77,6 +77,7 @@
 
         casks = [
           "betterdisplay"
+          "element"
           "font-victor-mono-nerd-font"
           "ghostty@tip"
           "obsidian"

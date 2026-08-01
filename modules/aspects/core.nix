@@ -1,7 +1,9 @@
-{ inputs, ... }:
+{ den, inputs, ... }:
 
 {
   den.aspects.core = {
+    includes = [ (den.batteries.user-shell "zsh") ];
+
     darwin = { config, ... }: {
       imports = [ inputs.determinate.darwinModules.default ];
 

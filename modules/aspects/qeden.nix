@@ -8,7 +8,7 @@
       den.aspects.shells
       den.aspects.starship
       den.batteries.primary-user
-      (den.batteries.user-shell "zsh")
+      # (den.batteries.user-shell "zsh")
     ];
 
     homeManager = {
