@@ -14,7 +14,7 @@
   bar = {
     main = {
       auto_hide = false;
-      background_opacity = 0.75;
+      background_opacity = 0;
       capsule = false;
       center = [ ];
       concave_edge_corners = false;

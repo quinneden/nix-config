@@ -7,11 +7,13 @@
       den.aspects.ghostty
       den.aspects.hyprland
       den.aspects.noctalia
+      den.aspects.steam
       den.aspects.zen
     ];
 
     _.to-users.homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
+        antigravity-cli
         nautilus
         sf-pro-font
       ];
@@ -26,10 +28,12 @@
         ];
 
         initrd.verbose = false;
-        loader.efi.canTouchEfiVariables = false;
-        loader.systemd-boot.enable = true;
-        loader.timeout = 1;
-        tmp.cleanOnBoot = true;
+        kernel.sysctl = {
+          "vm.page-cluster" = 0;
+          "vm.swappiness" = 10;
+          "vm.watermark_scale_factor" = 125;
+        };
+
         kernelParams = [
           "appledrm.show_notch=1"
           "quiet"
@@ -38,6 +42,15 @@
           "splash"
           "udev.log_priority=3"
         ];
+
+        loader.efi.canTouchEfiVariables = false;
+        loader.systemd-boot.enable = true;
+        loader.timeout = 1;
+        tmp.cleanOnBoot = true;
+        zswap = {
+          enable = true;
+          compressor = "lz4";
+        };
       };
 
       fileSystems = {
@@ -76,6 +89,12 @@
             "noatime"
             "subvol=@nix"
           ];
+        };
+
+        "/swap" = {
+          device = "/dev/disk/by-uuid/55a94650-7105-496d-9c93-50c3edfbf870";
+          fsType = "btrfs";
+          options = [ "subvol=@swap" ];
         };
       };
 
@@ -116,6 +135,12 @@
         };
 
         openssh.enable = true;
+        pipewire = {
+          enable = true;
+          alsa.enable = true;
+          pulse.enable = true;
+        };
+
         power-profiles-daemon.enable = true;
         printing.enable = false;
         sysprof.enable = true;
@@ -123,12 +148,19 @@
         upower.enable = true;
       };
 
+      swapDevices = [
+        {
+          device = "/swap/swapfile";
+          size = 1024 * 16;
+        }
+      ];
+
       time.timeZone = "America/Los_Angeles";
 
-      zramSwap = {
-        enable = true;
-        memoryPercent = 100;
-      };
+      # zramSwap = {
+      #   enable = true;
+      #   memoryPercent = 100;
+      # };
     };
   };
 }

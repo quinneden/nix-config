@@ -22,12 +22,13 @@
           ll = "eza -glAh --octal-permissions --group-directories-first";
           ls = "eza";
           nhs = "nh search";
-          sed = "gsed";
         }
         // lib.optionalAttrs isDarwin {
           lc = "limactl";
           reboot = "sudo reboot";
+          sed = "gsed";
           shutdown = "sudo shutdown -h now";
+          zed = "zeditor";
         };
 
         sessionVariables = {
@@ -117,21 +118,29 @@
               ZCOMPLETIONS_DIGEST=$ZDOTDIR/completions/.digest.zwc
               ZFUNCTIONS_DIGEST=$ZDOTDIR/functions/.digest.zwc
 
-              if [[ ! -f $ZCOMPLETIONS_DIGEST || $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions(#qN.om[1]) ]]; then
-                zcompile $ZCOMPLETIONS_DIGEST $ZDOTDIR/completions/*(N.)
-              fi
+              (
+                setopt extendedglob
+                if [[
+                  (! -f $ZCOMPLETIONS_DIGEST && -f $ZDOTDIR/completions/*(#qN.om[1])) ||
+                  $ZCOMPLETIONS_DIGEST -ot $ZDOTDIR/completions(#qN.om[1])
+                ]]; then
+                  zcompile $ZCOMPLETIONS_DIGEST $ZDOTDIR/completions/*(N.)
+                fi
 
-              if [[ ! -f $ZFUNCTIONS_DIGEST || $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions(#qN.om[1]) ]]; then
-                zcompile $ZFUNCTIONS_DIGEST $ZDOTDIR/functions/*(N.)
-              fi
+                if [[
+                  (! -f $ZFUNCTIONS_DIGEST && -f $ZDOTDIR/functions/*(#qN.om[1])) ||
+                  $ZFUNCTIONS_DIGEST -ot $ZDOTDIR/functions/*(#qN.om[1])
+                ]]; then
+                  zcompile $ZFUNCTIONS_DIGEST $ZDOTDIR/functions/*(N.)
+                fi
+              )
 
-              autoload -wUz $ZCOMPLETIONS_DIGEST(N)
-              autoload -wUz $ZFUNCTIONS_DIGEST(N)
+              [[ -f $ZCOMPLETIONS_DIGEST ]] && autoload -wUz $ZCOMPLETIONS_DIGEST
+              [[ -f $ZFUNCTIONS_DIGEST ]] && autoload -wUz $ZFUNCTIONS_DIGEST
             '')
 
             (lib.mkOrder 1000 ''
               [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-
               bindkey '^U' backward-kill-line
             '')
 

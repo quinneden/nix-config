@@ -49,6 +49,7 @@
 
         settings = {
           accept-flake-config = true;
+          access-tokens = [ "github=@/home/qeden/.local/github-token" ];
           always-allow-substitutes = true;
           extra-experimental-features = [
             "flakes"

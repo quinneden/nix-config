@@ -51,3 +51,7 @@ url = "gh:0xc000022070/zen-browser-flake"
 
 [inputs.tack]
 url = "gh:manic-systems/tack"
+
+[inputs.steam-asahi]
+# exclude_follow = ["nixpkgs"]
+url = "gh:sm-idk/steam-asahi/feature/arm64-client"
