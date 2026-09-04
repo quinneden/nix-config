@@ -15,7 +15,7 @@
         onDemand.enable = true;
         onDemand.ttl = 60;
         rosetta = false;
-        supportDeterminateNix = true;
+        # supportDeterminateNix = true;
       };
     };
   };

@@ -4,8 +4,8 @@
   den.aspects.core = {
     includes = [ (den.batteries.user-shell "zsh") ];
 
-    darwin = { config, ... }: {
-      imports = [ inputs.determinate.darwinModules.default ];
+    darwin = {
+      # imports = [ inputs.determinate.darwinModules.default ];
 
       home-manager = {
         backupFileExtension = "hm-bck";
@@ -13,30 +13,49 @@
         useUserPackages = true;
       };
 
-      determinateNix = {
-        enable = true;
-        distributedBuilds = true;
-        determinateNixd.builder.state = "disabled";
+      # determinateNix = {
+      #   enable = false;
+      #   distributedBuilds = true;
+      #   determinateNixd.builder.state = "disabled";
 
-        customSettings = {
+      #   customSettings = {
+      #     accept-flake-config = true;
+      #     access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
+      #     extra-experimental-features = [
+      #       "build-time-fetch-tree"
+      #       "ca-derivations"
+      #       "dynamic-derivations"
+      #       "external-builders"
+      #       "parallel-eval"
+      #       "wasm-builtin"
+      #     ];
+
+      #     nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
+      #     trusted-users = [ "qeden" ];
+      #     warn-dirty = false;
+      #   };
+      # };
+
+      nix = {
+        distributedBuilds = true;
+        nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+        settings = {
           accept-flake-config = true;
           access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
           extra-experimental-features = [
-            "build-time-fetch-tree"
             "ca-derivations"
             "dynamic-derivations"
             "external-builders"
-            "parallel-eval"
-            "wasm-builtin"
+            "flakes"
+            "nix-command"
           ];
 
-          nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
+          extra-system-features = [ "builder-rpc-v0" ];
           trusted-users = [ "qeden" ];
           warn-dirty = false;
         };
       };
-
-      nix.enable = !config.determinateNix.enable;
     };
 
     nixos = {
