@@ -23,6 +23,8 @@
           access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
           extra-experimental-features = [
             "build-time-fetch-tree"
+            "ca-derivations"
+            "dynamic-derivations"
             "external-builders"
             "parallel-eval"
             "wasm-builtin"
