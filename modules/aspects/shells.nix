@@ -28,7 +28,6 @@
           reboot = "sudo reboot";
           sed = "gsed";
           shutdown = "sudo shutdown -h now";
-          zed = "zeditor";
         };
 
         sessionVariables = {

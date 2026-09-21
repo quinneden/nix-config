@@ -14,6 +14,7 @@
     _.to-users.homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         antigravity-cli
+        gh
         nautilus
         sf-pro-font
       ];
