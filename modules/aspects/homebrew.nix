@@ -63,7 +63,6 @@
           "rustup"
           "shellcheck"
           "shfmt"
-          "krunkit"
           "superhtml"
           "tldr"
           "tmux"
@@ -87,12 +86,10 @@
           "tailscale-app"
           "utm@beta"
           "zed"
+          "zen"
         ];
 
-        taps = [
-          "oven-sh/bun"
-          "slp/krun"
-        ];
+        taps = [ "oven-sh/bun" ];
       };
     };
   };

@@ -6,7 +6,7 @@
       { config, pkgs, ... }:
       let
         inherit (config.home) homeDirectory;
-        inherit (pkgs.stdenv) isDarwin;
+        inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
         shellAliases = {
           cd = "z";
@@ -28,7 +28,8 @@
           reboot = "sudo reboot";
           sed = "gsed";
           shutdown = "sudo shutdown -h now";
-        };
+        }
+        // lib.optionalAttrs isLinux { zed = "zeditor"; };
 
         sessionVariables = {
           EDITOR = "micro";

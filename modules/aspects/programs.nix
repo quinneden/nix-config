@@ -18,6 +18,7 @@
             ".env"
             ".env.*"
             ".gemini"
+            ".zed/"
             "result"
             "result*"
           ];

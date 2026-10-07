@@ -1,4 +1,6 @@
-final: prev: prev.lib.packagesFromDirectoryRecursive {
+final: prev:
+
+prev.lib.packagesFromDirectoryRecursive {
   directory = ./.;
   inherit (final) callPackage;
 }

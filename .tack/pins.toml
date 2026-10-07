@@ -1,6 +1,7 @@
 # tack pins
 
 [shorturls]
+channel = "https://channels.nixos.org/{path}/nixexprs.tar.zst"
 gh = "github:{path}"
 
 [all_follow]
@@ -12,10 +13,6 @@ url = "gh:nix-darwin/nix-darwin"
 [inputs.den]
 exclude_follow = ["nixpkgs"]
 url = "gh:denful/den"
-
-[inputs.determinate]
-exclude_follow = ["nixpkgs"]
-url = "gh:determinatesystems/determinate"
 
 [inputs.flake-parts]
 exclude_follow = ["nixpkgs"]
@@ -31,7 +28,8 @@ url = "gh:denful/import-tree"
 url = "gh:nix-community/nixos-apple-silicon"
 
 [inputs.nixpkgs]
-url = "gh:nixos/nixpkgs/nixpkgs-unstable"
+url = "channel:nixpkgs-unstable"
+# url = "gh:nixos/nixpkgs/nixpkgs-unstable"
 
 [inputs.noctalia]
 url = "gh:noctalia-dev/noctalia"
@@ -53,5 +51,7 @@ url = "gh:0xc000022070/zen-browser-flake"
 url = "gh:manic-systems/tack"
 
 [inputs.steam-asahi]
-# exclude_follow = ["nixpkgs"]
 url = "gh:sm-idk/steam-asahi/feature/arm64-client"
+
+[inputs.alternative-linux-builder]
+url = "gh:quinneden/alternative-linux-builder"

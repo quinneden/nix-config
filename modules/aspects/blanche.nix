@@ -1,16 +1,30 @@
-{ den, self, ... }:
+{
+  inputs,
+  den,
+  self,
+  ...
+}:
 
 {
   den.aspects.blanche = {
     includes = [
       den.aspects.homebrew
-      den.aspects.virby
+      # den.aspects.virby
     ];
 
-    darwin = {
+    darwin = { pkgs, ... }: {
+      imports = [ inputs.alternative-linux-builder.darwinModules.default ];
+
+      nix.package = pkgs.nixVersions.git;
+
       nixpkgs = {
         config.allowUnfree = true;
         overlays = [ self.overlays.default ];
+      };
+
+      programs.alternative-linux-builder = {
+        enable = true;
+        cores = 8;
       };
 
       system = {

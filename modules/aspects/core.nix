@@ -5,36 +5,11 @@
     includes = [ (den.batteries.user-shell "zsh") ];
 
     darwin = {
-      # imports = [ inputs.determinate.darwinModules.default ];
-
       home-manager = {
         backupFileExtension = "hm-bck";
         useGlobalPkgs = true;
         useUserPackages = true;
       };
-
-      # determinateNix = {
-      #   enable = false;
-      #   distributedBuilds = true;
-      #   determinateNixd.builder.state = "disabled";
-
-      #   customSettings = {
-      #     accept-flake-config = true;
-      #     access-tokens = [ "github=@/Users/qeden/.local/github-token" ];
-      #     extra-experimental-features = [
-      #       "build-time-fetch-tree"
-      #       "ca-derivations"
-      #       "dynamic-derivations"
-      #       "external-builders"
-      #       "parallel-eval"
-      #       "wasm-builtin"
-      #     ];
-
-      #     nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
-      #     trusted-users = [ "qeden" ];
-      #     warn-dirty = false;
-      #   };
-      # };
 
       nix = {
         distributedBuilds = true;
@@ -46,7 +21,6 @@
           extra-experimental-features = [
             "ca-derivations"
             "dynamic-derivations"
-            "external-builders"
             "flakes"
             "nix-command"
           ];

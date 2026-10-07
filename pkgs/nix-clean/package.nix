@@ -15,7 +15,7 @@ let
   YELLOW = "${esc}[33m";
 
   binPath = lib.makeBinPath [
-    (if stdenv.isDarwin then jq else coreutils)
+    (if stdenv.hostPlatform.isDarwin then jq else coreutils)
     nh
   ];
 in
